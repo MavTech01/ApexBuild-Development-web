@@ -56,50 +56,19 @@ are running:
 curl http://localhost:5173/api/health
 ```
 
-The home page (`/`) also shows a temporary "Backend status" card that calls this
-endpoint from React and renders the loading, success and error states.
+`client/src/lib/api.js` is the fetch wrapper that later phases will use. The
+temporary "Backend status" card that called this endpoint has been removed from
+the home page.
 
-## Frontend structure
+## Frontend conventions
 
-```
-client/src/
-├── components/
-│   ├── HealthCheck.jsx          temporary API connection test (remove later)
-│   ├── home/
-│   │   ├── Hero.jsx             homepage hero
-│   │   ├── AboutSection.jsx     about copy + image
-│   │   ├── CompanyStats.jsx     stats band, driven by config/site.js
-│   │   ├── services/
-│   │   │   ├── ServicesSection.jsx  section wrapper + responsive grid
-│   │   │   ├── ServiceCard.jsx     reusable card, stretched link, hover states
-│   │   │   ├── ServiceIcon.jsx     service icon set (lucide-react)
-│   │   │   └── services.data.js    service titles, copy, hrefs, icon names
-│   │   ├── projects/
-│   │   │   ├── ProjectsSection.jsx  featured + supporting grid composition
-│   │   │   ├── ProjectCard.jsx      image-led card, stretched link, hover zoom
-│   │   │   └── projects.data.js     demo projects (replaced by API later)
-│   │   └── whyChooseUs/
-│   │       ├── WhyChooseUsSection.jsx  label/heading left, benefit list right
-│   │       ├── BenefitItem.jsx         one benefit row
-│   │       └── benefits.data.js        benefit titles, copy, icon names
-│   ├── layout/
-│   │   ├── Navbar.jsx           responsive public navigation
-│   │   ├── Footer.jsx           reusable public footer
-│   │   └── PublicLayout.jsx     Navbar + <Outlet /> + Footer
-│   └── ui/
-│       ├── Button.jsx           primary | accent | outline | onDark | outlineOnDark
-│       ├── Container.jsx        narrow | default | wide
-│       └── SectionHeading.jsx   eyebrow + title (+ optional id, align)
-├── config/site.js               content config (see below)
-├── hooks/useRevealOnScroll.js   viewport reveal for homepage sections
-├── lib/api.js                   fetch wrapper (no axios)
-├── pages/
-│   ├── HomePage.jsx
-│   └── PagePlaceholder.jsx      temporary body for /about, /services, …
-├── App.jsx                      routes
-├── index.css                    design tokens (@theme)
-└── main.jsx
-```
+Homepage sections live in `client/src/components/home/`, each in its own folder
+named after the section, with the section component, any reusable pieces and a
+`*.data.js` file for content. Run `ls` on that folder for the current list.
+
+Shared pieces stay in `client/src/components/ui/` (Button, Container,
+SectionHeading) and `client/src/components/layout/` (Navbar, Footer,
+PublicLayout). Editable content lives in `client/src/config/site.js`.
 
 ## Routes
 
@@ -129,7 +98,9 @@ export const heroImage = {
 
 The hero renders it with `object-cover`, so any 4:5 or taller source crops
 cleanly at every breakpoint. Keep `width`/`height` accurate to avoid layout
-shift. `aboutImage` in the same file follows the identical shape.
+shift. `aboutImage` and `ctaImage` in the same file follow the identical shape.
+The CTA image is decorative, so it is referenced with an empty `alt` in the
+component; its `alt` in `site.js` only documents what the picture shows.
 
 ## Icons
 
@@ -197,6 +168,25 @@ repeat the Services card grid.
 Layout: one column on mobile, a two-column benefit grid from `sm`, and a
 5/7 split from `lg`. Paragraph measure is capped (`max-w-2xl` left column,
 `max-w-lg` descriptions) so text never stretches on very large screens.
+
+## Closing CTA section
+
+The last homepage section. Dark `ink-950` to bookend the dark Hero, with the
+wide `cta-placeholder.svg` behind a gradient overlay. Content is centred in a
+`max-w-3xl` block so text never stretches.
+
+- The background image is decorative: `alt=""` plus `aria-hidden="true"`. The
+  heading and copy carry the meaning on their own.
+- Readability is protected by the overlay (`ink-950/85` → `/90` → full), not by
+  the image. The brightest background pixel behind the text still gives roughly
+  14:1 against the heading colour.
+- The two actions are declared in an `actions` array inside the component, so
+  label, route and `Button` variant sit together. They reuse the existing
+  `onDark` and `outlineOnDark` variants already used by the Hero — no new
+  button component.
+
+`/contact` and `/projects` are currently route stubs, so the buttons navigate
+correctly but land on placeholder pages until those pages are built.
 
 ## Featured project cards
 

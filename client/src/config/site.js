@@ -16,6 +16,13 @@ export const heroImage = {
   height: 1000,
 }
 
+export const ctaImage = {
+  src: '/images/cta-placeholder.svg',
+  alt: 'Dusk skyline of residential towers above an active construction site',
+  width: 2000,
+  height: 1200,
+}
+
 export const aboutImage = {
   src: '/images/about-placeholder.svg',
   alt: 'Structural frame of a residential building at the stage of construction',
