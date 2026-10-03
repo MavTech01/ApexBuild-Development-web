@@ -13,7 +13,7 @@ function Wordmark() {
       </span>
       <span className="flex flex-col leading-none">
         <span className="font-display text-lg font-bold tracking-[0.16em] text-ink-950">{site.wordmark}</span>
-        <span className="mt-0.5 text-[0.6rem] font-medium tracking-[0.2em] text-ink-400 uppercase">
+        <span className="mt-0.5 text-[0.65rem] font-medium tracking-[0.2em] text-ink-500 uppercase">
           Developments
         </span>
       </span>

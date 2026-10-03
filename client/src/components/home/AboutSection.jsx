@@ -1,5 +1,6 @@
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll.js'
 import Container from '../ui/Container.jsx'
+import SectionHeading from '../ui/SectionHeading.jsx'
 import Button from '../ui/Button.jsx'
 import CompanyStats from './CompanyStats.jsx'
 import { aboutImage } from '../../config/site.js'
@@ -10,22 +11,16 @@ export default function AboutSection() {
   const [ref, revealed] = useRevealOnScroll()
 
   return (
-    <section ref={ref} aria-labelledby="about-heading" className="bg-paper py-20 sm:py-24 lg:py-28">
+    <section ref={ref} aria-labelledby="about-heading" className="bg-paper py-12 sm:py-14 lg:py-16">
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div className={`lg:col-span-6 xl:col-span-5 ${revealed ? 'animate-rise' : 'opacity-0 translate-y-4'}`}>
-            <p className="font-display text-xs font-semibold tracking-[0.22em] text-bronze-700 uppercase">
-              About ApexBuild
-            </p>
-
-            <h2 id="about-heading" className="mt-5 text-3xl text-ink-950 sm:text-4xl lg:text-[2.75rem]">
-              Built on Quality. Driven by Purpose.
-            </h2>
-
-            <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-500">
-              At ApexBuild Developments, we bring together construction expertise, thoughtful design and disciplined
-              project management to create spaces that deliver lasting value.
-            </p>
+            <SectionHeading
+              id="about-heading"
+              eyebrow="About ApexBuild"
+              title="Built on Quality. Driven by Purpose."
+              description="At ApexBuild Developments, we bring together construction expertise, thoughtful design and disciplined project management to create spaces that deliver lasting value."
+            />
 
             <ul className="mt-8 space-y-3">
               {focusAreas.map((area) => (

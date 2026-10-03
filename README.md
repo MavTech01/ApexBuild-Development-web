@@ -230,7 +230,12 @@ const [ref, revealed] = useRevealOnScroll()
 
 It uses `IntersectionObserver`, reveals once, then disconnects. When
 `IntersectionObserver` is unavailable it starts revealed, so content is never
-trapped at `opacity: 0`. `prefers-reduced-motion` collapses the animation.
+trapped at `opacity: 0`.
+
+Stagger the children with `style={{ animationDelay: '...' }}`, the same way the
+Hero does. The `prefers-reduced-motion` block in `index.css` zeroes **both**
+`animation-duration` and `animation-delay`, so staggered content does not sit
+offset for the length of its delay when animations are off.
 
 ## Services cards
 
@@ -249,6 +254,27 @@ Hover rules are emitted inside `@media (hover:hover)`, so touch devices never
 get stuck in a hovered state. Cards sit in a 1-column grid on mobile and
 2 columns from `sm` up, and each card reveals with a short stagger
 (`index * 90ms`) using `useRevealOnScroll()`.
+
+## Vertical rhythm
+
+Every homepage section carries the same vertical padding scale, so the gap
+between neighbouring sections is one consistent rhythm:
+
+| breakpoint | section padding | resulting gap |
+| ---------- | --------------- | ------------- |
+| mobile     | `py-12` (48px)  | 96px          |
+| ≥640px     | `py-14` (56px)  | 112px         |
+| ≥1024px    | `py-16` (64px)  | 128px         |
+
+The gap is the sum of the outgoing section's bottom padding and the incoming
+section's top padding, which is why the value in the class is half the gap you
+see. `CompanyStats` sits inside the About section rather than between two
+sections, so it uses `mt-24 sm:mt-28 lg:mt-32` to reach the same 96/112/128
+gap above it.
+
+`Hero` is the one deliberate exception: it keeps a larger `pt` because it is the
+landing view, while its `pb` still matches the scale so the gap down to About is
+unchanged.
 
 ## Container widths
 

@@ -9,7 +9,7 @@ export default function WhyChooseUsSection() {
   const reveal = revealed ? 'animate-rise' : 'opacity-0 translate-y-4'
 
   return (
-    <section ref={ref} aria-labelledby="why-choose-us-heading" className="bg-surface py-20 sm:py-24 lg:py-28">
+    <section ref={ref} aria-labelledby="why-choose-us-heading" className="bg-surface py-12 sm:py-14 lg:py-16">
       <Container>
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="max-w-2xl lg:col-span-5 lg:max-w-none">

@@ -9,7 +9,7 @@ export default function ServicesSection() {
   const reveal = revealed ? 'animate-rise' : 'opacity-0 translate-y-4'
 
   return (
-    <section ref={ref} aria-labelledby="services-heading" className="bg-surface py-20 sm:py-24 lg:py-28">
+    <section ref={ref} aria-labelledby="services-heading" className="bg-surface py-12 sm:py-14 lg:py-16">
       <Container>
         <div className={reveal}>
           <SectionHeading

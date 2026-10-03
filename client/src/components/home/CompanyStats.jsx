@@ -13,7 +13,7 @@ export default function CompanyStats() {
   const [ref, revealed] = useRevealOnScroll()
 
   return (
-    <div ref={ref} className="mt-16 border-y border-line bg-surface sm:mt-20 lg:mt-28">
+    <div ref={ref} className="mt-24 border-y border-line bg-surface sm:mt-28 lg:mt-32">
       <Container>
         <h3 className="sr-only">ApexBuild Developments in numbers</h3>
         <dl className="grid grid-cols-2 lg:grid-cols-4">

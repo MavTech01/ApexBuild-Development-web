@@ -15,7 +15,7 @@ export default function Hero() {
       />
 
       <Container size="wide">
-        <div className="grid items-center gap-14 py-16 sm:py-20 lg:grid-cols-12 lg:gap-12 lg:py-24 xl:gap-16 xl:py-28">
+        <div className="grid items-center gap-14 pt-14 pb-12 sm:pt-20 sm:pb-14 lg:grid-cols-12 lg:gap-12 lg:pt-24 lg:pb-16 xl:gap-16 xl:pt-28 xl:pb-16">
           <div className="lg:col-span-6 xl:col-span-5">
             <p
               style={{ animationDelay: '0ms' }}

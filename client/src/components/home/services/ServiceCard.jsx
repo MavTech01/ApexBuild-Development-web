@@ -25,7 +25,7 @@ export default function ServiceCard({ service, index }) {
 
       <p className="mt-3 text-sm leading-relaxed text-ink-500">{service.description}</p>
 
-      <span className="mt-7 inline-flex items-center gap-2 font-display text-xs font-semibold tracking-[0.18em] text-bronze-700 uppercase">
+      <span className="mt-auto inline-flex items-center gap-2 pt-7 font-display text-xs font-semibold tracking-[0.18em] text-bronze-700 uppercase">
         Learn more
         <ArrowRight
           className="h-4 w-4 transition-transform duration-300 ease-standard group-hover:translate-x-1"

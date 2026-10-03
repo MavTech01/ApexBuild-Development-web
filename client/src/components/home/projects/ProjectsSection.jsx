@@ -12,7 +12,7 @@ export default function ProjectsSection() {
   const [featured, ...supporting] = projects
 
   return (
-    <section ref={ref} aria-labelledby="projects-heading" className="bg-paper py-20 sm:py-24 lg:py-28">
+    <section ref={ref} aria-labelledby="projects-heading" className="bg-paper py-12 sm:py-14 lg:py-16">
       <Container size="wide">
         <div className={`flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between ${reveal}`}>
           <SectionHeading
