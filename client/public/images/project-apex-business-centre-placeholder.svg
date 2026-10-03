@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200" role="img" aria-label="Placeholder: architectural massing drawing of a commercial office building with a glazed podium">
+  <defs>
+    <linearGradient id="night" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14161a" />
+      <stop offset="1" stop-color="#1c1f24" />
+    </linearGradient>
+    <linearGradient id="office" x1="0" y1="0" x2="0.2" y2="1">
+      <stop offset="0" stop-color="#2a2e35" />
+      <stop offset="1" stop-color="#1c1f24" />
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#ffffff" stroke-opacity="0.04" stroke-width="1" />
+    </pattern>
+    <pattern id="glazing" width="46" height="40" patternUnits="userSpaceOnUse">
+      <rect width="46" height="40" fill="none" />
+      <path d="M46 0H0V40" fill="none" stroke="#ab8a51" stroke-opacity="0.32" stroke-width="1" />
+    </pattern>
+  </defs>
+
+  <rect width="1600" height="1200" fill="url(#night)" />
+  <rect width="1600" height="1200" fill="url(#grid)" />
+
+  <rect x="240" y="300" width="560" height="680" fill="url(#office)" stroke="#93743f" stroke-width="2" />
+  <rect x="240" y="300" width="560" height="680" fill="url(#glazing)" />
+
+  <rect x="840" y="440" width="420" height="540" fill="url(#office)" stroke="#93743f" stroke-width="2" />
+  <rect x="840" y="440" width="420" height="540" fill="url(#glazing)" />
+
+  <rect x="240" y="820" width="1020" height="160" fill="#1c1f24" stroke="#93743f" stroke-width="2" />
+  <g fill="#ab8a51" fill-opacity="0.14" stroke="#ab8a51" stroke-opacity="0.45" stroke-width="1.5">
+    <rect x="290" y="860" width="150" height="80" />
+    <rect x="520" y="860" width="150" height="80" />
+    <rect x="750" y="860" width="150" height="80" />
+    <rect x="980" y="860" width="150" height="80" />
+  </g>
+
+  <g stroke="#ab8a51" stroke-opacity="0.55" stroke-width="2" fill="none">
+    <path d="M1290 980V700" />
+    <path d="M1240 760h100" />
+  </g>
+
+  <path d="M80 980H1520" stroke="#93743f" stroke-width="2" />
+  <text x="80" y="1040" fill="#8d939c" font-family="ui-sans-serif, system-ui, sans-serif" font-size="26" letter-spacing="6">APEX BUSINESS CENTRE</text>
+  <text x="80" y="1080" fill="#6b7280" font-family="ui-sans-serif, system-ui, sans-serif" font-size="20" letter-spacing="3">COMMERCIAL OFFICE — MASSING STUDY</text>
+  <text x="1520" y="1040" text-anchor="end" fill="#ab8a51" font-family="ui-sans-serif, system-ui, sans-serif" font-size="22" letter-spacing="4">1:250</text>
+  <text x="80" y="1150" fill="#6b7280" font-family="ui-sans-serif, system-ui, sans-serif" font-size="18" letter-spacing="4">PLACEHOLDER IMAGE</text>
+</svg>
