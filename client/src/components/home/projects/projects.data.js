@@ -13,10 +13,10 @@ export const projects = [
     featured: true,
     href: '/projects',
     image: {
-      src: '/images/project-oakview-placeholder.svg',
-      alt: 'Architectural elevation drawing of the Oakview Residences tower, showing stacked balconies across each residential floor',
-      width: 1600,
-      height: 1200,
+      src: '/images/project-oakview.jpg',
+      alt: 'Modern residential apartment building with balconies',
+      width: 960,
+      height: 1440,
     },
   },
   {
@@ -28,10 +28,10 @@ export const projects = [
     featured: false,
     href: '/projects',
     image: {
-      src: '/images/project-apex-business-centre-placeholder.svg',
-      alt: 'Architectural massing drawing of the Apex Business Centre, showing two glazed office volumes above a wide ground-floor podium',
-      width: 1600,
-      height: 1200,
+      src: '/images/project-business.jpg',
+      alt: 'Glass office building facade under a clear sky',
+      width: 960,
+      height: 1282,
     },
   },
   {
@@ -43,10 +43,10 @@ export const projects = [
     featured: false,
     href: '/projects',
     image: {
-      src: '/images/project-greenfield-villas-placeholder.svg',
-      alt: 'Architectural site drawing of the Greenfield Villas estate, showing a row of pitched-roof villa units with landscaped grounds',
-      width: 1600,
-      height: 1200,
+      src: '/images/project-villas.jpg',
+      alt: 'Modern house with clean roofline and facade',
+      width: 960,
+      height: 720,
     },
   },
 ]

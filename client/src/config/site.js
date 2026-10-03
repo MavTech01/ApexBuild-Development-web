@@ -10,24 +10,24 @@ export const site = {
 }
 
 export const heroImage = {
-  src: '/images/hero-placeholder.svg',
-  alt: 'Architectural elevation of a multi-storey residential building under construction',
-  width: 800,
-  height: 1000,
+  src: '/images/hero.jpg',
+  alt: 'Modern high-rise condominium with blue sky background',
+  width: 960,
+  height: 640,
 }
 
 export const ctaImage = {
-  src: '/images/cta-placeholder.svg',
-  alt: 'Dusk skyline of residential towers above an active construction site',
-  width: 2000,
-  height: 1200,
+  src: '/images/cta.jpg',
+  alt: 'City skyline with construction crane activity',
+  width: 960,
+  height: 640,
 }
 
 export const aboutImage = {
-  src: '/images/about-placeholder.svg',
-  alt: 'Structural frame of a residential building at the stage of construction',
-  width: 1200,
-  height: 900,
+  src: '/images/about.jpg',
+  alt: 'Steel frame of a building under construction',
+  width: 960,
+  height: 640,
 }
 
 export const companyStats = [
