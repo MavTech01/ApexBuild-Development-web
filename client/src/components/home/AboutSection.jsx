@@ -25,7 +25,7 @@ export default function AboutSection() {
             <ul className="mt-8 space-y-3">
               {focusAreas.map((area) => (
                 <li key={area} className="flex items-center gap-3 text-sm text-ink-700 sm:text-base">
-                  <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 bg-bronze-600" />
+                  <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 bg-blue-600" />
                   {area}
                 </li>
               ))}
@@ -40,7 +40,7 @@ export default function AboutSection() {
             style={{ animationDelay: '120ms' }}
             className={`lg:col-span-6 xl:col-span-7 ${revealed ? 'animate-reveal' : 'opacity-0'}`}
           >
-            <div className="overflow-hidden border border-line bg-surface">
+            <div className="relative overflow-hidden">
               <img
                 src={aboutImage.src}
                 alt={aboutImage.alt}
@@ -48,7 +48,7 @@ export default function AboutSection() {
                 height={aboutImage.height}
                 loading="lazy"
                 decoding="async"
-                className="aspect-4/3 w-full object-cover lg:aspect-3/2"
+                className="aspect-[4/3] w-full object-cover lg:aspect-[3/2]"
               />
             </div>
           </div>

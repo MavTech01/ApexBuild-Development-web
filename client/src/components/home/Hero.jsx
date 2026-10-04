@@ -7,7 +7,7 @@ export default function Hero() {
     <section aria-labelledby="hero-heading" className="relative isolate overflow-hidden bg-ink-950 text-paper">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(70%_60%_at_78%_18%,rgb(147_116_63/0.22),transparent_70%)]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(70%_60%_at_78%_18%,rgb(37_99_235/0.18),transparent_70%)]"
       />
       <div
         aria-hidden="true"
@@ -19,9 +19,9 @@ export default function Hero() {
           <div className="lg:col-span-6 xl:col-span-5">
             <p
               style={{ animationDelay: '0ms' }}
-              className="animate-rise flex items-center gap-3 font-display text-xs font-semibold tracking-[0.22em] text-bronze-300 uppercase"
+              className="animate-rise flex items-center gap-3 font-display text-xs font-semibold tracking-[0.22em] text-blue-300 uppercase"
             >
-              <span aria-hidden="true" className="h-px w-10 bg-bronze-500" />
+              <span aria-hidden="true" className="h-px w-10 bg-blue-500" />
               {site.name}
             </p>
 
@@ -58,9 +58,9 @@ export default function Hero() {
             <figure style={{ animationDelay: '120ms' }} className="animate-reveal relative">
               <span
                 aria-hidden="true"
-                className="absolute -bottom-4 -left-4 hidden h-full w-full border border-bronze-500/40 lg:block"
+                className="absolute -bottom-4 -left-4 hidden h-full w-full border border-blue-500/40 lg:block"
               />
-              <div className="relative overflow-hidden border border-ink-800 bg-ink-900">
+              <div className="relative overflow-hidden">
                 <img
                   src={heroImage.src}
                   alt={heroImage.alt}
@@ -69,7 +69,7 @@ export default function Hero() {
                   loading="eager"
                   fetchPriority="high"
                   decoding="async"
-                  className="aspect-4/3 w-full object-cover object-[center_38%] lg:h-[clamp(26rem,58vh,42rem)] lg:aspect-auto"
+                  className="aspect-[16/10] w-full object-cover lg:h-[clamp(26rem,58vh,42rem)] lg:aspect-auto [animation:hero-drift_40s_ease-in-out_infinite_alternate]"
                 />
               </div>
             </figure>

@@ -14,8 +14,8 @@ export default function WhyChooseUsSection() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="max-w-2xl lg:col-span-5 lg:max-w-none">
             <div className={reveal}>
-              <p className="flex items-center gap-3 font-display text-xs font-semibold tracking-[0.22em] text-bronze-700 uppercase">
-                <span aria-hidden="true" className="h-px w-10 bg-bronze-500" />
+              <p className="flex items-center gap-3 font-display text-xs font-semibold tracking-[0.22em] text-blue-700 uppercase">
+                <span aria-hidden="true" className="h-px w-10 bg-blue-500" />
                 Why ApexBuild
               </p>
 

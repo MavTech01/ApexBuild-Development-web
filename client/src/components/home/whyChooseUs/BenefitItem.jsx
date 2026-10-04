@@ -16,12 +16,12 @@ export default function BenefitItem({ benefit }) {
 
   return (
     <div className="group flex gap-5 border-t border-line py-7 sm:gap-6">
-      <span className="grid h-11 w-11 shrink-0 place-items-center bg-bronze-100 text-bronze-700 transition-colors duration-300 ease-standard group-hover:bg-bronze-600 group-hover:text-white">
+      <span className="grid h-11 w-11 shrink-0 place-items-center bg-blue-100 text-blue-700 transition-colors duration-300 ease-standard group-hover:bg-blue-600 group-hover:text-white">
         <Icon className="h-5 w-5" strokeWidth={1.5} aria-hidden="true" focusable="false" />
       </span>
 
       <div className="min-w-0 flex-1">
-        <h3 className="text-lg text-ink-950 transition-colors duration-300 ease-standard group-hover:text-bronze-700">
+        <h3 className="text-lg text-ink-950 transition-colors duration-300 ease-standard group-hover:text-blue-700">
           {benefit.title}
         </h3>
         <p className="mt-2 max-w-lg text-sm leading-relaxed text-ink-500">{benefit.description}</p>

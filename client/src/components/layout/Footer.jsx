@@ -11,9 +11,9 @@ export default function Footer() {
         <div className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 lg:py-20">
           <div className="lg:col-span-4">
             <p className="font-display text-lg font-bold tracking-[0.16em] text-paper">{site.wordmark}</p>
-            <p className="mt-1 font-display text-xs tracking-[0.2em] text-bronze-300 uppercase">Developments</p>
+            <p className="mt-1 font-display text-xs tracking-[0.2em] text-blue-300 uppercase">Developments</p>
             <p className="mt-5 max-w-sm text-sm leading-relaxed">{site.description}</p>
-            <p className="mt-6 font-display text-sm tracking-wide text-bronze-300">{site.tagline}</p>
+            <p className="mt-6 font-display text-sm tracking-wide text-blue-300">{site.tagline}</p>
           </div>
 
           <div className="lg:col-span-2">
@@ -21,7 +21,7 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-sm">
               {navLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="transition-colors duration-200 hover:text-bronze-300">
+                  <Link to={link.to} className="transition-colors duration-200 hover:text-blue-300">
                     {link.label}
                   </Link>
                 </li>
@@ -34,7 +34,7 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-sm">
               {serviceLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="transition-colors duration-200 hover:text-bronze-300">
+                  <Link to={link.to} className="transition-colors duration-200 hover:text-blue-300">
                     {link.label}
                   </Link>
                 </li>
@@ -48,12 +48,12 @@ export default function Footer() {
               <p>{site.address[0]}</p>
               <p>{site.address[1]}</p>
               <p>
-                <a href={`mailto:${site.email}`} className="transition-colors duration-200 hover:text-bronze-300">
+                <a href={`mailto:${site.email}`} className="transition-colors duration-200 hover:text-blue-300">
                   {site.email}
                 </a>
               </p>
               <p>
-                <a href={`tel:${site.phone.replace(/[^+\d]/g, '')}`} className="transition-colors duration-200 hover:text-bronze-300">
+                <a href={`tel:${site.phone.replace(/[^+\d]/g, '')}`} className="transition-colors duration-200 hover:text-blue-300">
                   {site.phone}
                 </a>
               </p>

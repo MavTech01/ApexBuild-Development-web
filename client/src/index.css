@@ -1,39 +1,61 @@
 @import "tailwindcss";
 
+@custom-variant hover (&:hover);
+
 @theme {
   --font-display: "Barlow", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-  --color-paper: #faf9f7;
+  --color-paper: #f7f7f4;
   --color-surface: #ffffff;
+  --color-ivory: #f4f1ea;
 
-  --color-ink-950: #14161a;
-  --color-ink-900: #1c1f24;
+  --color-ink-950: #15171a;
+  --color-ink-900: #25282d;
   --color-ink-800: #2a2e35;
   --color-ink-700: #3d434c;
-  --color-ink-500: #6b7280;
+  --color-ink-500: #69707a;
   --color-ink-400: #8d939c;
 
-  --color-line: #e4e2dd;
-  --color-line-strong: #d3d0c9;
+  --color-line: #e5e7eb;
+  --color-line-strong: #d1d5db;
 
-  --color-bronze-700: #7a5f33;
-  --color-bronze-600: #93743f;
-  --color-bronze-500: #ab8a51;
-  --color-bronze-300: #d8c39b;
-  --color-bronze-100: #f0e8da;
+  /* Brand blue. 600 is the primary accent; 700 carries small text on light
+     surfaces because 600 only reaches ~4.4:1 on paper. */
+  --color-blue-900: #163a70;
+  --color-blue-700: #1d4ed8;
+  --color-blue-600: #2563eb;
+  --color-blue-500: #3b82f6;
+  --color-blue-400: #60a5fa;
+  --color-blue-300: #93c5fd;
+  --color-blue-100: #eff6ff;
 
   --apex-width-narrow: 46rem;
   --apex-width-default: 80rem;
   --apex-width-wide: 90rem;
   --apex-width-ultra: 100rem;
 
-  --shadow-lift: 0 1px 2px rgb(20 22 26 / 0.04), 0 12px 32px -12px rgb(20 22 26 / 0.12);
+  --shadow-lift: 0 1px 2px rgb(21 23 26 / 0.04), 0 12px 32px -12px rgb(21 23 26 / 0.12);
+  --shadow-blue: 0 8px 20px rgb(37 99 235 / 0.2);
+  --shadow-blue-lift: 0 12px 28px -18px rgb(37 99 235 / 0.28);
 
   --ease-standard: cubic-bezier(0.2, 0, 0.2, 1);
+  --ease-out-premium: cubic-bezier(0.22, 1, 0.36, 1);
 
   --animate-rise: rise 0.7s var(--ease-standard) both;
   --animate-reveal: reveal 1s var(--ease-standard) both;
+  --animate-ripple: ripple 620ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  @keyframes ripple {
+    from {
+      opacity: 0.4;
+      transform: scale(0);
+    }
+    to {
+      opacity: 0;
+      transform: scale(1);
+    }
+  }
 
   @keyframes rise {
     from {
@@ -55,6 +77,17 @@
       opacity: 1;
       transform: none;
     }
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes hero-drift {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-8px) scale(1.02); }
+    100% { transform: translateY(0) scale(1); }
   }
 }
 
@@ -85,7 +118,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-bronze-600);
+    outline: 2px solid var(--color-blue-600);
     outline-offset: 2px;
   }
 

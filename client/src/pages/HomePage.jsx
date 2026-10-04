@@ -1,4 +1,5 @@
 import Hero from '../components/home/Hero.jsx'
+import MarqueeStrip from '../components/home/MarqueeStrip.jsx'
 import AboutSection from '../components/home/AboutSection.jsx'
 import ServicesSection from '../components/home/services/ServicesSection.jsx'
 import ProjectsSection from '../components/home/projects/ProjectsSection.jsx'
@@ -9,6 +10,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <MarqueeStrip />
       <AboutSection />
       <ServicesSection />
       <ProjectsSection />
