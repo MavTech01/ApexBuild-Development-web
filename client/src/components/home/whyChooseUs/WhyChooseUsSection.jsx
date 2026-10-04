@@ -1,6 +1,7 @@
 import Container from '../../ui/Container.jsx'
 import SectionHeading from '../../ui/SectionHeading.jsx'
 import BenefitItem from './BenefitItem.jsx'
+import WhyChooseUsBackground from './WhyChooseUsBackground.jsx'
 import { benefits } from './benefits.data.js'
 import { useRevealOnScroll } from '../../../hooks/useRevealOnScroll.js'
 
@@ -9,8 +10,16 @@ export default function WhyChooseUsSection() {
   const reveal = revealed ? 'animate-rise' : 'opacity-0 translate-y-4'
 
   return (
-    <section ref={ref} aria-labelledby="why-choose-us-heading" className="bg-surface py-12 sm:py-14 lg:py-16">
-      <Container>
+    <section ref={ref} aria-labelledby="why-choose-us-heading" className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-blue-100/80 to-blue-50 py-16 shadow-[0_8px_24px_-8px_rgba(37,99,235,0.15)] sm:py-20 lg:py-24">
+      <WhyChooseUsBackground />
+
+      {/* Bottom fade overlay - smooth transition to next section */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-blue-50/60"
+      />
+
+      <Container size="wide">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="max-w-2xl lg:col-span-5 lg:max-w-none">
             <div className={reveal}>
