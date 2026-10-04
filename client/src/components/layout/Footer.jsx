@@ -1,19 +1,25 @@
 import { Link } from 'react-router-dom'
 import { navLinks, serviceLinks, site, socialLinks } from '../../config/site.js'
 import Container from '../ui/Container.jsx'
+import Logo from '../ui/Logo.jsx'
 
 const year = new Date().getFullYear()
 
 export default function Footer() {
   return (
     <footer className="border-t border-ink-800 bg-ink-950 text-ink-400">
-      <Container>
+      <Container size="wide">
         <div className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 lg:py-20">
           <div className="lg:col-span-4">
-            <p className="font-display text-lg font-bold tracking-[0.16em] text-paper">{site.wordmark}</p>
-            <p className="mt-1 font-display text-xs tracking-[0.2em] text-blue-300 uppercase">Developments</p>
-            <p className="mt-5 max-w-sm text-sm leading-relaxed">{site.description}</p>
-            <p className="mt-6 font-display text-sm tracking-wide text-blue-300">{site.tagline}</p>
+            <div className="flex items-center gap-2.5">
+              <Logo className="h-8 w-8 text-blue-400" />
+              <div className="flex flex-col leading-none">
+                <p className="font-display text-lg font-bold tracking-[0.16em] text-paper">{site.wordmark}</p>
+                <p className="mt-1 font-display text-xs tracking-[0.2em] text-blue-300 uppercase">Developments</p>
+              </div>
+            </div>
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-ink-400">{site.description}</p>
+            <p className="mt-6 font-display text-sm font-semibold tracking-wide text-blue-300">{site.tagline}</p>
           </div>
 
           <div className="lg:col-span-2">
@@ -21,7 +27,7 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-sm">
               {navLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="transition-colors duration-200 hover:text-blue-300">
+                  <Link to={link.to} className="text-ink-400 transition-colors duration-200 hover:text-blue-300">
                     {link.label}
                   </Link>
                 </li>
@@ -34,7 +40,7 @@ export default function Footer() {
             <ul className="mt-5 space-y-3 text-sm">
               {serviceLinks.map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="transition-colors duration-200 hover:text-blue-300">
+                  <Link to={link.to} className="text-ink-400 transition-colors duration-200 hover:text-blue-300">
                     {link.label}
                   </Link>
                 </li>
@@ -44,7 +50,7 @@ export default function Footer() {
 
           <div className="lg:col-span-3">
             <h3 className="font-display text-xs font-semibold tracking-[0.2em] text-paper uppercase">Contact</h3>
-            <address className="mt-5 space-y-3 text-sm not-italic">
+            <address className="mt-5 space-y-3 text-sm not-italic text-ink-400">
               <p>{site.address[0]}</p>
               <p>{site.address[1]}</p>
               <p>
@@ -66,7 +72,7 @@ export default function Footer() {
                   <li
                     key={social.label}
                     title={`${social.label} — link to be added`}
-                    className="rounded-sm border border-ink-800 px-3 py-1.5 text-xs text-ink-400"
+                    className="rounded-sm border border-ink-800 px-3 py-1.5 text-xs text-ink-400 hover:border-blue-500 hover:text-blue-300 transition-colors duration-200"
                   >
                     {social.label}
                   </li>
@@ -76,7 +82,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3 border-t border-ink-800 py-6 text-xs sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-3 border-t border-ink-800 py-6 text-xs text-ink-400 sm:flex-row sm:items-center sm:justify-between">
           <p>&copy; {year} {site.name}. All rights reserved.</p>
           <p>Placeholder contact and social details.</p>
         </div>

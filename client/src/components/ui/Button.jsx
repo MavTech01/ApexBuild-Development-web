@@ -12,8 +12,8 @@ const variants = {
     sheen: sheenSolid,
   },
   outline: {
-    className: 'border border-blue-600 text-ink-950 hover:bg-blue-600 hover:text-white',
-    ripple: 'bg-blue-600/25',
+    className: 'border border-blue-600 text-blue-600 hover:bg-blue-50 hover:border-blue-700',
+    ripple: 'bg-blue-600/20',
     sheen: sheenOutline,
   },
   onDark: {
@@ -22,8 +22,8 @@ const variants = {
     sheen: sheenSolid,
   },
   outlineOnDark: {
-    className: 'border border-blue-400/70 text-paper hover:border-blue-500 hover:bg-blue-600 hover:text-white',
-    ripple: 'bg-white/25',
+    className: 'border border-blue-400/70 text-blue-300 hover:border-blue-400 hover:bg-blue-500/15',
+    ripple: 'bg-white/20',
     sheen: sheenOnDark,
   },
 }

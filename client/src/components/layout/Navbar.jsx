@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react'
 import { navLinks, site } from '../../config/site.js'
 import Container from '../ui/Container.jsx'
 import Button from '../ui/Button.jsx'
+import Logo from '../ui/Logo.jsx'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
@@ -33,12 +34,10 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur-md">
-      <Container>
+      <Container size="wide">
         <div className="flex h-18 items-center justify-between gap-6 py-4">
-          <Link to="/" className="group flex items-center gap-2.5" aria-label={`${site.name} — home`}>
-            <span className="grid h-8 w-8 place-items-center bg-ink-950 text-blue-300 font-display text-sm font-bold transition-colors duration-200 group-hover:bg-blue-700">
-              AB
-            </span>
+          <Link to="/" className="flex items-center gap-2.5" aria-label={`${site.name} — home`}>
+            <Logo className="h-8 w-8" />
             <span className="flex flex-col leading-none">
               <span className="font-display text-lg font-bold tracking-[0.16em] text-ink-950">{site.wordmark}</span>
               <span className="mt-0.5 text-[0.65rem] font-medium tracking-[0.2em] uppercase text-ink-500">
@@ -85,7 +84,7 @@ export default function Navbar() {
         hidden={!open}
         className="border-t border-line bg-paper lg:hidden"
       >
-        <Container>
+        <Container size="wide">
           <nav aria-label="Mobile" className="flex flex-col py-4">
             {navLinks.map((link) => (
               <NavLink

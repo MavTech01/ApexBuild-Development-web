@@ -4,14 +4,22 @@ import { heroImage, site } from '../../config/site.js'
 
 export default function Hero() {
   return (
-    <section aria-labelledby="hero-heading" className="relative isolate overflow-hidden bg-ink-950 text-paper">
+    <section aria-labelledby="hero-heading" className="relative isolate overflow-hidden bg-gradient-to-br from-ink-950 via-ink-900 to-ink-950 text-paper">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(70%_60%_at_78%_18%,rgb(37_99_235/0.18),transparent_70%)]"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(65%_55%_at_75%_15%,rgb(37_99_235/0.28),transparent_70%)]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 hidden opacity-80 [background-image:linear-gradient(to_right,rgb(255_255_255/0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/0.04)_1px,transparent_1px)] [background-size:88px_88px] lg:block"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(45%_55%_at_15%_85%,rgb(59_130_246/0.16),transparent_65%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.35] [background-image:linear-gradient(to_right,rgb(255_255_255/0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/0.05)_1px,transparent_1px)] [background-size:80px_80px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute bottom-0 left-0 right-0 -z-10 h-px bg-gradient-to-r from-transparent via-blue-500/60 to-transparent"
       />
 
       <Container size="wide">
@@ -30,7 +38,7 @@ export default function Hero() {
               style={{ animationDelay: '80ms' }}
               className="animate-rise mt-6 text-4xl leading-[1.02] text-paper sm:text-5xl lg:text-6xl xl:text-7xl"
             >
-              WE BUILD SPACES THAT LAST.
+              WE BUILD SPACES THAT <span className="text-blue-400">LAST.</span>
             </h1>
 
             <p
@@ -71,6 +79,7 @@ export default function Hero() {
                   decoding="async"
                   className="aspect-[16/10] w-full object-cover lg:h-[clamp(26rem,58vh,42rem)] lg:aspect-auto [animation:hero-drift_40s_ease-in-out_infinite_alternate]"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/30 to-transparent" />
               </div>
             </figure>
           </div>

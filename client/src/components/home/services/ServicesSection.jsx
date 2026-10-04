@@ -9,8 +9,16 @@ export default function ServicesSection() {
   const reveal = revealed ? 'animate-rise' : 'opacity-0 translate-y-4'
 
   return (
-    <section ref={ref} aria-labelledby="services-heading" className="bg-surface py-12 sm:py-14 lg:py-16">
-      <Container>
+    <section ref={ref} aria-labelledby="services-heading" className="relative isolate overflow-hidden bg-gradient-to-b from-paper via-ink-50 to-paper py-16 sm:py-20 lg:py-24">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(50%_50%_at_50%_0%,rgb(37_99_235/0.08),transparent_70%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 hidden opacity-30 [background-image:linear-gradient(to_right,rgb(0_0_0/0.02)_1px,transparent_1px),linear-gradient(to_bottom,rgb(0_0_0/0.02)_1px,transparent_1px)] [background-size:80px_80px] lg:block"
+      />
+      <Container size="wide">
         <div className={reveal}>
           <SectionHeading
             id="services-heading"
