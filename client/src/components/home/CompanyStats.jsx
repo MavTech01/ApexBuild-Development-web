@@ -1,38 +1,28 @@
 import { useRevealOnScroll } from '../../hooks/useRevealOnScroll.js'
 import Container from '../ui/Container.jsx'
+import StatsBackground from '../decorative/StatsBackground.jsx'
+import StatsDecorations from '../decorative/StatsDecorations.jsx'
+import StatItem from './stats/StatItem.jsx'
 import { companyStats } from '../../config/site.js'
-
-const dividers = [
-  '',
-  'border-l border-line',
-  'border-t border-line lg:border-t-0 lg:border-l',
-  'border-t border-line lg:border-t-0 lg:border-l',
-]
 
 export default function CompanyStats() {
   const [ref, revealed] = useRevealOnScroll()
 
   return (
-    <div ref={ref} className="mt-24 border-y border-line bg-surface sm:mt-28 lg:mt-32">
-      <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] bg-ink-950 text-paper">
-        <Container>
+    <div ref={ref} className="mt-24 sm:mt-28 lg:mt-32">
+      <Container size="wide">
+        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 px-6 py-12 shadow-xl sm:px-10 sm:py-16 lg:px-12 lg:py-20">
+          <StatsBackground />
+          <StatsDecorations />
+
           <h3 className="sr-only">ApexBuild Developments in numbers</h3>
-          <dl className="grid grid-cols-2 lg:grid-cols-4">
+          <dl className="relative z-10 grid grid-cols-2 gap-8 lg:grid-cols-4 lg:gap-10">
             {companyStats.map((stat, index) => (
-              <div
-                key={stat.label}
-                style={{ animationDelay: `${index * 90}ms` }}
-                className={`flex flex-col-reverse px-4 py-8 text-center sm:px-6 lg:py-12 lg:text-left ${dividers[index]} ${
-                  revealed ? 'animate-rise' : 'opacity-0 translate-y-4'
-                }`}
-              >
-                <dt className="mt-2 text-sm text-paper/70">{stat.label}</dt>
-                <dd className="font-display text-4xl font-semibold text-paper sm:text-5xl">{stat.value}</dd>
-              </div>
+              <StatItem key={stat.label} stat={stat} index={index} revealed={revealed} />
             ))}
           </dl>
-        </Container>
-      </div>
+        </div>
+      </Container>
     </div>
   )
 }
