@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom'
 import { MapPin, ArrowRight, Calendar } from 'lucide-react'
 
-export default function ProjectCard({ project, index = 0 }) {
+export default function ProjectCard({ project }) {
   const { title, category, location, year, href, image } = project
-  const number = String(index + 1).padStart(2, '0')
 
   return (
     <article className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface shadow-[0_2px_8px_rgb(0_0_0/0.04)] transition-[transform,border-color,box-shadow] duration-[400ms] ease-out-premium hover:-translate-y-2 hover:border-blue-500/40 hover:shadow-[0_8px_30px_rgb(37_99_235/0.15),0_2px_8px_rgb(37_99_235/0.08)] focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-500/30 focus-within:ring-offset-4 focus-within:ring-offset-paper motion-reduce:hover:translate-y-0">
@@ -17,11 +16,6 @@ export default function ProjectCard({ project, index = 0 }) {
           decoding="async"
           className="absolute inset-0 h-full w-full object-cover transition-all duration-[500ms] ease-out-premium group-hover:scale-105 motion-reduce:group-hover:scale-100"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-blue-600/0 transition-all duration-[400ms] group-hover:from-blue-600/8 group-hover:to-transparent" />
-        <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-md bg-white/95 px-3 py-1.5 font-display text-[0.625rem] font-semibold tracking-[0.14em] text-blue-700 uppercase tabular-nums shadow-md backdrop-blur-sm transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-[0_4px_12px_rgb(37_99_235/0.4)]">
-          <span className="h-1.5 w-1.5 rounded-full bg-blue-500 shadow-[0_0_6px_rgb(37_99_235/0.5)] transition-all duration-300 group-hover:bg-white group-hover:shadow-[0_0_8px_rgb(255_255_255/0.7)]" />
-          {number}
-        </span>
       </div>
 
       <div className="flex-1 px-5 pt-4 pb-3">

@@ -4,6 +4,7 @@ import AboutSection from '../components/home/AboutSection.jsx'
 import ServicesSection from '../components/home/services/ServicesSection.jsx'
 import ProjectsSection from '../components/home/projects/ProjectsSection.jsx'
 import WhyChooseUsSection from '../components/home/whyChooseUs/WhyChooseUsSection.jsx'
+import TestimonialsSection from '../components/home/testimonials/TestimonialsSection.jsx'
 import CTASection from '../components/home/cta/CTASection.jsx'
 
 export default function HomePage() {
@@ -15,6 +16,7 @@ export default function HomePage() {
       <ServicesSection />
       <ProjectsSection />
       <WhyChooseUsSection />
+      <TestimonialsSection />
       <CTASection />
     </>
   )

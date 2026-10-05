@@ -2,11 +2,23 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import ServiceIcon from './ServiceIcon.jsx'
 
-export default function ServiceCard({ service, index }) {
+export default function ServiceCard({ service, index, isActive = false }) {
   return (
-    <article className="group relative flex h-full flex-col border border-line bg-white p-7 shadow-sm transition-[border-color,box-shadow,transform] duration-300 ease-standard hover:-translate-y-0.5 hover:border-blue-500/60 hover:shadow-[0_8px_30px_rgb(37_99_235/0.15)] focus-within:border-blue-500/60 sm:p-8">
+    <article
+      className={`group relative flex h-full flex-col border bg-white p-7 shadow-sm transition-all duration-500 ease-out sm:p-8 ${
+        isActive
+          ? 'scale-[1.02] border-blue-500/60 shadow-[0_12px_40px_rgb(37_99_235/0.2),0_0_0_1px_rgb(37_99_235/0.1)] lg:scale-105'
+          : 'scale-100 border-line opacity-70 shadow-sm'
+      } focus-within:border-blue-500/60 focus-within:opacity-100`}
+    >
       <div className="flex items-start justify-between gap-4">
-        <span className="grid h-12 w-12 shrink-0 place-items-center bg-blue-50 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white">
+        <span
+          className={`grid h-12 w-12 shrink-0 place-items-center transition-colors duration-300 ${
+            isActive
+              ? 'bg-blue-600 text-white'
+              : 'bg-blue-50 text-blue-600'
+          }`}
+        >
           <ServiceIcon name={service.icon} />
         </span>
         <span
