@@ -21,7 +21,6 @@ export default function TestimonialsSection() {
             eyebrow="Testimonials"
             title="What Our Clients Say"
             description="Hear from the property developers, business owners, and organizations we've partnered with to bring their visions to life."
-            className="text-center mx-auto max-w-3xl"
           />
         </div>
 
@@ -36,20 +35,6 @@ export default function TestimonialsSection() {
             </div>
           ))}
         </div>
-
-        {testimonials.length > 3 && (
-          <div className="mt-6 hidden gap-6 lg:grid lg:grid-cols-2 lg:gap-8">
-            {testimonials.slice(3).map((testimonial, index) => (
-              <div
-                key={testimonial.id}
-                style={{ animationDelay: `${(index + 3) * 90}ms` }}
-                className={reveal}
-              >
-                <TestimonialCard testimonial={testimonial} />
-              </div>
-            ))}
-          </div>
-        )}
       </Container>
     </section>
   )
