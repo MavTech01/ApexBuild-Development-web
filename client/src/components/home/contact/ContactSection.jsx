@@ -84,9 +84,9 @@ export default function ContactSection() {
                   <div>
                     <p className="text-sm font-medium text-ink-600">Address</p>
                     <p className="mt-1 text-base font-semibold">
-                      123 Construction Ave
+                      ApexBuild Developments
                       <br />
-                      San Francisco, CA 94102
+                      Lagos, Nigeria
                     </p>
                   </div>
                 </div>

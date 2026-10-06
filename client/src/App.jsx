@@ -6,6 +6,7 @@ import ServicesPage from '@/pages/ServicesPage.jsx'
 import ProjectsPage from './pages/ProjectsPage.jsx'
 import ProjectDetailsPage from './pages/ProjectDetailsPage.jsx'
 import TeamPage from '@/pages/TeamPage.jsx'
+import ContactPage from '@/pages/ContactPage.jsx'
 import PagePlaceholder from './pages/PagePlaceholder.jsx'
 
 export default function App() {
@@ -19,7 +20,7 @@ export default function App() {
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/projects/:projectId" element={<ProjectDetailsPage />} />
           <Route path="/team" element={<TeamPage />} />
-          <Route path="/contact" element={<PagePlaceholder eyebrow="Contact" title="Contact Page" />} />
+          <Route path="/contact" element={<ContactPage />} />
           <Route path="*" element={<PagePlaceholder eyebrow="404" title="Page not found" />} />
         </Route>
       </Routes>

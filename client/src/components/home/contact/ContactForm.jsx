@@ -6,10 +6,10 @@ import Select from '@/components/ui/Select.jsx'
 import Button from '@/components/ui/Button.jsx'
 
 const projectTypes = [
-  { value: 'residential', label: 'Residential' },
-  { value: 'commercial', label: 'Commercial' },
-  { value: 'industrial', label: 'Industrial' },
-  { value: 'renovation', label: 'Renovation' },
+  { value: 'building-construction', label: 'Building Construction' },
+  { value: 'property-development', label: 'Property Development' },
+  { value: 'renovation-remodeling', label: 'Renovation & Remodeling' },
+  { value: 'project-management', label: 'Project Management' },
   { value: 'other', label: 'Other' },
 ]
 

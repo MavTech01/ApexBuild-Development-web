@@ -6,7 +6,7 @@ export const site = {
     'ApexBuild Developments is a construction and property development company delivering durable, well-designed buildings and developments.',
   email: 'info@apexbuilddevelopments.com',
   phone: '+1 (000) 000-0000',
-  address: ['Registered office', 'City, State'],
+  address: ['ApexBuild Developments', 'Lagos, Nigeria'],
 }
 
 export const heroImage = {
