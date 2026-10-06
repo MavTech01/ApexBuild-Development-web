@@ -2,6 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import projectRoutes from './routes/projectRoutes.js'
+import authRoutes from './routes/authRoutes.js'
 
 const app = express()
 
@@ -30,6 +31,7 @@ app.get('/api/health', (req, res) => {
 })
 
 // API Routes
+app.use('/api/auth', authRoutes)
 app.use('/api/projects', projectRoutes)
 
 // 404 Handler for undefined API routes
