@@ -16,7 +16,7 @@ export default function ProjectDetailsHero({ project }) {
       <Container size="wide">
         <div className="pt-12 pb-14 sm:pt-16 sm:pb-16 lg:pt-20 lg:pb-20">
           {/* Back navigation link */}
-          <nav aria-label="Breadcrumb">
+          <nav aria-label="Breadcrumb" className="animate-rise">
             <Link
               to="/projects"
               className="group inline-flex items-center gap-2 font-display text-xs font-semibold tracking-[0.14em] text-ink-400 uppercase transition-colors duration-200 hover:text-blue-400 focus-visible:outline-none"
@@ -33,7 +33,8 @@ export default function ProjectDetailsHero({ project }) {
           <div className="mt-8 max-w-4xl">
             {/* Category eyebrow */}
             <div
-              className="flex flex-wrap items-center gap-3"
+              style={{ animationDelay: '60ms' }}
+              className="animate-rise flex flex-wrap items-center gap-3"
             >
               <span className="inline-flex items-center gap-1.5 rounded-[4px] bg-blue-500/15 px-3 py-1 font-display text-xs font-semibold tracking-[0.14em] text-blue-300 uppercase ring-1 ring-blue-500/30">
                 <Building2 className="h-3.5 w-3.5" aria-hidden="true" />
@@ -51,14 +52,16 @@ export default function ProjectDetailsHero({ project }) {
             {/* Title */}
             <h1
               id="project-details-heading"
-              className="mt-5 font-display text-3xl font-semibold tracking-tight text-balance text-paper sm:text-5xl lg:text-6xl"
+              style={{ animationDelay: '120ms' }}
+              className="animate-rise mt-5 font-display text-3xl font-semibold tracking-tight text-balance text-paper sm:text-5xl lg:text-6xl"
             >
               {title}
             </h1>
 
             {/* Key Metadata bar */}
             <div
-              className="mt-6 flex flex-wrap items-center gap-y-3 gap-x-6 text-sm text-ink-300 sm:text-base"
+              style={{ animationDelay: '180ms' }}
+              className="animate-rise mt-6 flex flex-wrap items-center gap-y-3 gap-x-6 text-sm text-ink-300 sm:text-base"
             >
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-blue-400" aria-hidden="true" />
