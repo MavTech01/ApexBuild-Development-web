@@ -1,7 +1,7 @@
-import Container from '../../ui/Container.jsx'
-import Button from '../../ui/Button.jsx'
-import { useRevealOnScroll } from '../../../hooks/useRevealOnScroll.js'
-import { ctaImage } from '../../../config/site.js'
+import Container from '@/components/ui/Container.jsx'
+import Button from '@/components/ui/Button.jsx'
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
+import { ctaImage } from '@/config/site.js'
 
 export default function CTASection() {
   const [ref, revealed] = useRevealOnScroll()

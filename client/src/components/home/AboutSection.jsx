@@ -1,9 +1,9 @@
-import { useRevealOnScroll } from '../../hooks/useRevealOnScroll.js'
-import Container from '../ui/Container.jsx'
-import SectionHeading from '../ui/SectionHeading.jsx'
-import Button from '../ui/Button.jsx'
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
+import Container from '@/components/ui/Container.jsx'
+import SectionHeading from '@/components/ui/SectionHeading.jsx'
+import Button from '@/components/ui/Button.jsx'
 import CompanyStats from './CompanyStats.jsx'
-import { aboutImage } from '../../config/site.js'
+import { aboutImage } from '@/config/site.js'
 
 const focusAreas = ['Quality construction', 'Thoughtful development', 'Disciplined project management']
 

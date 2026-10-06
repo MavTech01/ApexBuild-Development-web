@@ -1,9 +1,9 @@
-import Container from '../../ui/Container.jsx'
-import SectionHeading from '../../ui/SectionHeading.jsx'
-import Button from '../../ui/Button.jsx'
+import Container from '@/components/ui/Container.jsx'
+import SectionHeading from '@/components/ui/SectionHeading.jsx'
+import Button from '@/components/ui/Button.jsx'
 import ProjectCard from './ProjectCard.jsx'
 import { projects } from './projects.data.js'
-import { useRevealOnScroll } from '../../../hooks/useRevealOnScroll.js'
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 
 export default function ProjectsSection() {
   const [ref, revealed] = useRevealOnScroll()

@@ -1,4 +1,4 @@
-import Container from '../components/ui/Container.jsx'
+import Container from '@/components/ui/Container.jsx'
 
 export default function PagePlaceholder({ eyebrow, title }) {
   return (

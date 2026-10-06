@@ -1,4 +1,4 @@
-import { useRevealOnScroll } from '../../../hooks/useRevealOnScroll.js'
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 
 export default function ProjectDetailsGallery({ image, gallery = [] }) {
   const [ref, revealed] = useRevealOnScroll(0.1)

@@ -1,6 +1,6 @@
 import { Quote } from 'lucide-react'
-import Avatar from '../../ui/Avatar.jsx'
-import StarRating from '../../ui/StarRating.jsx'
+import Avatar from '@/components/ui/Avatar.jsx'
+import StarRating from '@/components/ui/StarRating.jsx'
 
 /**
  * TestimonialCard - Displays a client testimonial with quote, rating, and author info

@@ -1,4 +1,4 @@
-import { projectCategories } from '../home/projects/projects.data.js'
+import { projectCategories } from '@/components/home/projects/projects.data.js'
 
 export default function FilterBar({ active, onChange }) {
   return (

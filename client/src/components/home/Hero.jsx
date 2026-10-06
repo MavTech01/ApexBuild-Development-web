@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import Container from '../ui/Container.jsx'
-import Button from '../ui/Button.jsx'
-import { heroImage, site } from '../../config/site.js'
+import Container from '@/components/ui/Container.jsx'
+import Button from '@/components/ui/Button.jsx'
+import { heroImage, site } from '@/config/site.js'
 
 const headlines = [
   { text: 'WE BUILD SPACES THAT', accent: 'LAST.' },

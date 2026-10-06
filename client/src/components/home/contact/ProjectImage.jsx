@@ -1,4 +1,4 @@
-import { ctaImage } from '../../../config/site.js'
+import { ctaImage } from '@/config/site.js'
 
 export default function ProjectImage() {
   return (

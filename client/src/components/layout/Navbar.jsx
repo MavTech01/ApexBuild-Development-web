@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
-import { navLinks, site } from '../../config/site.js'
-import Container from '../ui/Container.jsx'
-import Button from '../ui/Button.jsx'
-import Logo from '../ui/Logo.jsx'
+import { navLinks, site } from '@/config/site.js'
+import Container from '@/components/ui/Container.jsx'
+import Button from '@/components/ui/Button.jsx'
+import Logo from '@/components/ui/Logo.jsx'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)

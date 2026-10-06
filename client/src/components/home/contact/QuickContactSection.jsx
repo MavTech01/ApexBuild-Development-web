@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { Send, Check } from 'lucide-react'
-import Container from '../../ui/Container.jsx'
-import Input from '../../ui/Input.jsx'
-import Textarea from '../../ui/Textarea.jsx'
-import Button from '../../ui/Button.jsx'
-import { useRevealOnScroll } from '../../../hooks/useRevealOnScroll.js'
+import Container from '@/components/ui/Container.jsx'
+import Input from '@/components/ui/Input.jsx'
+import Textarea from '@/components/ui/Textarea.jsx'
+import Button from '@/components/ui/Button.jsx'
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 
 export default function QuickContactSection() {
   const [ref, revealed] = useRevealOnScroll()

@@ -2,7 +2,7 @@ import ProjectDetailsGallery from './ProjectDetailsGallery.jsx'
 import ProjectOverview from './ProjectOverview.jsx'
 import ProjectHighlights from './ProjectHighlights.jsx'
 import ProjectSidebar from './ProjectSidebar.jsx'
-import { useRevealOnScroll } from '../../../hooks/useRevealOnScroll.js'
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 
 export default function ProjectDetailsContent({ project }) {
   const [ref, revealed] = useRevealOnScroll(0.15)

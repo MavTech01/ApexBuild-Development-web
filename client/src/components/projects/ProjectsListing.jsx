@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import Container from '../ui/Container.jsx'
-import ProjectCard from '../home/projects/ProjectCard.jsx'
+import Container from '@/components/ui/Container.jsx'
+import ProjectCard from '@/components/home/projects/ProjectCard.jsx'
 import FilterBar from './FilterBar.jsx'
-import { projects } from '../home/projects/projects.data.js'
-import { useRevealOnScroll } from '../../hooks/useRevealOnScroll.js'
+import { projects } from '@/components/home/projects/projects.data.js'
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 
 export default function ProjectsListing() {
   const [activeFilter, setActiveFilter] = useState('all')

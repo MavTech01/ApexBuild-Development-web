@@ -1,4 +1,4 @@
-import useParallax from '../../hooks/useParallax.js'
+import useParallax from '@/hooks/useParallax.js'
 
 export default function ParallaxImage({ src, alt = '', width, height }) {
   const parallaxRef = useParallax(0.4, 1.15)

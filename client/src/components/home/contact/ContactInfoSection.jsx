@@ -1,6 +1,6 @@
-import Container from '../../ui/Container.jsx'
-import SectionHeading from '../../ui/SectionHeading.jsx'
-import { useRevealOnScroll } from '../../../hooks/useRevealOnScroll.js'
+import Container from '@/components/ui/Container.jsx'
+import SectionHeading from '@/components/ui/SectionHeading.jsx'
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 import { Mail, Phone, MapPin, Clock } from 'lucide-react'
 
 export default function ContactInfoSection() {

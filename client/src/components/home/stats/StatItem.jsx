@@ -1,4 +1,4 @@
-import { useCountUp } from '../../../hooks/useCountUp.js'
+import { useCountUp } from '@/hooks/useCountUp.js'
 
 export default function StatItem({ stat, index, revealed }) {
   // Extract the numeric value from the stat value string

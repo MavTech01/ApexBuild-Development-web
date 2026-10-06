@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import Container from '../components/ui/Container.jsx'
-import { getProjectById } from '../components/home/projects/projects.data.js'
-import ProjectDetailsHero from '../components/projects/details/ProjectDetailsHero.jsx'
-import ProjectDetailsContent from '../components/projects/details/ProjectDetailsContent.jsx'
-import RelatedProjects from '../components/projects/details/RelatedProjects.jsx'
-import ProjectNotFound from '../components/projects/details/ProjectNotFound.jsx'
-import ProjectsCTA from '../components/projects/ProjectsCTA.jsx'
+import Container from '@/components/ui/Container.jsx'
+import { getProjectById } from '@/components/home/projects/projects.data.js'
+import ProjectDetailsHero from '@/components/projects/details/ProjectDetailsHero.jsx'
+import ProjectDetailsContent from '@/components/projects/details/ProjectDetailsContent.jsx'
+import RelatedProjects from '@/components/projects/details/RelatedProjects.jsx'
+import ProjectNotFound from '@/components/projects/details/ProjectNotFound.jsx'
+import ProjectsCTA from '@/components/projects/ProjectsCTA.jsx'
 
 export default function ProjectDetailsPage() {
   const { projectId } = useParams()

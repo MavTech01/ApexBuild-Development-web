@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react'
-import Button from '../../ui/Button.jsx'
+import Button from '@/components/ui/Button.jsx'
 
 export default function ProjectSidebar({ project }) {
   const { category, location, year, status, scope, client, area } = project

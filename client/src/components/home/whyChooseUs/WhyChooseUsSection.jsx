@@ -1,9 +1,9 @@
-import Container from '../../ui/Container.jsx'
-import SectionHeading from '../../ui/SectionHeading.jsx'
+import Container from '@/components/ui/Container.jsx'
+import SectionHeading from '@/components/ui/SectionHeading.jsx'
 import BenefitItem from './BenefitItem.jsx'
 import WhyChooseUsBackground from './WhyChooseUsBackground.jsx'
 import { benefits } from './benefits.data.js'
-import { useRevealOnScroll } from '../../../hooks/useRevealOnScroll.js'
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 
 export default function WhyChooseUsSection() {
   const [ref, revealed] = useRevealOnScroll()

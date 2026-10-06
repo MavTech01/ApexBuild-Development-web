@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { ArrowLeft, Calendar, MapPin, Building2, CheckCircle2 } from 'lucide-react'
-import Container from '../../ui/Container.jsx'
-import HeroBackground from '../HeroBackground.jsx'
+import Container from '@/components/ui/Container.jsx'
+import HeroBackground from '@/components/projects/HeroBackground.jsx'
 
 export default function ProjectDetailsHero({ project }) {
   const { title, category, location, year, status } = project

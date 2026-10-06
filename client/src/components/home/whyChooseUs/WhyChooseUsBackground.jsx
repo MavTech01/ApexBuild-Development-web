@@ -1,5 +1,5 @@
-import BlueprintGrid from '../../decorative/BlueprintGrid.jsx'
-import IsometricBuilding from '../../decorative/IsometricBuilding.jsx'
+import BlueprintGrid from '@/components/decorative/BlueprintGrid.jsx'
+import IsometricBuilding from '@/components/decorative/IsometricBuilding.jsx'
 
 export default function WhyChooseUsBackground() {
   return (

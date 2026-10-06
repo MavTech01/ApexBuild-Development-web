@@ -1,6 +1,6 @@
-import Container from '../ui/Container.jsx'
-import Button from '../ui/Button.jsx'
-import { useRevealOnScroll } from '../../hooks/useRevealOnScroll.js'
+import Container from '@/components/ui/Container.jsx'
+import Button from '@/components/ui/Button.jsx'
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 
 export default function ProjectsCTA() {
   const [ref, revealed] = useRevealOnScroll()

@@ -1,9 +1,9 @@
-import { useRevealOnScroll } from '../../hooks/useRevealOnScroll.js'
-import Container from '../ui/Container.jsx'
-import StatsBackground from '../decorative/StatsBackground.jsx'
-import StatsDecorations from '../decorative/StatsDecorations.jsx'
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
+import Container from '@/components/ui/Container.jsx'
+import StatsBackground from '@/components/decorative/StatsBackground.jsx'
+import StatsDecorations from '@/components/decorative/StatsDecorations.jsx'
 import StatItem from './stats/StatItem.jsx'
-import { companyStats } from '../../config/site.js'
+import { companyStats } from '@/config/site.js'
 
 export default function CompanyStats() {
   const [ref, revealed] = useRevealOnScroll()

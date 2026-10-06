@@ -1,9 +1,9 @@
-import Container from '../../ui/Container.jsx'
-import SectionHeading from '../../ui/SectionHeading.jsx'
+import Container from '@/components/ui/Container.jsx'
+import SectionHeading from '@/components/ui/SectionHeading.jsx'
 import ContactForm from './ContactForm.jsx'
 import ProjectImage from './ProjectImage.jsx'
 import ConstructionBackground from './ConstructionBackground.jsx'
-import { useRevealOnScroll } from '../../../hooks/useRevealOnScroll.js'
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 
 export default function ProjectFormSection() {
   const [ref, revealed] = useRevealOnScroll()

@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Send, Check, AlertCircle, Upload, X } from 'lucide-react'
-import Input from '../../ui/Input.jsx'
-import Textarea from '../../ui/Textarea.jsx'
-import Select from '../../ui/Select.jsx'
-import Button from '../../ui/Button.jsx'
+import Input from '@/components/ui/Input.jsx'
+import Textarea from '@/components/ui/Textarea.jsx'
+import Select from '@/components/ui/Select.jsx'
+import Button from '@/components/ui/Button.jsx'
 
 const projectTypes = [
   { value: 'residential', label: 'Residential' },

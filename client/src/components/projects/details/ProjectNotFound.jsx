@@ -1,7 +1,7 @@
 import { ArrowLeft, FolderX } from 'lucide-react'
-import Container from '../../ui/Container.jsx'
-import Button from '../../ui/Button.jsx'
-import HeroBackground from '../HeroBackground.jsx'
+import Container from '@/components/ui/Container.jsx'
+import Button from '@/components/ui/Button.jsx'
+import HeroBackground from '@/components/projects/HeroBackground.jsx'
 
 export default function ProjectNotFound() {
   return (

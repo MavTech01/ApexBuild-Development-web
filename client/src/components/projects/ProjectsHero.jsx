@@ -1,5 +1,5 @@
-import Container from '../ui/Container.jsx'
-import { ctaImage } from '../../config/site.js'
+import Container from '@/components/ui/Container.jsx'
+import { ctaImage } from '@/config/site.js'
 import HeroBackground from './HeroBackground.jsx'
 import ParallaxImage from './ParallaxImage.jsx'
 

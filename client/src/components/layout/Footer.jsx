@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 import { FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa'
-import { navLinks, serviceLinks, site, socialLinks } from '../../config/site.js'
-import Container from '../ui/Container.jsx'
-import Logo from '../ui/Logo.jsx'
+import { navLinks, serviceLinks, site, socialLinks } from '@/config/site.js'
+import Container from '@/components/ui/Container.jsx'
+import Logo from '@/components/ui/Logo.jsx'
 
 const year = new Date().getFullYear()
 

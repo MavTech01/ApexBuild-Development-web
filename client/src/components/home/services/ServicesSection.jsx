@@ -1,10 +1,10 @@
-import Container from '../../ui/Container.jsx'
-import SectionHeading from '../../ui/SectionHeading.jsx'
+import Container from '@/components/ui/Container.jsx'
+import SectionHeading from '@/components/ui/SectionHeading.jsx'
 import ServicesGrid from './ServicesGrid.jsx'
 import StickyContentWrapper from './StickyContentWrapper.jsx'
 import { services } from './services.data.js'
-import { useRevealOnScroll } from '../../../hooks/useRevealOnScroll.js'
-import { useStickyScrollProgress } from '../../../hooks/useStickyScrollProgress.js'
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
+import { useStickyScrollProgress } from '@/hooks/useStickyScrollProgress.js'
 
 /**
  * ServicesSection - Displays company services with sticky scroll behavior

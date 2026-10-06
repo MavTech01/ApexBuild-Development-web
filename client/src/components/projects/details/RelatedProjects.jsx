@@ -1,9 +1,9 @@
-import Container from '../../ui/Container.jsx'
-import SectionHeading from '../../ui/SectionHeading.jsx'
-import Button from '../../ui/Button.jsx'
-import ProjectCard from '../../home/projects/ProjectCard.jsx'
-import { getRelatedProjects } from '../../home/projects/projects.data.js'
-import { useRevealOnScroll } from '../../../hooks/useRevealOnScroll.js'
+import Container from '@/components/ui/Container.jsx'
+import SectionHeading from '@/components/ui/SectionHeading.jsx'
+import Button from '@/components/ui/Button.jsx'
+import ProjectCard from '@/components/home/projects/ProjectCard.jsx'
+import { getRelatedProjects } from '@/components/home/projects/projects.data.js'
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 
 export default function RelatedProjects({ currentProjectId }) {
   const [ref, revealed] = useRevealOnScroll(0.15)

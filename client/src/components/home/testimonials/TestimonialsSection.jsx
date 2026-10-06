@@ -1,8 +1,8 @@
-import Container from '../../ui/Container.jsx'
-import SectionHeading from '../../ui/SectionHeading.jsx'
+import Container from '@/components/ui/Container.jsx'
+import SectionHeading from '@/components/ui/SectionHeading.jsx'
 import TestimonialCarousel from './TestimonialCarousel.jsx'
 import { testimonials } from './testimonials.data.js'
-import { useRevealOnScroll } from '../../../hooks/useRevealOnScroll.js'
+import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 
 export default function TestimonialsSection() {
   const [ref, revealed] = useRevealOnScroll()

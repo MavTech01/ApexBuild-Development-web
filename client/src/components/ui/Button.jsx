@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import useRipple from '../../hooks/useRipple.js'
+import useRipple from '@/hooks/useRipple.js'
 
 const sheenSolid = 'bg-[linear-gradient(90deg,transparent,rgb(255_255_255/0.22),transparent)]'
 const sheenOutline = 'bg-[linear-gradient(90deg,transparent,rgb(37_99_235/0.14),transparent)]'
