@@ -79,33 +79,51 @@ export default function Navbar() {
         </div>
       </Container>
 
-      <div
-        id="mobile-navigation"
-        hidden={!open}
-        className="border-t border-line bg-paper lg:hidden"
-      >
-        <Container size="wide">
-          <nav aria-label="Mobile" className="flex flex-col py-4">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                end={link.to === '/'}
-                className={({ isActive }) =>
-                  `border-b border-line py-3 font-display text-base font-semibold tracking-wide uppercase transition-colors duration-200 last:border-0 ${
-                    isActive ? 'text-blue-700' : 'text-ink-700'
-                  }`
-                }
-              >
-                {link.label}
-              </NavLink>
-            ))}
-            <Button to="/contact" className="mt-5 w-full">
-              Start a Project
-            </Button>
-          </nav>
-        </Container>
-      </div>
+      {/* Mobile Navigation Dropdown Overlay */}
+      {open && (
+        <>
+          {/* Backdrop blur & tint overlay */}
+          <div
+            aria-hidden="true"
+            className="fixed inset-0 top-18 z-40 bg-ink-950/30 backdrop-blur-xs transition-opacity duration-300 lg:hidden"
+            onClick={() => setOpen(false)}
+          />
+
+          {/* Overlay Menu Panel */}
+          <div
+            id="mobile-navigation"
+            className="absolute left-0 right-0 top-full z-50 max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-b border-line bg-paper/95 shadow-lift backdrop-blur-md animate-dropdown lg:hidden"
+          >
+            <Container size="wide">
+              <nav aria-label="Mobile" className="flex flex-col py-5">
+                {navLinks.map((link, index) => (
+                  <NavLink
+                    key={link.to}
+                    to={link.to}
+                    end={link.to === '/'}
+                    style={{ animationDelay: `${(index + 1) * 60}ms` }}
+                    className={({ isActive }) =>
+                      `border-b border-line py-3.5 font-display text-base font-semibold tracking-wide uppercase transition-colors duration-200 last:border-0 animate-nav-item ${
+                        isActive ? 'text-blue-700' : 'text-ink-700 hover:text-blue-600'
+                      }`
+                    }
+                  >
+                    {link.label}
+                  </NavLink>
+                ))}
+                <div
+                  style={{ animationDelay: `${(navLinks.length + 1) * 60}ms` }}
+                  className="mt-5 animate-nav-item"
+                >
+                  <Button to="/contact" className="w-full">
+                    Start a Project
+                  </Button>
+                </div>
+              </nav>
+            </Container>
+          </div>
+        </>
+      )}
     </header>
   )
 }
