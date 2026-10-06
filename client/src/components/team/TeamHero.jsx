@@ -12,8 +12,7 @@ export default function TeamHero() {
       <Container size="wide">
         <div className="flex flex-col items-center pt-24 pb-20 text-center sm:pt-32 sm:pb-24 lg:pt-36 lg:pb-28">
           <p
-            style={{ animationDelay: '0ms' }}
-            className="animate-rise flex items-center gap-3 font-display text-xs font-semibold tracking-[0.22em] text-blue-300 uppercase"
+            className="flex items-center gap-3 font-display text-xs font-semibold tracking-[0.22em] text-blue-300 uppercase"
           >
             <span aria-hidden="true" className="h-px w-10 bg-blue-500" />
             Our People
@@ -22,15 +21,13 @@ export default function TeamHero() {
 
           <h1
             id="team-hero-heading"
-            style={{ animationDelay: '80ms' }}
-            className="animate-rise mt-6 text-4xl leading-[1.02] text-paper sm:text-5xl lg:text-6xl"
+            className="mt-6 text-4xl leading-[1.02] text-paper sm:text-5xl lg:text-6xl"
           >
             EXPERIENCED LEADERSHIP. <span className="text-blue-400">DEDICATED EXPERTISE.</span>
           </h1>
 
           <p
-            style={{ animationDelay: '160ms' }}
-            className="animate-rise mt-6 max-w-2xl text-base leading-relaxed text-ink-400 sm:text-lg"
+            className="mt-6 max-w-2xl text-base leading-relaxed text-ink-400 sm:text-lg"
           >
             Meet the professionals behind ApexBuild Developments—an integrated team of construction specialists, architects, project managers, and property experts delivering built environments with precision.
           </p>
