@@ -1,17 +1,12 @@
 import Container from '@/components/ui/Container.jsx'
 import SectionHeading from '@/components/ui/SectionHeading.jsx'
 import ContactForm from '@/components/home/contact/ContactForm.jsx'
-import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 import { Mail, Phone, MapPin, Clock, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 export default function ContactContent() {
-  const [ref, revealed] = useRevealOnScroll()
-  const reveal = revealed ? 'animate-rise' : 'opacity-0 translate-y-4'
-
   return (
     <section
-      ref={ref}
       aria-labelledby="contact-main-heading"
       className="relative isolate overflow-hidden bg-gradient-to-br from-ivory via-paper to-ivory py-16 sm:py-20 lg:py-28"
     >
@@ -25,7 +20,7 @@ export default function ContactContent() {
       />
 
       <Container size="wide">
-        <div className={`mx-auto max-w-3xl text-center ${reveal}`}>
+        <div className="mx-auto max-w-3xl text-center animate-rise">
           <SectionHeading
             id="contact-main-heading"
             align="center"
@@ -37,7 +32,7 @@ export default function ContactContent() {
 
         <div className="mt-14 grid gap-12 sm:mt-16 lg:grid-cols-12 lg:gap-16">
           {/* Left Column: Contact Form */}
-          <div style={{ animationDelay: '90ms' }} className={`lg:col-span-7 ${reveal}`}>
+          <div style={{ animationDelay: '90ms' }} className="lg:col-span-7 animate-rise">
             <div className="rounded-2xl border border-line bg-surface p-6 shadow-[0_4px_20px_rgb(0_0_0/0.03)] sm:p-10">
               <div className="border-b border-line/70 pb-5 mb-8">
                 <h2 className="font-display text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl">
@@ -57,7 +52,7 @@ export default function ContactContent() {
             {/* Contact Details Card */}
             <div
               style={{ animationDelay: '180ms' }}
-              className={`rounded-2xl border border-line bg-surface p-6 shadow-[0_4px_20px_rgb(0_0_0/0.03)] sm:p-8 ${reveal}`}
+              className="rounded-2xl border border-line bg-surface p-6 shadow-[0_4px_20px_rgb(0_0_0/0.03)] sm:p-8 animate-rise"
             >
               <h3 className="font-display text-xl font-bold tracking-tight text-ink-950 sm:text-2xl">
                 Office Information
@@ -139,7 +134,7 @@ export default function ContactContent() {
             {/* Map & Location Graphic Placeholder */}
             <div
               style={{ animationDelay: '270ms' }}
-              className={`relative overflow-hidden rounded-2xl border border-line bg-surface p-6 shadow-[0_4px_20px_rgb(0_0_0/0.03)] sm:p-8 ${reveal}`}
+              className="relative overflow-hidden rounded-2xl border border-line bg-surface p-6 shadow-[0_4px_20px_rgb(0_0_0/0.03)] sm:p-8 animate-rise"
             >
               <div className="flex items-center justify-between pb-4 border-b border-line/70">
                 <h4 className="font-display text-base font-bold text-ink-950">
@@ -186,7 +181,7 @@ export default function ContactContent() {
             {/* Quick Navigation / Next Steps Card */}
             <div
               style={{ animationDelay: '360ms' }}
-              className={`rounded-2xl border border-line bg-paper/60 p-6 sm:p-7 ${reveal}`}
+              className="rounded-2xl border border-line bg-paper/60 p-6 sm:p-7 animate-rise"
             >
               <h4 className="font-display text-sm font-bold tracking-wider text-ink-900 uppercase">
                 Explore Before Inquiring

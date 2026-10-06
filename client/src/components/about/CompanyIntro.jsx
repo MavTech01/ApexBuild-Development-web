@@ -2,7 +2,6 @@ import Container from '@/components/ui/Container.jsx'
 import SectionHeading from '@/components/ui/SectionHeading.jsx'
 import CompanyStats from '@/components/home/CompanyStats.jsx'
 import { heroImage } from '@/config/site.js'
-import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 
 const highlights = [
   'Full-lifecycle structural engineering and general contracting',
@@ -12,12 +11,8 @@ const highlights = [
 ]
 
 export default function CompanyIntro() {
-  const [ref, revealed] = useRevealOnScroll()
-  const reveal = revealed ? 'animate-rise' : 'opacity-0 translate-y-4'
-
   return (
     <section
-      ref={ref}
       aria-labelledby="company-intro-heading"
       className="relative overflow-hidden bg-gradient-to-b from-paper via-surface to-paper py-16 sm:py-20 lg:py-24"
     >
@@ -33,7 +28,7 @@ export default function CompanyIntro() {
       <Container size="wide">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Text narrative */}
-          <div className={`lg:col-span-6 xl:col-span-6 ${reveal}`}>
+          <div className="animate-rise lg:col-span-6 xl:col-span-6">
             <SectionHeading
               id="company-intro-heading"
               eyebrow="Our Story & Expertise"
@@ -67,7 +62,7 @@ export default function CompanyIntro() {
           {/* Featured Image */}
           <div
             style={{ animationDelay: '140ms' }}
-            className={`lg:col-span-6 xl:col-span-6 ${revealed ? 'animate-reveal' : 'opacity-0'}`}
+            className="animate-reveal lg:col-span-6 xl:col-span-6"
           >
             <div className="relative">
               <span

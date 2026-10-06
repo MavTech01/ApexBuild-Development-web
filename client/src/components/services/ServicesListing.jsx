@@ -4,15 +4,9 @@ import SectionHeading from '@/components/ui/SectionHeading.jsx'
 import Button from '@/components/ui/Button.jsx'
 import ServiceIcon from '@/components/home/services/ServiceIcon.jsx'
 import { detailedServices } from './servicesDetailed.data.js'
-import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
-
 export default function ServicesListing() {
-  const [ref, revealed] = useRevealOnScroll()
-  const reveal = revealed ? 'animate-rise' : 'opacity-0 translate-y-4'
-
   return (
     <section
-      ref={ref}
       aria-labelledby="services-listing-heading"
       className="relative isolate bg-paper py-16 sm:py-20 lg:py-28"
     >
@@ -27,7 +21,7 @@ export default function ServicesListing() {
       />
 
       <Container size="wide">
-        <div className={`mx-auto max-w-3xl text-center ${reveal}`}>
+        <div className="mx-auto max-w-3xl text-center animate-rise">
           <SectionHeading
             id="services-listing-heading"
             align="center"
@@ -46,7 +40,7 @@ export default function ServicesListing() {
                 key={service.id}
                 id={service.anchorId}
                 style={{ animationDelay: `${index * 80}ms` }}
-                className={`group relative overflow-hidden rounded-2xl border border-line bg-surface p-6 shadow-[0_4px_20px_rgb(0_0_0/0.03)] transition-all duration-300 hover:border-blue-500/40 hover:shadow-blue-lift sm:p-8 lg:p-12 ${reveal}`}
+                className={`group relative overflow-hidden rounded-2xl border border-line bg-surface p-6 shadow-[0_4px_20px_rgb(0_0_0/0.03)] transition-all duration-300 hover:border-blue-500/40 hover:shadow-blue-lift sm:p-8 lg:p-12 animate-rise`}
               >
                 <div className="grid gap-8 lg:grid-cols-12 lg:items-start lg:gap-12">
                   {/* Left Column: Number, Title, Overview, Features */}

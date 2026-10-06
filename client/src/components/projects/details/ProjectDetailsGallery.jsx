@@ -1,13 +1,8 @@
-import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
-
 export default function ProjectDetailsGallery({ image, gallery = [] }) {
-  const [ref, revealed] = useRevealOnScroll(0.1)
-  const reveal = revealed ? 'animate-rise' : 'opacity-0 translate-y-4'
-
   return (
-    <div ref={ref} className="space-y-6 sm:space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       {/* Featured Main Image */}
-      <figure className={`group relative ${reveal}`}>
+      <figure className="group relative animate-rise">
         <span
           aria-hidden="true"
           className="absolute -bottom-3 -right-3 -z-10 hidden h-full w-full rounded-xl border border-blue-500/30 lg:block"
@@ -43,7 +38,7 @@ export default function ProjectDetailsGallery({ image, gallery = [] }) {
               <figure
                 key={item.src + idx}
                 style={{ animationDelay: `${(idx + 1) * 120}ms` }}
-                className={`group relative overflow-hidden rounded-lg border border-line bg-ink-50 shadow-sm transition-all duration-300 hover:border-blue-500/40 hover:shadow-md ${reveal}`}
+                className="group relative overflow-hidden rounded-lg border border-line bg-ink-50 shadow-sm transition-all duration-300 hover:border-blue-500/40 hover:shadow-md animate-rise"
               >
                 <div className="aspect-[16/10] overflow-hidden">
                   <img

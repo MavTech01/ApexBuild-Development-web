@@ -1,15 +1,10 @@
 import Container from '@/components/ui/Container.jsx'
 import SectionHeading from '@/components/ui/SectionHeading.jsx'
 import { teamMembers } from './team.data.js'
-import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 
 export default function TeamGrid() {
-  const [ref, revealed] = useRevealOnScroll()
-  const reveal = revealed ? 'animate-rise' : 'opacity-0 translate-y-4'
-
   return (
     <section
-      ref={ref}
       aria-labelledby="team-grid-heading"
       className="relative isolate bg-paper py-16 sm:py-20 lg:py-28"
     >
@@ -23,7 +18,7 @@ export default function TeamGrid() {
       />
 
       <Container size="wide">
-        <div className={`mx-auto max-w-3xl text-center ${reveal}`}>
+        <div className="mx-auto max-w-3xl text-center animate-rise">
           <SectionHeading
             id="team-grid-heading"
             align="center"
@@ -38,7 +33,7 @@ export default function TeamGrid() {
             <article
               key={member.id}
               style={{ animationDelay: `${index * 80}ms` }}
-              className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-line bg-surface p-6 shadow-[0_4px_20px_rgb(0_0_0/0.03)] transition-all duration-300 ease-out-premium hover:-translate-y-1 hover:border-blue-500/40 hover:shadow-blue-lift sm:p-7 ${reveal}`}
+              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-line bg-surface p-6 shadow-[0_4px_20px_rgb(0_0_0/0.03)] transition-all duration-300 ease-out-premium hover:-translate-y-1 hover:border-blue-500/40 hover:shadow-blue-lift sm:p-7 animate-rise"
             >
               <div>
                 {/* Header: Avatar Badge & Department Tag */}
