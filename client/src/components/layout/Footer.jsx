@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom'
+import { FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa'
 import { navLinks, serviceLinks, site, socialLinks } from '../../config/site.js'
 import Container from '../ui/Container.jsx'
 import Logo from '../ui/Logo.jsx'
 
 const year = new Date().getFullYear()
+
+const socialIcons = {
+  LinkedIn: FaLinkedin,
+  Instagram: FaInstagram,
+  Facebook: FaFacebook,
+}
 
 export default function Footer() {
   return (
@@ -67,16 +74,22 @@ export default function Footer() {
 
             <div className="mt-6">
               <h3 className="font-display text-xs font-semibold tracking-[0.2em] text-paper uppercase">Follow</h3>
-              <ul className="mt-3 flex flex-wrap gap-2">
-                {socialLinks.map((social) => (
-                  <li
-                    key={social.label}
-                    title={`${social.label} — link to be added`}
-                    className="rounded-sm border border-ink-800 px-3 py-1.5 text-xs text-ink-400 hover:border-blue-500 hover:text-blue-300 transition-colors duration-200"
-                  >
-                    {social.label}
-                  </li>
-                ))}
+              <ul className="mt-3 flex gap-3">
+                {socialLinks.map((social) => {
+                  const Icon = socialIcons[social.label]
+                  return (
+                    <li key={social.label}>
+                      <a
+                        href="#"
+                        title={social.label}
+                        className="flex h-10 w-10 items-center justify-center rounded-lg border border-ink-800 text-ink-400 transition-all duration-200 hover:border-blue-500 hover:bg-blue-500/10 hover:text-blue-300"
+                        aria-label={social.label}
+                      >
+                        <Icon className="h-5 w-5" />
+                      </a>
+                    </li>
+                  )
+                })}
               </ul>
             </div>
           </div>

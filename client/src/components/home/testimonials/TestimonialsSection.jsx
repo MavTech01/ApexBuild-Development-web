@@ -1,6 +1,6 @@
 import Container from '../../ui/Container.jsx'
 import SectionHeading from '../../ui/SectionHeading.jsx'
-import TestimonialCard from './TestimonialCard.jsx'
+import TestimonialCarousel from './TestimonialCarousel.jsx'
 import { testimonials } from './testimonials.data.js'
 import { useRevealOnScroll } from '../../../hooks/useRevealOnScroll.js'
 
@@ -24,16 +24,8 @@ export default function TestimonialsSection() {
           />
         </div>
 
-        <div className="mt-12 grid gap-6 sm:mt-14 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-          {testimonials.slice(0, 3).map((testimonial, index) => (
-            <div
-              key={testimonial.id}
-              style={{ animationDelay: `${index * 90}ms` }}
-              className={reveal}
-            >
-              <TestimonialCard testimonial={testimonial} />
-            </div>
-          ))}
+        <div className={`mt-12 sm:mt-14 ${reveal}`}>
+          <TestimonialCarousel testimonials={testimonials} />
         </div>
       </Container>
     </section>

@@ -1,0 +1,197 @@
+import { useState, useEffect, useCallback, useRef } from 'react'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import TestimonialCard from './TestimonialCard.jsx'
+
+export default function TestimonialCarousel({ testimonials }) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isHovered, setIsHovered] = useState(false)
+  const [touchStart, setTouchStart] = useState(0)
+  const [touchEnd, setTouchEnd] = useState(0)
+  const [slidesPerView, setSlidesPerView] = useState(3)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const [isTouching, setIsTouching] = useState(false)
+  const autoPlayRef = useRef(null)
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setSlidesPerView(1)
+      } else if (window.innerWidth < 1024) {
+        setSlidesPerView(2)
+      } else {
+        setSlidesPerView(3)
+      }
+    }
+
+    handleResize()
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  const needsCarousel = testimonials.length > slidesPerView
+  const maxIndex = needsCarousel ? testimonials.length - slidesPerView : 0
+
+
+  const nextSlide = useCallback(() => {
+    if (!needsCarousel || isTransitioning) return
+    setIsTransitioning(true)
+    setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1))
+    setTimeout(() => setIsTransitioning(false), 500)
+  }, [needsCarousel, maxIndex, isTransitioning])
+
+  const prevSlide = useCallback(() => {
+    if (!needsCarousel || isTransitioning) return
+    setIsTransitioning(true)
+    setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1))
+    setTimeout(() => setIsTransitioning(false), 500)
+  }, [needsCarousel, maxIndex, isTransitioning])
+
+  const goToSlide = useCallback((index) => {
+    if (isTransitioning) return
+    setIsTransitioning(true)
+    setCurrentIndex(index)
+    setTimeout(() => setIsTransitioning(false), 500)
+  }, [isTransitioning])
+
+  useEffect(() => {
+    // Clear any existing interval
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current)
+    }
+
+    // Start new interval if conditions are met (not hovered, not touching, carousel needed)
+    if (!isHovered && !isTouching && needsCarousel) {
+      autoPlayRef.current = setInterval(nextSlide, 5000)
+    }
+
+    return () => {
+      if (autoPlayRef.current) {
+        clearInterval(autoPlayRef.current)
+      }
+    }
+  }, [isHovered, isTouching, needsCarousel, nextSlide, currentIndex])
+
+  const handleTouchStart = (e) => {
+    if (!needsCarousel) return
+    setIsTouching(true)
+    setTouchStart(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchMove = (e) => {
+    if (!needsCarousel) return
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (!needsCarousel) return
+    if (touchStart - touchEnd > 75) {
+      nextSlide()
+    }
+    if (touchStart - touchEnd < -75) {
+      prevSlide()
+    }
+    // Resume auto-play after touch ends
+    setTimeout(() => setIsTouching(false), 300)
+  }
+
+  const handleKeyDown = (e) => {
+    if (!needsCarousel) return
+    if (e.key === 'ArrowLeft') {
+      prevSlide()
+    } else if (e.key === 'ArrowRight') {
+      nextSlide()
+    }
+  }
+
+  const visibleTestimonials = needsCarousel
+    ? testimonials.slice(currentIndex, currentIndex + slidesPerView)
+    : testimonials
+
+  const totalDots = maxIndex + 1
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onKeyDown={handleKeyDown}
+      role="region"
+      aria-label="Testimonials carousel"
+      aria-live="polite"
+    >
+      {/* Carousel Content - Fixed height container */}
+      <div className="relative mx-auto">
+        <div className="relative">
+          {/* Fade transition container */}
+          <div
+            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 transition-opacity duration-500 ease-in-out"
+            style={{
+              opacity: isTransitioning ? 0.7 : 1
+            }}
+          >
+            {visibleTestimonials.map((testimonial) => (
+              <div
+                key={testimonial.id}
+                className="transition-opacity duration-500"
+              >
+                <TestimonialCard testimonial={testimonial} />
+              </div>
+            ))}
+          </div>
+
+          {/* Navigation Arrows - Vertically centered and VISIBLE on mobile */}
+          {needsCarousel && (
+            <>
+              <button
+                onClick={prevSlide}
+                disabled={isTransitioning}
+                className="absolute left-0 -translate-x-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-surface/90 p-2 shadow-lg backdrop-blur-sm transition-all hover:bg-blue-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 sm:-translate-x-6 sm:bg-surface"
+                aria-label="Previous testimonials"
+              >
+                <ChevronLeft className="h-5 w-5 text-ink-700" />
+              </button>
+              <button
+                onClick={nextSlide}
+                disabled={isTransitioning}
+                className="absolute right-0 translate-x-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-surface/90 p-2 shadow-lg backdrop-blur-sm transition-all hover:bg-blue-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 sm:translate-x-6 sm:bg-surface"
+                aria-label="Next testimonials"
+              >
+                <ChevronRight className="h-5 w-5 text-ink-700" />
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+
+      {/* Pagination Dots - Much closer to cards */}
+      {needsCarousel && (
+        <div className="mt-3 flex items-center justify-center gap-2">
+          {Array.from({ length: totalDots }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              disabled={isTransitioning}
+              className={`h-2 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 ${
+                index === currentIndex
+                  ? 'w-8 bg-blue-500'
+                  : 'w-2 bg-blue-500/30 hover:bg-blue-500/50'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+              aria-current={index === currentIndex ? 'true' : 'false'}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Accessibility: Screen reader announcement */}
+      {needsCarousel && (
+        <div className="sr-only" aria-live="polite" aria-atomic="true">
+          Showing testimonials {currentIndex + 1} to {Math.min(currentIndex + slidesPerView, testimonials.length)} of {testimonials.length}
+        </div>
+      )}
+    </div>
+  )
+}

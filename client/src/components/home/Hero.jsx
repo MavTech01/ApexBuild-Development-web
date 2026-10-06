@@ -1,8 +1,49 @@
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Container from '../ui/Container.jsx'
 import Button from '../ui/Button.jsx'
 import { heroImage, site } from '../../config/site.js'
 
+const headlines = [
+  { text: 'WE BUILD SPACES THAT', accent: 'LAST.' },
+  { text: 'WE CREATE SPACES THAT', accent: 'MATTER.' },
+  { text: 'WE BUILD FOR A BETTER', accent: 'FUTURE.' },
+  { text: 'WE CREATE VALUE THAT', accent: 'LASTS.' },
+]
+
+const INTERVAL_MS = 4500
+
 export default function Hero() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [animState, setAnimState] = useState('visible')
+  const timeoutRef = useRef(null)
+  const intervalRef = useRef(null)
+
+  const cycle = useCallback(() => {
+    setAnimState('exiting')
+    timeoutRef.current = setTimeout(() => {
+      setActiveIndex((i) => (i + 1) % headlines.length)
+      setAnimState('entering')
+      timeoutRef.current = setTimeout(() => {
+        setAnimState('visible')
+      }, 600)
+    }, 500)
+  }, [])
+
+  useEffect(() => {
+    intervalRef.current = setInterval(cycle, INTERVAL_MS)
+    return () => {
+      clearInterval(intervalRef.current)
+      clearTimeout(timeoutRef.current)
+    }
+  }, [cycle])
+
+  const transitionClass =
+    animState === 'exiting'
+      ? 'hero-headline-exit'
+      : animState === 'entering'
+        ? 'hero-headline-enter'
+        : ''
+
   return (
     <section aria-labelledby="hero-heading" className="relative isolate overflow-hidden bg-gradient-to-br from-ink-950 via-ink-900 to-ink-950 text-paper">
       <div
@@ -33,13 +74,15 @@ export default function Hero() {
               {site.name}
             </p>
 
-            <h1
-              id="hero-heading"
-              style={{ animationDelay: '80ms' }}
-              className="animate-rise mt-6 text-4xl leading-[1.02] text-paper sm:text-5xl lg:text-6xl xl:text-7xl"
-            >
-              WE BUILD SPACES THAT <span className="text-blue-400">LAST.</span>
-            </h1>
+            <div style={{ animationDelay: '80ms' }} className="animate-rise mt-6">
+              <h1
+                id="hero-heading"
+                className={`text-4xl leading-[1.02] text-paper sm:text-5xl lg:text-6xl xl:text-7xl ${transitionClass}`}
+              >
+                {headlines[activeIndex].text}{' '}
+                <span className="text-blue-400">{headlines[activeIndex].accent}</span>
+              </h1>
+            </div>
 
             <p
               style={{ animationDelay: '160ms' }}

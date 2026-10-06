@@ -38,7 +38,7 @@ export default function ProjectsSection() {
         {/* Uniform portfolio grid: 1 / 2 / 3 columns. Equal widths, equal gaps,
             equal card weight — every project gets its own contained card. */}
         <div className="mt-12 grid grid-cols-1 gap-6 min-[480px]:grid-cols-2 sm:mt-14 lg:grid-cols-3 lg:gap-7">
-          {projects.map((project, index) => (
+          {projects.slice(0, 3).map((project, index) => (
             <div key={project.id} style={{ animationDelay: `${index * 90}ms` }} className={reveal}>
               <ProjectCard project={project} index={index} />
             </div>

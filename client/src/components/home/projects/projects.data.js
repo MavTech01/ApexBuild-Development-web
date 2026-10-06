@@ -1,17 +1,16 @@
-// Demo data for the homepage Featured Projects section.
-// These are fictional demonstration projects for this portfolio site, not real
-// ApexBuild commissions. Replace this module with an API response later: the
-// cards only depend on the shape below, so the field names should match what
-// the projects endpoint will return.
+// Demo data for projects. Replace with an API response later: the cards only
+// depend on the shape below, so the field names should match what the projects
+// endpoint will return.
 export const projects = [
   {
     id: 'oakview-residences',
     title: 'Oakview Residences',
     category: 'Residential Development',
+    categorySlug: 'residential',
     location: 'Lagos, Nigeria',
     year: '2026',
     featured: true,
-    href: '/projects',
+    href: '/projects/oakview-residences',
     image: {
       src: '/images/project-oakview.jpg',
       alt: 'Modern residential apartment building with balconies',
@@ -23,10 +22,11 @@ export const projects = [
     id: 'apex-business-centre',
     title: 'Apex Business Centre',
     category: 'Commercial Construction',
+    categorySlug: 'commercial',
     location: 'Abuja, Nigeria',
     year: '2025',
     featured: false,
-    href: '/projects',
+    href: '/projects/apex-business-centre',
     image: {
       src: '/images/project-business.jpg',
       alt: 'Glass office building facade under a clear sky',
@@ -38,10 +38,11 @@ export const projects = [
     id: 'greenfield-villas',
     title: 'Greenfield Villas',
     category: 'Property Development',
+    categorySlug: 'property-development',
     location: 'Ibadan, Nigeria',
     year: '2025',
     featured: false,
-    href: '/projects',
+    href: '/projects/greenfield-villas',
     image: {
       src: '/images/project-villas.jpg',
       alt: 'Modern house with clean roofline and facade',
@@ -49,4 +50,59 @@ export const projects = [
       height: 720,
     },
   },
+  {
+    id: 'marina-towers',
+    title: 'Marina Towers',
+    category: 'Commercial Construction',
+    categorySlug: 'commercial',
+    location: 'Lagos, Nigeria',
+    year: '2024',
+    featured: false,
+    href: '/projects/marina-towers',
+    image: {
+      src: '/images/project-oakview.jpg',
+      alt: 'Modern commercial tower with contemporary facade',
+      width: 960,
+      height: 1440,
+    },
+  },
+  {
+    id: 'parkview-estate',
+    title: 'Parkview Estate',
+    category: 'Residential Development',
+    categorySlug: 'residential',
+    location: 'Port Harcourt, Nigeria',
+    year: '2024',
+    featured: false,
+    href: '/projects/parkview-estate',
+    image: {
+      src: '/images/project-villas.jpg',
+      alt: 'Modern residential estate with landscaped surroundings',
+      width: 960,
+      height: 720,
+    },
+  },
+  {
+    id: 'central-plaza',
+    title: 'Central Plaza',
+    category: 'Property Development',
+    categorySlug: 'property-development',
+    location: 'Abuja, Nigeria',
+    year: '2023',
+    featured: false,
+    href: '/projects/central-plaza',
+    image: {
+      src: '/images/project-business.jpg',
+      alt: 'Mixed-use development with retail and office space',
+      width: 960,
+      height: 1282,
+    },
+  },
+]
+
+export const projectCategories = [
+  { label: 'All', slug: 'all' },
+  { label: 'Residential', slug: 'residential' },
+  { label: 'Commercial', slug: 'commercial' },
+  { label: 'Property Development', slug: 'property-development' },
 ]
