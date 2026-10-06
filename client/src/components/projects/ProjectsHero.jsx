@@ -1,40 +1,13 @@
 import Container from '../ui/Container.jsx'
 import { ctaImage } from '../../config/site.js'
+import HeroBackground from './HeroBackground.jsx'
+import ParallaxImage from './ParallaxImage.jsx'
 
 export default function ProjectsHero() {
   return (
     <section aria-labelledby="projects-hero-heading" className="relative isolate overflow-hidden bg-gradient-to-br from-ink-950 via-ink-900 to-ink-950 text-paper">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(65%_55%_at_75%_15%,rgb(37_99_235/0.28),transparent_70%)]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(45%_55%_at_15%_85%,rgb(59_130_246/0.16),transparent_65%)]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 opacity-[0.35] [background-image:linear-gradient(to_right,rgb(255_255_255/0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/0.05)_1px,transparent_1px)] [background-size:80px_80px]"
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute bottom-0 left-0 right-0 -z-10 h-px bg-gradient-to-r from-transparent via-blue-500/60 to-transparent"
-      />
-
-      {/* Background image overlay */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-20">
-        <img
-          src={ctaImage.src}
-          alt=""
-          width={ctaImage.width}
-          height={ctaImage.height}
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-          className="h-full w-full object-cover opacity-15"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-ink-950/50 to-ink-950/70" />
-      </div>
+      <HeroBackground />
+      <ParallaxImage src={ctaImage.src} width={ctaImage.width} height={ctaImage.height} />
 
       <Container size="wide">
         <div className="flex flex-col items-center pt-24 pb-20 text-center sm:pt-32 sm:pb-24 lg:pt-36 lg:pb-28">
