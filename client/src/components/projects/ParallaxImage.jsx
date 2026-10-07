@@ -18,9 +18,9 @@ export default function ParallaxImage({ src, alt = '', width, height }) {
         loading="eager"
         fetchPriority="high"
         decoding="async"
-        className="h-full w-full object-cover opacity-15"
+        className="h-full w-full object-cover opacity-35 sm:opacity-40"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-ink-950/50 to-ink-950/70" />
+      <div className="absolute inset-0 bg-gradient-to-t from-ink-950/75 via-ink-950/40 to-ink-950/60" />
     </div>
   )
 }
