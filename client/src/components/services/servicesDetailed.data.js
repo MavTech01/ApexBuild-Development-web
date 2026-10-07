@@ -20,6 +20,10 @@ export const detailedServices = [
       { label: 'Assurance', value: 'Multi-Phase Quality Audits' },
     ],
     icon: 'construction',
+    image: {
+      src: '/images/hero.jpg',
+      alt: 'Building construction and architectural development',
+    },
   },
   {
     id: 'development',
@@ -42,6 +46,10 @@ export const detailedServices = [
       { label: 'Strategy', value: 'Sustainable Urban Growth' },
     ],
     icon: 'development',
+    image: {
+      src: '/images/cta.jpg',
+      alt: 'Urban city development and construction skyline',
+    },
   },
   {
     id: 'renovation',
@@ -64,6 +72,10 @@ export const detailedServices = [
       { label: 'Execution', value: 'Minimal Operational Disruption' },
     ],
     icon: 'renovation',
+    image: {
+      src: '/images/project-villas.jpg',
+      alt: 'Modern architectural renovation and residential refurbishment',
+    },
   },
   {
     id: 'management',
@@ -86,6 +98,10 @@ export const detailedServices = [
       { label: 'Safety', value: 'Zero-Harm Site Protocol' },
     ],
     icon: 'management',
+    image: {
+      src: '/images/about.jpg',
+      alt: 'Active structural construction and disciplined engineering oversight',
+    },
   },
 ]
 
