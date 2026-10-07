@@ -6,7 +6,7 @@ import { services } from './services.data.js'
  * ServicesGrid - Displays the grid of service cards with progress indicator
  * Separated for clean component structure
  */
-export default function ServicesGrid({ activeIndex, revealed }) {
+export default function ServicesGrid({ activeIndex, _revealed }) {
   return (
     <div className="mt-12 grid gap-6 sm:mt-14 lg:grid-cols-[auto_1fr] lg:gap-12">
       {/* Progress Indicator - Only visible on desktop */}
