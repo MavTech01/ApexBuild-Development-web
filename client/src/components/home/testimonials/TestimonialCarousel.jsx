@@ -122,12 +122,33 @@ export default function TestimonialCarousel({ testimonials }) {
       aria-label="Testimonials carousel"
       aria-live="polite"
     >
-      {/* Carousel Content - Fixed height container */}
+      {/* Carousel Content - Equalized height container */}
       <div className="relative mx-auto">
         <div className="relative">
-          {/* Fade transition container */}
+          {/* Mobile view (< sm): Grid stack where all cards occupy the same cell to equalize height to the tallest card */}
+          <div className="grid grid-cols-1 [grid-template-areas:'stack'] sm:hidden">
+            {testimonials.map((testimonial, idx) => {
+              const isActive = idx === currentIndex
+              return (
+                <div
+                  key={testimonial.id}
+                  style={{ gridArea: 'stack' }}
+                  className={`w-full transition-all duration-500 ease-out-premium ${
+                    isActive
+                      ? 'opacity-100 pointer-events-auto visible scale-100'
+                      : 'opacity-0 pointer-events-none invisible scale-98'
+                  }`}
+                  aria-hidden={!isActive}
+                >
+                  <TestimonialCard testimonial={testimonial} />
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Tablet & Desktop view (>= sm): Standard multi-column grid with smooth fade */}
           <div
-            className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8 transition-opacity duration-500 ease-in-out"
+            className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 transition-opacity duration-500 ease-in-out"
             style={{
               opacity: isTransitioning ? 0.7 : 1
             }}
@@ -135,7 +156,7 @@ export default function TestimonialCarousel({ testimonials }) {
             {visibleTestimonials.map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="transition-opacity duration-500"
+                className="h-full transition-opacity duration-500"
               >
                 <TestimonialCard testimonial={testimonial} />
               </div>
