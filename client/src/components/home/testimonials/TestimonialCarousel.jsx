@@ -2,15 +2,23 @@ import { useState, useEffect, useCallback, useRef } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import TestimonialCard from './TestimonialCard.jsx'
 
+function getInitialSlidesPerView() {
+  if (typeof window === 'undefined') return 3
+  if (window.innerWidth < 640) return 1
+  if (window.innerWidth < 1024) return 2
+  return 3
+}
+
 export default function TestimonialCarousel({ testimonials }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isHovered, setIsHovered] = useState(false)
   const [touchStart, setTouchStart] = useState(0)
   const [touchEnd, setTouchEnd] = useState(0)
-  const [slidesPerView, setSlidesPerView] = useState(3)
+  const [slidesPerView, setSlidesPerView] = useState(getInitialSlidesPerView)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [isTouching, setIsTouching] = useState(false)
   const autoPlayRef = useRef(null)
+  const nextSlideRef = useRef(null)
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,7 +38,6 @@ export default function TestimonialCarousel({ testimonials }) {
 
   const needsCarousel = testimonials.length > slidesPerView
   const maxIndex = needsCarousel ? testimonials.length - slidesPerView : 0
-
 
   const nextSlide = useCallback(() => {
     if (!needsCarousel || isTransitioning) return
@@ -53,28 +60,50 @@ export default function TestimonialCarousel({ testimonials }) {
     setTimeout(() => setIsTransitioning(false), 500)
   }, [isTransitioning])
 
+  // Keep nextSlideRef up-to-date with latest callback
   useEffect(() => {
-    // Clear any existing interval
+    nextSlideRef.current = nextSlide
+  })
+
+  // Autoplay interval: stable timer that executes latest nextSlide callback
+  useEffect(() => {
     if (autoPlayRef.current) {
       clearInterval(autoPlayRef.current)
+      autoPlayRef.current = null
     }
 
-    // Start new interval if conditions are met (not hovered, not touching, carousel needed)
     if (!isHovered && !isTouching && needsCarousel) {
-      autoPlayRef.current = setInterval(nextSlide, 5000)
+      autoPlayRef.current = setInterval(() => {
+        if (nextSlideRef.current) {
+          nextSlideRef.current()
+        }
+      }, 5000)
     }
 
     return () => {
       if (autoPlayRef.current) {
         clearInterval(autoPlayRef.current)
+        autoPlayRef.current = null
       }
     }
-  }, [isHovered, isTouching, needsCarousel, nextSlide, currentIndex])
+  }, [isHovered, isTouching, needsCarousel])
+
+  // Mouse hover events: only trigger on true hover-capable pointers (desktops/laptops)
+  const handleMouseEnter = () => {
+    if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+      setIsHovered(true)
+    }
+  }
+
+  const handleMouseLeave = () => {
+    setIsHovered(false)
+  }
 
   const handleTouchStart = (e) => {
     if (!needsCarousel) return
     setIsTouching(true)
     setTouchStart(e.targetTouches[0].clientX)
+    setTouchEnd(e.targetTouches[0].clientX)
   }
 
   const handleTouchMove = (e) => {
@@ -84,14 +113,16 @@ export default function TestimonialCarousel({ testimonials }) {
 
   const handleTouchEnd = () => {
     if (!needsCarousel) return
-    if (touchStart - touchEnd > 75) {
+    if (touchStart - touchEnd > 50) {
       nextSlide()
-    }
-    if (touchStart - touchEnd < -75) {
+    } else if (touchStart - touchEnd < -50) {
       prevSlide()
     }
-    // Resume auto-play after touch ends
     setTimeout(() => setIsTouching(false), 300)
+  }
+
+  const handleTouchCancel = () => {
+    setIsTouching(false)
   }
 
   const handleKeyDown = (e) => {
@@ -112,11 +143,12 @@ export default function TestimonialCarousel({ testimonials }) {
   return (
     <div
       className="relative"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      onTouchCancel={handleTouchCancel}
       onKeyDown={handleKeyDown}
       role="region"
       aria-label="Testimonials carousel"
