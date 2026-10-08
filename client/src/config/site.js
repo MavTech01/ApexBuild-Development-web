@@ -10,22 +10,22 @@ export const site = {
 }
 
 export const heroImage = {
-  src: '/images/hero.jpg',
-  alt: 'Modern high-rise condominium with blue sky background',
+  src: '/images/hero.png',
+  alt: 'Wide construction site with blue cranes and cement mixer',
   width: 960,
   height: 640,
 }
 
 export const ctaImage = {
-  src: '/images/cta.jpg',
-  alt: 'City skyline with construction crane activity',
+  src: '/images/cta.png',
+  alt: 'Upward view of scaffolding and concrete structure',
   width: 960,
   height: 640,
 }
 
 export const aboutImage = {
-  src: '/images/about.jpg',
-  alt: 'Steel frame of a building under construction',
+  src: '/images/about.png',
+  alt: 'Three construction workers reviewing blueprint on-site',
   width: 960,
   height: 640,
 }

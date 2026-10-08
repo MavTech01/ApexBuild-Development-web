@@ -21,8 +21,8 @@ export const detailedServices = [
     ],
     icon: 'construction',
     image: {
-      src: '/images/hero.jpg',
-      alt: 'Building construction and architectural development',
+      src: '/images/hero.png',
+      alt: 'Wide construction site with blue cranes and cement mixer',
     },
   },
   {
@@ -47,8 +47,8 @@ export const detailedServices = [
     ],
     icon: 'development',
     image: {
-      src: '/images/cta.jpg',
-      alt: 'Urban city development and construction skyline',
+      src: '/images/cta.png',
+      alt: 'Upward view of scaffolding and concrete structure',
     },
   },
   {
@@ -73,8 +73,8 @@ export const detailedServices = [
     ],
     icon: 'renovation',
     image: {
-      src: '/images/project-villas.jpg',
-      alt: 'Modern architectural renovation and residential refurbishment',
+      src: '/images/project-villas.png',
+      alt: 'Aerial view of multi-building residential estate under construction',
     },
   },
   {
@@ -99,8 +99,8 @@ export const detailedServices = [
     ],
     icon: 'management',
     image: {
-      src: '/images/about.jpg',
-      alt: 'Active structural construction and disciplined engineering oversight',
+      src: '/images/about.png',
+      alt: 'Three construction workers reviewing blueprint on-site',
     },
   },
 ]
