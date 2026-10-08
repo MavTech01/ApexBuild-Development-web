@@ -1,3 +1,8 @@
+import heroImg from '@/assets/images/hero.png'
+import ctaImg from '@/assets/images/cta.png'
+import aboutImg from '@/assets/images/about.png'
+import projectVillasImg from '@/assets/images/project-villas.png'
+
 export const detailedServices = [
   {
     id: 'construction',
@@ -21,7 +26,7 @@ export const detailedServices = [
     ],
     icon: 'construction',
     image: {
-      src: '/images/hero.png',
+      src: heroImg,
       alt: 'Wide construction site with blue cranes and cement mixer',
     },
   },
@@ -47,7 +52,7 @@ export const detailedServices = [
     ],
     icon: 'development',
     image: {
-      src: '/images/cta.png',
+      src: ctaImg,
       alt: 'Upward view of scaffolding and concrete structure',
     },
   },
@@ -73,7 +78,7 @@ export const detailedServices = [
     ],
     icon: 'renovation',
     image: {
-      src: '/images/project-villas.png',
+      src: projectVillasImg,
       alt: 'Aerial view of multi-building residential estate under construction',
     },
   },
@@ -99,7 +104,7 @@ export const detailedServices = [
     ],
     icon: 'management',
     image: {
-      src: '/images/about.png',
+      src: aboutImg,
       alt: 'Three construction workers reviewing blueprint on-site',
     },
   },

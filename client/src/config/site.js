@@ -1,3 +1,7 @@
+import heroImg from '@/assets/images/hero.png'
+import ctaImg from '@/assets/images/cta.png'
+import aboutImg from '@/assets/images/about.png'
+
 export const site = {
   name: 'ApexBuild Developments',
   wordmark: 'APEXBUILD',
@@ -10,21 +14,21 @@ export const site = {
 }
 
 export const heroImage = {
-  src: '/images/hero.png',
+  src: heroImg,
   alt: 'Wide construction site with blue cranes and cement mixer',
   width: 960,
   height: 640,
 }
 
 export const ctaImage = {
-  src: '/images/cta.png',
+  src: ctaImg,
   alt: 'Upward view of scaffolding and concrete structure',
   width: 960,
   height: 640,
 }
 
 export const aboutImage = {
-  src: '/images/about.png',
+  src: aboutImg,
   alt: 'Three construction workers reviewing blueprint on-site',
   width: 960,
   height: 640,

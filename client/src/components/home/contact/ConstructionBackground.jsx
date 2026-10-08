@@ -1,3 +1,6 @@
+import buildingObjectImg from '@/assets/images/building-object.png'
+import truckObjectImg from '@/assets/images/truck-object.png'
+
 export default function ConstructionBackground() {
   return (
     <>
@@ -13,7 +16,7 @@ export default function ConstructionBackground() {
         className="pointer-events-none absolute -right-20 -top-10 h-[300px] w-[400px] opacity-[0.08] lg:h-[400px] lg:w-[500px]"
       >
         <img
-          src="/images/building-object.png"
+          src={buildingObjectImg}
           alt=""
           className="h-full w-full object-contain"
         />
@@ -25,7 +28,7 @@ export default function ConstructionBackground() {
         className="pointer-events-none absolute -bottom-10 -left-10 h-[180px] w-[250px] opacity-[0.08] lg:h-[220px] lg:w-[300px]"
       >
         <img
-          src="/images/truck-object.png"
+          src={truckObjectImg}
           alt=""
           className="h-full w-full object-contain"
         />
@@ -37,7 +40,7 @@ export default function ConstructionBackground() {
         className="pointer-events-none absolute left-[10%] top-[15%] hidden h-[120px] w-[160px] opacity-[0.05] lg:block"
       >
         <img
-          src="/images/truck-object.png"
+          src={truckObjectImg}
           alt=""
           className="h-full w-full object-contain"
         />
@@ -49,7 +52,7 @@ export default function ConstructionBackground() {
         className="pointer-events-none absolute bottom-[10%] right-[5%] hidden h-[200px] w-[280px] opacity-[0.05] lg:block"
       >
         <img
-          src="/images/building-object.png"
+          src={buildingObjectImg}
           alt=""
           className="h-full w-full object-contain"
         />

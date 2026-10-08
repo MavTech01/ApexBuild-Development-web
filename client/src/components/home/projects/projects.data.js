@@ -1,3 +1,14 @@
+import heroImg from '@/assets/images/hero.png'
+import ctaImg from '@/assets/images/cta.png'
+import aboutImg from '@/assets/images/about.png'
+import projectOakviewImg from '@/assets/images/project-oakview.png'
+import projectCommercialImg from '@/assets/images/project-commercial.png'
+import projectVillasImg from '@/assets/images/project-villas.png'
+import projectHighriseImg from '@/assets/images/project-highrise.png'
+import projectTownhousesImg from '@/assets/images/project-townhouses.png'
+import projectResidentialComplexImg from '@/assets/images/project-residential-complex.jpg'
+import siteMachineryImg from '@/assets/images/site-machinery.jpg'
+
 // Demo data for projects. Replace with an API response later: the cards and
 // details pages depend on the shape below, so the field names should match
 // what the projects endpoint will return.
@@ -24,20 +35,20 @@ export const projects = [
       'Secure multi-tier access control and dedicated resident parking',
     ],
     image: {
-      src: '/images/project-oakview.png',
+      src: projectOakviewImg,
       alt: '5-storey residential building with bamboo scaffolding, street view',
       width: 960,
       height: 1440,
     },
     gallery: [
       {
-        src: '/images/hero.png',
+        src: heroImg,
         alt: 'Wide construction site with blue cranes and cement mixer',
         width: 960,
         height: 640,
       },
       {
-        src: '/images/about.png',
+        src: aboutImg,
         alt: 'Three construction workers reviewing blueprint on-site',
         width: 960,
         height: 640,
@@ -66,20 +77,20 @@ export const projects = [
       'Triple-redundant power backup and high-speed fiber connectivity infrastructure',
     ],
     image: {
-      src: '/images/project-commercial.png',
+      src: projectCommercialImg,
       alt: 'Large high-rise commercial building with yellow cranes under construction',
       width: 960,
       height: 1282,
     },
     gallery: [
       {
-        src: '/images/cta.png',
+        src: ctaImg,
         alt: 'Upward view of scaffolding and concrete structure',
         width: 960,
         height: 640,
       },
       {
-        src: '/images/about.png',
+        src: aboutImg,
         alt: 'Three construction workers reviewing blueprint on-site',
         width: 960,
         height: 640,
@@ -108,20 +119,20 @@ export const projects = [
       'Dedicated recreation pavilion, swimming pool, and central green park',
     ],
     image: {
-      src: '/images/project-villas.png',
+      src: projectVillasImg,
       alt: 'Aerial view of multi-building residential estate under construction',
       width: 960,
       height: 720,
     },
     gallery: [
       {
-        src: '/images/project-townhouses.png',
+        src: projectTownhousesImg,
         alt: 'Modern townhouse development under construction',
         width: 960,
         height: 1440,
       },
       {
-        src: '/images/hero.png',
+        src: heroImg,
         alt: 'Wide construction site with blue cranes and cement mixer',
         width: 960,
         height: 640,
@@ -150,20 +161,20 @@ export const projects = [
       'High-speed destination-dispatch elevator systems',
     ],
     image: {
-      src: '/images/project-highrise.png',
+      src: projectHighriseImg,
       alt: 'Yellow cranes against blue sky, high-rise scaffolding',
       width: 960,
       height: 1440,
     },
     gallery: [
       {
-        src: '/images/project-commercial.png',
+        src: projectCommercialImg,
         alt: 'Large commercial high-rise with yellow cranes under construction',
         width: 960,
         height: 1282,
       },
       {
-        src: '/images/cta.png',
+        src: ctaImg,
         alt: 'Upward view of scaffolding and concrete structure',
         width: 960,
         height: 640,
@@ -192,20 +203,20 @@ export const projects = [
       'Central water purification plant and dedicated pressure delivery network',
     ],
     image: {
-      src: '/images/project-residential-complex.jpg',
+      src: projectResidentialComplexImg,
       alt: 'Wide residential complex with crane under construction',
       width: 960,
       height: 720,
     },
     gallery: [
       {
-        src: '/images/hero.png',
+        src: heroImg,
         alt: 'Wide construction site with blue cranes and cement mixer',
         width: 960,
         height: 640,
       },
       {
-        src: '/images/about.png',
+        src: aboutImg,
         alt: 'Three construction workers reviewing blueprint on-site',
         width: 960,
         height: 640,
@@ -234,20 +245,20 @@ export const projects = [
       'Bespoke architectural lighting enhancing nocturnal visibility and aesthetic appeal',
     ],
     image: {
-      src: '/images/site-machinery.jpg',
+      src: siteMachineryImg,
       alt: 'Excavator and construction machinery on site',
       width: 960,
       height: 1282,
     },
     gallery: [
       {
-        src: '/images/project-villas.png',
+        src: projectVillasImg,
         alt: 'Aerial view of multi-building residential estate under construction',
         width: 960,
         height: 720,
       },
       {
-        src: '/images/cta.png',
+        src: ctaImg,
         alt: 'Upward view of scaffolding and concrete structure',
         width: 960,
         height: 640,
