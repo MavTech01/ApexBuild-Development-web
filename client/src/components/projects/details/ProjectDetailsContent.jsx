@@ -6,7 +6,7 @@ export default function ProjectDetailsContent({ project }) {
   const revealClass = 'animate-rise'
 
   return (
-    <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-16">
+    <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-16">
       {/* Main Content Area */}
       <div className="space-y-12 lg:col-span-8">
         <ProjectDetailsGallery
