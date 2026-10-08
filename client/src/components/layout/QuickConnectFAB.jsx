@@ -47,7 +47,7 @@ export default function QuickConnectFAB() {
     <aside
       ref={containerRef}
       aria-label="Quick communication channels"
-      className="fixed bottom-5 right-5 z-40 sm:bottom-7 sm:right-7"
+      className="fixed bottom-5 right-3 z-40 sm:bottom-6 sm:right-4"
     >
       {/* Expanded Speed-Dial Action Items */}
       <div
