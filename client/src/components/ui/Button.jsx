@@ -29,15 +29,29 @@ const variants = {
 }
 
 const base =
-  'group relative inline-flex select-none items-center justify-center overflow-hidden rounded-[4px] px-6 py-3.5 font-display text-sm font-semibold tracking-[0.06em] uppercase transition-[color,background-color,border-color,box-shadow,transform] duration-300 ease-out-premium hover:-translate-y-0.5 hover:shadow-blue active:translate-y-0 active:scale-[0.98] motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100'
+  'group relative inline-flex select-none items-center justify-center overflow-hidden rounded-[4px] px-6 py-3.5 font-display text-sm font-semibold tracking-[0.06em] uppercase transition-[color,background-color,border-color,box-shadow,transform] duration-300 ease-out-premium hover:-translate-y-0.5 hover:shadow-blue active:translate-y-0 active:scale-[0.98] motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none'
 
-export default function Button({ to, variant = 'primary', className = '', children }) {
+export default function Button({
+  to,
+  type = 'button',
+  variant = 'primary',
+  className = '',
+  disabled = false,
+  onClick,
+  children,
+  ...props
+}) {
   const { ripples, spawn } = useRipple()
   const { className: variantClass, ripple: rippleClass, sheen } = variants[variant] ?? variants.primary
 
-  // Keyboard activation reports clientX/clientY of 0 and click detail of 0.
   const handleClick = (event) => {
+    if (disabled) return
     if (event.detail === 0) spawn(event)
+    onClick?.(event)
+  }
+
+  const handlePointerDown = (event) => {
+    if (!disabled) spawn(event)
   }
 
   const decoration = (
@@ -71,14 +85,27 @@ export default function Button({ to, variant = 'primary', className = '', childr
 
   if (to) {
     return (
-      <Link to={to} className={classes} onPointerDown={spawn} onClick={handleClick}>
+      <Link
+        to={to}
+        className={classes}
+        onPointerDown={handlePointerDown}
+        onClick={handleClick}
+        {...props}
+      >
         {decoration}
       </Link>
     )
   }
 
   return (
-    <button type="button" className={classes} onPointerDown={spawn} onClick={handleClick}>
+    <button
+      type={type}
+      disabled={disabled}
+      className={classes}
+      onPointerDown={handlePointerDown}
+      onClick={handleClick}
+      {...props}
+    >
       {decoration}
     </button>
   )
