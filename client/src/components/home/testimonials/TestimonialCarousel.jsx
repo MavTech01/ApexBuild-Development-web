@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useRef } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import TestimonialCard from './TestimonialCard.jsx'
 
@@ -221,7 +221,7 @@ export default function TestimonialCarousel({ testimonials }) {
 
       {/* Pagination Dots - Much closer to cards */}
       {needsCarousel && (
-        <div className="mt-3 flex items-center justify-center gap-2">
+        <div className="mt-8 flex items-center justify-center gap-2">
           {Array.from({ length: totalDots }).map((_, index) => (
             <button
               key={index}
