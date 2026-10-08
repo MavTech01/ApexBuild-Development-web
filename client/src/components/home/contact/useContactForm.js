@@ -1,138 +1,101 @@
-import { useState, useCallback } from 'react'
+import { useState } from 'react'
 import { initialFormData, MAX_FILE_SIZE_BYTES } from './contactForm.constants.js'
 
 /**
  * useContactForm
- * Custom hook encapsulating all state management, validation logic,
- * file handling, and realistic mock submission processing for the Enquiry Form.
+ * Simple, beginner-friendly custom hook for form state, validation, and simulated submission.
  */
-export function useContactForm() {
+export const useContactForm = () => {
   const [formData, setFormData] = useState(initialFormData)
   const [file, setFile] = useState(null)
   const [errors, setErrors] = useState({})
   const [status, setStatus] = useState('idle') // 'idle' | 'submitting' | 'success' | 'error'
   const [submissionMeta, setSubmissionMeta] = useState(null)
 
-  const validateEmail = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
+  // Quick email & phone validation helpers
+  const isValidEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
+  const isValidPhone = (phone) => !phone.trim() || /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]{6,15}$/.test(phone.trim())
+
+  // Check required fields & update errors
+  const validateForm = () => {
+    const errs = {}
+
+    if (!formData.fullName.trim()) errs.fullName = 'Please enter your full name'
+    if (!formData.email.trim()) errs.email = 'Email address is required'
+    else if (!isValidEmail(formData.email)) errs.email = 'Please enter a valid email address'
+
+    if (!isValidPhone(formData.phone)) errs.phone = 'Please enter a valid phone number'
+    if (!formData.projectType) errs.projectType = 'Please select a project type'
+
+    if (!formData.message.trim()) errs.message = 'Please tell us about your project'
+    else if (formData.message.trim().length < 20) errs.message = 'Please provide at least 20 characters'
+
+    if (!formData.privacyAccepted) errs.privacyAccepted = 'You must accept the privacy policy'
+    if (file && file.size > MAX_FILE_SIZE_BYTES) errs.file = 'File size must not exceed 5MB'
+
+    setErrors(errs)
+    return Object.keys(errs).length === 0
   }
 
-  const validatePhone = (phone) => {
-    if (!phone.trim()) return true // Phone is optional
-    return /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]{6,15}$/.test(phone.trim())
-  }
-
-  const validateForm = useCallback(() => {
-    const newErrors = {}
-
-    if (!formData.fullName.trim()) {
-      newErrors.fullName = 'Please enter your full name'
-    } else if (formData.fullName.trim().length < 2) {
-      newErrors.fullName = 'Full name must be at least 2 characters'
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email address is required'
-    } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email address'
-    }
-
-    if (formData.phone && !validatePhone(formData.phone)) {
-      newErrors.phone = 'Please enter a valid phone number'
-    }
-
-    if (!formData.projectType) {
-      newErrors.projectType = 'Please select a project type'
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = 'Please provide details about your project'
-    } else if (formData.message.trim().length < 20) {
-      newErrors.message = 'Please provide at least 20 characters of project details'
-    }
-
-    if (!formData.privacyAccepted) {
-      newErrors.privacyAccepted = 'You must accept the privacy policy to submit'
-    }
-
-    if (file && file.size > MAX_FILE_SIZE_BYTES) {
-      newErrors.file = 'File size must not exceed 5MB'
-    }
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }, [formData, file])
-
-  const handleChange = useCallback((e) => {
+  // Handle standard input, select & checkbox change
+  const handleChange = (e) => {
     const { name, value, type, checked } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value,
-    }))
+    setFormData((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }))
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: '' }))
+  }
 
-    // Clear field-specific error as user types
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }))
-    }
-  }, [errors])
-
-  const handleFileSelect = useCallback((selectedFile) => {
+  // Handle file upload
+  const handleFileSelect = (selectedFile) => {
     if (!selectedFile) return
-
     if (selectedFile.size > MAX_FILE_SIZE_BYTES) {
       setErrors((prev) => ({ ...prev, file: 'File size must not exceed 5MB' }))
       setFile(null)
       return
     }
-
     setFile(selectedFile)
     setErrors((prev) => ({ ...prev, file: '' }))
-  }, [])
+  }
 
-  const handleFileRemove = useCallback(() => {
+  const handleFileRemove = () => {
     setFile(null)
     setErrors((prev) => ({ ...prev, file: '' }))
-  }, [])
+  }
 
-  const resetForm = useCallback(() => {
+  // Reset form back to initial state
+  const resetForm = () => {
     setFormData(initialFormData)
     setFile(null)
     setErrors({})
     setStatus('idle')
     setSubmissionMeta(null)
-  }, [])
+  }
 
-  const handleSubmit = useCallback(async (e) => {
+  // Handle submit with realistic simulated response
+  const handleSubmit = async (e) => {
     e.preventDefault()
-
-    if (!validateForm()) {
-      // Focus on first invalid field
-      return
-    }
+    if (!validateForm()) return
 
     setStatus('submitting')
-
     try {
-      // Realistic network latency simulation
-      await new Promise((resolve) => setTimeout(resolve, 1400))
+      // Simulate realistic network delay (1.2s)
+      await new Promise((resolve) => setTimeout(resolve, 1200))
 
-      // Generate a realistic reference number and timestamp
-      const referenceId = `APX-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`
-      const submittedAt = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      const year = new Date().getFullYear()
+      const randomCode = Math.floor(1000 + Math.random() * 9000)
+      const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 
       setSubmissionMeta({
-        referenceId,
-        submittedAt,
+        referenceId: `APX-${year}-${randomCode}`,
+        submittedAt: time,
         clientName: formData.fullName,
         clientEmail: formData.email,
         projectType: formData.projectType,
       })
-
       setStatus('success')
     } catch {
       setStatus('error')
     }
-  }, [formData, validateForm])
+  }
 
   return {
     formData,
