@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Container from '@/components/ui/Container.jsx'
 import Button from '@/components/ui/Button.jsx'
-import { heroImage, site } from '@/config/site.js'
+import { heroCarouselImages, site } from '@/config/site.js'
 
 const headlines = [
   { text: 'WE BUILD SPACES THAT', accent: 'LAST.' },
@@ -11,12 +11,16 @@ const headlines = [
 ]
 
 const INTERVAL_MS = 4500
+const IMAGE_INTERVAL_MS = 5000
 
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [animState, setAnimState] = useState('visible')
+  const [activeImageIndex, setActiveImageIndex] = useState(0)
+  const [imageTransition, setImageTransition] = useState(false)
   const timeoutRef = useRef(null)
   const intervalRef = useRef(null)
+  const imageIntervalRef = useRef(null)
 
   const cycle = useCallback(() => {
     setAnimState('exiting')
@@ -29,13 +33,25 @@ export default function Hero() {
     }, 500)
   }, [])
 
+  const cycleImage = useCallback(() => {
+    setImageTransition(true)
+    setTimeout(() => {
+      setActiveImageIndex((i) => (i + 1) % heroCarouselImages.length)
+      setTimeout(() => {
+        setImageTransition(false)
+      }, 800)
+    }, 400)
+  }, [])
+
   useEffect(() => {
     intervalRef.current = setInterval(cycle, INTERVAL_MS)
+    imageIntervalRef.current = setInterval(cycleImage, IMAGE_INTERVAL_MS)
     return () => {
       clearInterval(intervalRef.current)
+      clearInterval(imageIntervalRef.current)
       clearTimeout(timeoutRef.current)
     }
-  }, [cycle])
+  }, [cycle, cycleImage])
 
   const transitionClass =
     animState === 'exiting'
@@ -111,18 +127,35 @@ export default function Hero() {
                 aria-hidden="true"
                 className="absolute -bottom-4 -left-4 hidden h-full w-full border border-blue-500/40 lg:block"
               />
-              <div className="relative overflow-hidden">
-                <img
-                  src={heroImage.src}
-                  alt={heroImage.alt}
-                  width={heroImage.width}
-                  height={heroImage.height}
-                  loading="eager"
-                  fetchPriority="high"
-                  decoding="async"
-                  className="aspect-[16/10] w-full object-cover lg:h-[clamp(26rem,58vh,42rem)] lg:aspect-auto [animation:hero-drift_40s_ease-in-out_infinite_alternate]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/30 to-transparent" />
+              <div className="relative overflow-hidden bg-ink-900">
+                {heroCarouselImages.map((image, idx) => {
+                  const isActive = idx === activeImageIndex
+                  const isPrevious = idx === (activeImageIndex - 1 + heroCarouselImages.length) % heroCarouselImages.length
+
+                  return (
+                    <img
+                      key={idx}
+                      src={image.src}
+                      alt={image.alt}
+                      width={image.width}
+                      height={image.height}
+                      loading={idx === 0 ? 'eager' : 'lazy'}
+                      fetchPriority={idx === 0 ? 'high' : 'low'}
+                      decoding="async"
+                      className={`aspect-[16/10] w-full object-cover lg:h-[clamp(26rem,58vh,42rem)] lg:aspect-auto transition-all duration-[1000ms] ease-in-out ${
+                        isActive
+                          ? 'relative opacity-100 scale-100 blur-0 z-10'
+                          : isPrevious && imageTransition
+                            ? 'absolute inset-0 opacity-100 scale-110 blur-sm z-[5]'
+                            : 'absolute inset-0 opacity-0 scale-95 z-0'
+                      }`}
+                      style={{
+                        animation: isActive ? 'hero-drift 40s ease-in-out infinite alternate' : 'none',
+                      }}
+                    />
+                  )
+                })}
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/30 to-transparent z-20" />
               </div>
             </figure>
           </div>

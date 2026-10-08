@@ -51,7 +51,7 @@ export default function QuickConnectFAB() {
     >
       {/* Expanded Speed-Dial Action Items */}
       <div
-        className={`mb-3 flex flex-col items-end gap-2.5 transition-all duration-300 ease-out-premium ${
+        className={`absolute bottom-[72px] right-0 flex flex-col items-end gap-2.5 transition-all duration-300 ease-out-premium ${
           isOpen
             ? 'visible opacity-100 translate-y-0 pointer-events-auto'
             : 'invisible opacity-0 translate-y-3 pointer-events-none'
