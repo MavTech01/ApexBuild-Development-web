@@ -47,7 +47,7 @@ export default function QuickConnectFAB() {
     <aside
       ref={containerRef}
       aria-label="Quick communication channels"
-      className="fixed bottom-5 right-3 z-40 sm:bottom-6 sm:right-4"
+      className="fixed bottom-4 right-2 z-40 sm:bottom-6 sm:right-3"
     >
       {/* Expanded Speed-Dial Action Items */}
       <div
@@ -60,18 +60,18 @@ export default function QuickConnectFAB() {
         {quickConnectActions.map((action, idx) => {
           const Icon = action.icon
           const content = (
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2.5 pr-1.5">
               {/* Tooltip / Label Card */}
               <div className="rounded-lg border border-line bg-surface/95 px-3 py-1.5 shadow-md backdrop-blur-sm transition-transform duration-200 hover:scale-[1.02]">
-                <p className="font-display text-xs font-semibold text-ink-950">
+                <p className="font-display text-xs font-semibold text-ink-950 whitespace-nowrap">
                   {action.label}
                 </p>
-                <p className="text-[11px] text-ink-500 font-normal">
+                <p className="text-[11px] text-ink-500 font-normal whitespace-nowrap">
                   {action.description}
                 </p>
               </div>
 
-              {/* Action Circle Button */}
+              {/* Action Circle Button (centered with main FAB trigger) */}
               <span
                 className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full shadow-lg transition-transform duration-300 ease-out-premium hover:scale-110 ${action.colorClass}`}
               >
