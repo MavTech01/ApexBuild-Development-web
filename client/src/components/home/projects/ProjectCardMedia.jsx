@@ -30,13 +30,13 @@ export default function ProjectCardMedia({ image, title }) {
           height={image.height}
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 ease-out-premium group-hover:scale-105 motion-reduce:group-hover:scale-100"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out-premium group-hover:scale-105 motion-reduce:group-hover:scale-100"
         />
 
-        {/* Soft, translucent dark overlay on hover (not too dark: black/35) */}
+        {/* Soft, translucent dark overlay on hover (not too dark: black/30) */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-ink-950/35 opacity-0 backdrop-blur-[1px] transition-opacity duration-300 ease-out-premium group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 bg-ink-950/30 opacity-0 backdrop-blur-[1px] transition-opacity duration-500 ease-out-premium group-hover:opacity-100"
         />
 
         {/* Eye action button to trigger lightbox */}
@@ -46,9 +46,9 @@ export default function ProjectCardMedia({ image, title }) {
             onClick={handleOpenPreview}
             aria-label={`View enlarged image for ${title}`}
             title="Preview full image"
-            className="pointer-events-auto inline-flex h-11 w-11 scale-90 items-center justify-center rounded-full bg-white/90 text-ink-900 shadow-lg backdrop-blur-xs opacity-0 transition-all duration-300 ease-out-premium hover:scale-110 hover:bg-white hover:text-blue-600 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500 group-hover:scale-100 group-hover:opacity-100"
+            className="pointer-events-auto inline-flex h-11 w-11 scale-90 items-center justify-center rounded-full bg-white/90 text-ink-900 shadow-md backdrop-blur-xs opacity-0 transition-all duration-500 ease-out-premium hover:scale-110 hover:bg-white hover:text-blue-600 focus:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500 group-hover:scale-100 group-hover:opacity-100"
           >
-            <Eye className="h-5 w-5" strokeWidth={2.2} />
+            <Eye className="h-5 w-5" strokeWidth={2} />
           </button>
         </div>
       </div>
