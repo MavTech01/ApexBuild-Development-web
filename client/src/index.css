@@ -220,3 +220,36 @@
 .hero-headline-exit {
   animation: headline-exit 500ms var(--ease-standard) both;
 }
+
+/* Route progress bar animations */
+.route-progress-enter {
+  animation: route-progress-sweep 600ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.route-progress-complete {
+  animation: route-progress-finish 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes route-progress-sweep {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(0.85);
+  }
+}
+
+@keyframes route-progress-finish {
+  0% {
+    transform: scaleX(0.85);
+    opacity: 1;
+  }
+  70% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0;
+  }
+}

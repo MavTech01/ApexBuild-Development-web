@@ -1,5 +1,6 @@
 import { Award, Shield, Lightbulb, Gem } from 'lucide-react'
 import Container from '@/components/ui/Container.jsx'
+import BuildingSilhouette from '@/components/decorative/BuildingSilhouette.jsx'
 import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 
 const values = [
@@ -80,9 +81,12 @@ export default function CoreValues() {
               <div
                 key={val.title}
                 style={{ animationDelay: `${index * 90}ms` }}
-                className={`group relative flex flex-col justify-between rounded-xl border border-white/10 bg-white/[0.03] p-7 backdrop-blur-xs transition-all duration-300 ease-out-premium hover:-translate-y-1.5 hover:border-blue-500/50 hover:bg-white/[0.07] hover:shadow-[0_8px_30px_rgb(37_99_235/0.2)] ${reveal}`}
+                className={`group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] p-7 backdrop-blur-xs transition-all duration-300 ease-out-premium hover:-translate-y-1.5 hover:border-blue-500/50 hover:bg-white/[0.07] hover:shadow-[0_8px_30px_rgb(37_99_235/0.2)] ${reveal}`}
               >
-                <div>
+                {/* Architectural Building Silhouette — rises smoothly from bottom-right on hover */}
+                <BuildingSilhouette className="text-blue-400/[0.12]" />
+
+                <div className="relative">
                   <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-blue-500/15 text-blue-400 ring-1 ring-blue-500/30 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white">
                     <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden="true" />
                   </span>
@@ -95,11 +99,6 @@ export default function CoreValues() {
                     {val.description}
                   </p>
                 </div>
-
-                <div
-                  aria-hidden="true"
-                  className="mt-6 h-0.5 w-8 bg-blue-500 transition-all duration-300 ease-out-premium group-hover:w-full"
-                />
               </div>
             )
           })}

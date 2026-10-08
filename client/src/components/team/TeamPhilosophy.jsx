@@ -1,6 +1,7 @@
 import { Users, Target, ShieldCheck } from 'lucide-react'
 import Container from '@/components/ui/Container.jsx'
 import SectionHeading from '@/components/ui/SectionHeading.jsx'
+import BuildingSilhouette from '@/components/decorative/BuildingSilhouette.jsx'
 import { teamPhilosophies } from './team.data.js'
 import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 
@@ -45,7 +46,10 @@ export default function TeamPhilosophy() {
                 style={{ animationDelay: `${index * 100}ms` }}
                 className={`group relative flex flex-col justify-between overflow-hidden rounded-xl border border-line bg-surface p-7 shadow-[0_2px_8px_rgb(0_0_0/0.03)] transition-all duration-300 ease-out-premium hover:-translate-y-1.5 hover:border-blue-500/40 hover:shadow-blue-lift ${reveal}`}
               >
-                <div>
+                {/* Architectural Building Silhouette — rises smoothly from bottom-right on hover */}
+                <BuildingSilhouette />
+
+                <div className="relative">
                   <div className="flex items-center justify-between">
                     <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-blue-600 transition-colors duration-300 group-hover:bg-blue-600 group-hover:text-white">
                       <Icon className="h-5 w-5" strokeWidth={2} aria-hidden="true" />
@@ -63,11 +67,6 @@ export default function TeamPhilosophy() {
                     {item.description}
                   </p>
                 </div>
-
-                <div
-                  aria-hidden="true"
-                  className="mt-6 h-0.5 w-8 bg-blue-600 transition-all duration-300 ease-out-premium group-hover:w-full"
-                />
               </div>
             )
           })}

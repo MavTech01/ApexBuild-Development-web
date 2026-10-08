@@ -195,13 +195,15 @@ export default function TestimonialCarousel({ testimonials }) {
             ))}
           </div>
 
-          {/* Navigation Arrows - Vertically centered and VISIBLE on mobile */}
+          {/* Navigation Arrows - Only visible on hover */}
           {needsCarousel && (
             <>
               <button
                 onClick={prevSlide}
                 disabled={isTransitioning}
-                className="absolute left-0 -translate-x-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-surface/90 p-2 shadow-lg backdrop-blur-sm transition-all hover:bg-blue-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 sm:-translate-x-6 sm:bg-surface"
+                className={`absolute left-0 -translate-x-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-surface/90 p-2 shadow-lg backdrop-blur-sm transition-all hover:bg-blue-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 sm:-translate-x-6 sm:bg-surface ${
+                  isHovered ? 'opacity-100 visible' : 'opacity-0 invisible'
+                }`}
                 aria-label="Previous testimonials"
               >
                 <ChevronLeft className="h-5 w-5 text-ink-700" />
@@ -209,7 +211,9 @@ export default function TestimonialCarousel({ testimonials }) {
               <button
                 onClick={nextSlide}
                 disabled={isTransitioning}
-                className="absolute right-0 translate-x-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-surface/90 p-2 shadow-lg backdrop-blur-sm transition-all hover:bg-blue-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 sm:translate-x-6 sm:bg-surface"
+                className={`absolute right-0 translate-x-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-surface/90 p-2 shadow-lg backdrop-blur-sm transition-all hover:bg-blue-50 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 sm:translate-x-6 sm:bg-surface ${
+                  isHovered ? 'opacity-100 visible' : 'opacity-0 invisible'
+                }`}
                 aria-label="Next testimonials"
               >
                 <ChevronRight className="h-5 w-5 text-ink-700" />

@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import PublicLayout from './components/layout/PublicLayout.jsx'
 import HomePage from './pages/HomePage.jsx'
 import AboutPage from '@/pages/AboutPage.jsx'
@@ -9,21 +9,22 @@ import TeamPage from '@/pages/TeamPage.jsx'
 import ContactPage from '@/pages/ContactPage.jsx'
 import PagePlaceholder from './pages/PagePlaceholder.jsx'
 
+const router = createBrowserRouter([
+  {
+    element: <PublicLayout />,
+    children: [
+      { path: '/', element: <HomePage /> },
+      { path: '/about', element: <AboutPage /> },
+      { path: '/services', element: <ServicesPage /> },
+      { path: '/projects', element: <ProjectsPage /> },
+      { path: '/projects/:projectId', element: <ProjectDetailsPage /> },
+      { path: '/team', element: <TeamPage /> },
+      { path: '/contact', element: <ContactPage /> },
+      { path: '*', element: <PagePlaceholder eyebrow="404" title="Page not found" /> },
+    ],
+  },
+])
+
 export default function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<PublicLayout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/projects/:projectId" element={<ProjectDetailsPage />} />
-          <Route path="/team" element={<TeamPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="*" element={<PagePlaceholder eyebrow="404" title="Page not found" />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  )
+  return <RouterProvider router={router} />
 }
