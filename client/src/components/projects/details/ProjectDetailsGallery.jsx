@@ -119,10 +119,10 @@ export default function ProjectDetailsGallery({ image, gallery = [], title = '' 
             )
           })}
 
-          {/* Vignette Gradient Overlay */}
+          {/* Smooth black gradient overlay across bottom for rich contrast */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 z-20 bg-gradient-to-t from-ink-950/50 via-transparent to-ink-950/20"
+            className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-36 bg-gradient-to-t from-ink-950/85 via-ink-950/45 to-transparent"
           />
 
           {/* Top Info Bar: Slide Counter & Fullscreen Lightbox Button */}
@@ -175,15 +175,15 @@ export default function ProjectDetailsGallery({ image, gallery = [], title = '' 
             </>
           )}
 
-          {/* Bottom Overlay Description Card with White BG and Keyframe Entrance Animation */}
+          {/* Image Description: Clean white text on black gradient with slide & fade entrance animation */}
           {currentSlide.alt && (
-            <div className="absolute bottom-4 left-4 right-4 z-30 pointer-events-none sm:left-6 sm:right-auto sm:max-w-md">
+            <div className="absolute bottom-5 left-5 right-5 z-30 pointer-events-none sm:left-7 sm:max-w-xl">
               <div
                 key={`caption-${activeIndex}`}
-                className="pointer-events-auto inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2.5 shadow-lg ring-1 ring-ink-950/5 animate-rise"
+                className="pointer-events-auto flex items-center gap-2.5 animate-caption-enter"
               >
-                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-blue-600" aria-hidden="true" />
-                <p className="text-xs font-medium text-ink-800 leading-snug">
+                <span className="h-2 w-2 shrink-0 rounded-full bg-blue-500 shadow-sm" aria-hidden="true" />
+                <p className="text-sm font-medium text-white/95 leading-relaxed drop-shadow-sm sm:text-base">
                   {currentSlide.alt}
                 </p>
               </div>

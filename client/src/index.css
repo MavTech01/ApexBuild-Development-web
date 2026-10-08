@@ -54,6 +54,18 @@
   --animate-float-slower: float 11s ease-in-out infinite;
   --animate-dropdown: dropdown-enter 0.35s var(--ease-out-premium) both;
   --animate-nav-item: nav-item-enter 0.4s var(--ease-out-premium) both;
+  --animate-caption-enter: caption-slide-in 0.65s var(--ease-out-premium) both;
+
+  @keyframes caption-slide-in {
+    from {
+      opacity: 0;
+      transform: translateX(-16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 
   @keyframes dropdown-enter {
     from {
