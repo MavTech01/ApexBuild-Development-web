@@ -9,7 +9,11 @@ export default function ProjectDetailsContent({ project }) {
     <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-14 xl:gap-16">
       {/* Main Content Area */}
       <div className="space-y-12 lg:col-span-8">
-        <ProjectDetailsGallery image={project.image} gallery={project.gallery} />
+        <ProjectDetailsGallery
+          image={project.image}
+          gallery={project.gallery}
+          title={project.title}
+        />
         <ProjectOverview description={project.description} revealClass={revealClass} />
         <ProjectHighlights highlights={project.highlights} revealClass={revealClass} />
       </div>
