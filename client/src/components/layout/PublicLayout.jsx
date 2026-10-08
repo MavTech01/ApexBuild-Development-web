@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import Navbar from './Navbar.jsx'
 import Footer from './Footer.jsx'
+import QuickConnectFAB from './QuickConnectFAB.jsx'
 
 export default function PublicLayout() {
   return (
@@ -10,6 +11,8 @@ export default function PublicLayout() {
         <Outlet />
       </main>
       <Footer />
+      {/* Fixed bottom-right speed-dial communication FAB */}
+      <QuickConnectFAB />
     </div>
   )
 }
