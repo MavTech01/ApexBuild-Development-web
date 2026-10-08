@@ -1,5 +1,4 @@
-import buildingObjectImg from '@/assets/images/building-object.png'
-import truckObjectImg from '@/assets/images/truck-object.png'
+import { buildingObjectImg, truckObjectImg } from '@/assets/images'
 
 export default function ConstructionBackground() {
   return (

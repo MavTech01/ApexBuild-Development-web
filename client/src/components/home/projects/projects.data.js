@@ -1,13 +1,15 @@
-import heroImg from '@/assets/images/hero.png'
-import ctaImg from '@/assets/images/cta.png'
-import aboutImg from '@/assets/images/about.png'
-import projectOakviewImg from '@/assets/images/project-oakview.png'
-import projectCommercialImg from '@/assets/images/project-commercial.png'
-import projectVillasImg from '@/assets/images/project-villas.png'
-import projectHighriseImg from '@/assets/images/project-highrise.png'
-import projectTownhousesImg from '@/assets/images/project-townhouses.png'
-import projectResidentialComplexImg from '@/assets/images/project-residential-complex.jpg'
-import siteMachineryImg from '@/assets/images/site-machinery.jpg'
+import {
+  heroImg,
+  ctaImg,
+  aboutImg,
+  projectOakviewImg,
+  projectCommercialImg,
+  projectVillasImg,
+  projectHighriseImg,
+  projectTownhousesImg,
+  projectResidentialComplexImg,
+  siteMachineryImg,
+} from '@/assets/images'
 
 // Demo data for projects. Replace with an API response later: the cards and
 // details pages depend on the shape below, so the field names should match

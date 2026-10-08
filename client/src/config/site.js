@@ -1,6 +1,4 @@
-import heroImg from '@/assets/images/hero.png'
-import ctaImg from '@/assets/images/cta.png'
-import aboutImg from '@/assets/images/about.png'
+import { heroImg, ctaImg, aboutImg } from '@/assets/images'
 
 export const site = {
   name: 'ApexBuild Developments',

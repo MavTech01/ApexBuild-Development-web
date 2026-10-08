@@ -1,7 +1,4 @@
-import heroImg from '@/assets/images/hero.png'
-import ctaImg from '@/assets/images/cta.png'
-import aboutImg from '@/assets/images/about.png'
-import projectVillasImg from '@/assets/images/project-villas.png'
+import { heroImg, ctaImg, aboutImg, projectVillasImg } from '@/assets/images'
 
 export const detailedServices = [
   {
