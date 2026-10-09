@@ -2,6 +2,7 @@ import Container from '@/components/ui/Container.jsx'
 import SectionHeading from '@/components/ui/SectionHeading.jsx'
 import { useRevealOnScroll } from '@/hooks/useRevealOnScroll.js'
 import { Mail, Phone, MapPin, Clock } from 'lucide-react'
+import { site } from "@/config/site.js"
 
 export default function ContactInfoSection() {
   const [ref, revealed] = useRevealOnScroll()
@@ -48,7 +49,7 @@ export default function ContactInfoSection() {
                 </div>
                 <div>
                   <p className="text-sm font-medium text-ink-600">Phone</p>
-                  <p className="mt-1 text-lg font-semibold">+1 (555) 123-4567</p>
+                  <p className="mt-1 text-lg font-semibold">{site.phone}</p>
                   <p className="mt-0.5 text-sm text-ink-600">Available Mon-Fri, 8AM-6PM</p>
                 </div>
               </a>
