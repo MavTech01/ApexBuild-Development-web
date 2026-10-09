@@ -2,12 +2,15 @@ import { MessageSquare, Phone, FileText } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa'
 import { site } from '@/config/site.js'
 
+// Format phone number for WhatsApp (remove spaces, keep + and digits)
+const whatsappPhone = site.phone.replace(/\s/g, '')
+
 export const quickConnectActions = [
   {
     id: 'whatsapp',
     label: 'WhatsApp Chat',
     description: 'Instant chat with a consultant',
-    href: 'https://wa.me/10000000000?text=Hello%20ApexBuild%20Developments%2C%20I%20would%20like%20to%20discuss%20a%20construction%20project.',
+    href: `https://wa.me/${whatsappPhone}?text=Hello%20ApexBuild%20Developments%2C%20I%20would%20like%20to%20discuss%20a%20construction%20project.`,
     isExternal: true,
     icon: FaWhatsapp,
     colorClass: 'bg-emerald-600 text-white hover:bg-emerald-700',
