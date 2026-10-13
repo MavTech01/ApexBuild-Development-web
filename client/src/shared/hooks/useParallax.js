@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { motionDisabled } from '@/shared/utils/device.js'
 
 /**
  * Attaches a parallax scroll effect to the referenced element.
@@ -9,8 +10,7 @@ export default function useParallax(speed = 0.4, scale = 1.15) {
   const ref = useRef(null)
 
   useEffect(() => {
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReduced) return
+    if (motionDisabled()) return
 
     let ticking = false
     const handleScroll = () => {

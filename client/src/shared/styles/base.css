@@ -37,13 +37,12 @@
     position: absolute;
     z-index: -1;
     border-radius: 50%;
-    filter: blur(60px);
     pointer-events: none;
     width: var(--s, 420px);
     height: var(--s, 420px);
     left: var(--x);
     top: var(--y);
-    background: radial-gradient(circle, var(--c) 0, transparent 68%);
+    background: radial-gradient(circle, var(--c) 0, transparent 72%);
     animation: drift var(--d, 16s) ease-in-out infinite alternate;
   }
 

@@ -1,9 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { heroImg } from '@/shared/assets/images'
-
-const prefersReducedMotion =
-  typeof window !== 'undefined' &&
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
+import { motionDisabled } from '@/shared/utils/device.js'
 
 /**
  * HeroMedia
@@ -14,7 +11,7 @@ export default function HeroMedia() {
   const imageRef = useRef(null)
 
   useEffect(() => {
-    if (prefersReducedMotion) return
+    if (motionDisabled()) return
 
     let frame = 0
     let mouseX = 0

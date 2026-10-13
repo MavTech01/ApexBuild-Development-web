@@ -359,3 +359,38 @@
     opacity: 0;
   }
 }
+
+/* Reduced-effects mode.
+   Glow orbs, film grain and scroll parallax are the heaviest things on weak
+   GPUs. `.perf-lite` is toggled on <html> by shared/utils/device.js for
+   low-end hardware; the media query covers phones. Entrance transitions
+   (transform + opacity only) still run. */
+.perf-lite .orb {
+  animation: none !important;
+}
+
+.perf-lite .grain::after {
+  display: none !important;
+}
+
+.perf-lite .hero-media img {
+  will-change: auto !important;
+}
+
+.perf-lite [class*="animate-float"] {
+  animation: none !important;
+}
+
+@media (max-width: 899px) {
+  .orb {
+    animation: none;
+  }
+
+  .grain::after {
+    display: none;
+  }
+
+  .hero-media img {
+    will-change: auto;
+  }
+}
