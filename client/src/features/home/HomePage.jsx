@@ -1,6 +1,5 @@
 import {
   Hero,
-  MarqueeStrip,
   AboutSection,
   ServicesSection,
   ProcessSection,
@@ -14,7 +13,6 @@ export default function HomePage() {
   return (
     <div className="apex-home">
       <Hero />
-      <MarqueeStrip />
       <AboutSection />
       <ServicesSection />
       <ProcessSection />

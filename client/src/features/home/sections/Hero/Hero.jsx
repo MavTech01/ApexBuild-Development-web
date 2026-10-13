@@ -7,6 +7,7 @@ import VideoModal from '@/shared/ui/VideoModal.jsx'
 import Button from '@/shared/ui/Button.jsx'
 import HeroMedia from '@/features/home/sections/Hero/HeroMedia.jsx'
 import HeroPlayButton from '@/features/home/sections/Hero/HeroPlayButton.jsx'
+import MarqueeStrip from '@/features/home/sections/Marquee/MarqueeStrip.jsx'
 import { site } from '@/shared/config/site.js'
 import '@/features/home/sections/Hero/hero.css'
 
@@ -29,13 +30,16 @@ export default function Hero() {
   const labelWords = heroLabel.split(' ')
 
   return (
-    <section id="top" className="hero flex min-h-[calc(100svh-3.5rem)] items-center bg-ink p-0 text-white">
+    <section
+      id="top"
+      className="hero relative flex min-h-[100svh] items-center overflow-hidden bg-ink px-0 pt-[calc(env(safe-area-inset-top,0px)+88px)] pb-[clamp(72px,10vh,120px)] text-white"
+    >
       <span className="orb" style={{ zIndex: 1, '--x': '-8%', '--y': '-10%', '--s': '620px', '--c': 'rgba(37,99,235,.42)' }} />
       <span className="orb" style={{ zIndex: 1, '--x': '55%', '--y': '30%', '--s': '520px', '--c': 'rgba(242,169,0,.28)', '--d': '20s' }} />
 
       <HeroMedia />
 
-      <Container size="wide" className={`relative z-[2] py-[clamp(56px,8vh,110px)]${loaded ? ' hero-in' : ''}`}>
+      <Container size="wide" className={`relative z-[2]${loaded ? ' hero-in' : ''}`}>
         <p className={`hero-label text-azure${loaded ? ' in' : ''}`} aria-label={heroLabel}>
           {labelWords.map((word, i) => (
             <span key={`${word}-${i}`} aria-hidden="true" style={{ '--i': i }}>
@@ -78,6 +82,10 @@ export default function Hero() {
           title="ApexBuild showreel"
         />
       </Container>
+
+      <div className="absolute inset-x-0 bottom-0 z-[3]">
+        <MarqueeStrip />
+      </div>
     </section>
   )
 }
