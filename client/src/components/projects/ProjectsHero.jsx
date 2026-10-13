@@ -5,7 +5,7 @@ import ParallaxImage from './ParallaxImage.jsx'
 
 export default function ProjectsHero() {
   return (
-    <section aria-labelledby="projects-hero-heading" className="relative isolate overflow-hidden bg-gradient-to-br from-ink-950 via-ink-900 to-ink-950 text-paper">
+    <section aria-labelledby="projects-hero-heading" className="relative isolate overflow-hidden bg-brand text-paper">
       <HeroBackground />
       <ParallaxImage src={ctaImage.src} width={ctaImage.width} height={ctaImage.height} />
 
@@ -23,7 +23,7 @@ export default function ProjectsHero() {
           <h1
             id="projects-hero-heading"
             style={{ animationDelay: '80ms' }}
-            className="animate-rise mt-6 text-4xl leading-[1.02] text-paper sm:text-5xl lg:text-6xl"
+            className="animate-rise mt-6 text-3xl leading-[1.02] text-paper sm:text-4xl lg:text-5xl"
           >
             SPACES BUILT WITH <span className="text-blue-400">PURPOSE.</span>
           </h1>

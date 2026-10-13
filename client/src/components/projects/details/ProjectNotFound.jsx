@@ -5,7 +5,7 @@ import HeroBackground from '@/components/projects/HeroBackground.jsx'
 
 export default function ProjectNotFound() {
   return (
-    <div className="relative isolate overflow-hidden bg-gradient-to-br from-ink-950 via-ink-900 to-ink-950 text-paper py-24 sm:py-32 lg:py-40">
+    <div className="relative isolate overflow-hidden bg-brand text-paper py-24 sm:py-32 lg:py-40">
       <HeroBackground />
 
       <Container size="default">
@@ -32,7 +32,7 @@ export default function ProjectNotFound() {
               <ArrowLeft className="h-4 w-4" aria-hidden="true" />
               <span>Browse All Projects</span>
             </Button>
-            <Button to="/" variant="outlineOnDark">
+            <Button to="/" variant="outline">
               Return Home
             </Button>
           </div>

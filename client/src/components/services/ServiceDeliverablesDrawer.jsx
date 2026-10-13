@@ -43,7 +43,7 @@ export default function ServiceDeliverablesDrawer({ capabilities, summary, isOpe
 
         {/* Action Button */}
         <div className="mt-5 pt-3">
-          <Button to="/contact" variant="primary" size="sm" className="w-full sm:w-auto group/btn">
+          <Button to="/contact" variant="primary" className="w-full sm:w-auto group/btn">
             Inquire About This Service
             <ArrowRight
               className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-1"

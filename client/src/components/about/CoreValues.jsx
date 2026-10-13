@@ -38,7 +38,7 @@ export default function CoreValues() {
     <section
       ref={ref}
       aria-labelledby="values-heading"
-      className="relative isolate overflow-hidden bg-gradient-to-br from-ink-950 via-ink-900 to-ink-950 py-20 text-paper sm:py-24 lg:py-28"
+      className="relative isolate overflow-hidden bg-brand-deep py-20 text-paper sm:py-24 lg:py-28"
     >
       {/* Decorative ambient gradients */}
       <div

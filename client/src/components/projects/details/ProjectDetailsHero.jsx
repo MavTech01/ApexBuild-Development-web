@@ -75,7 +75,7 @@ export default function ProjectDetailsHero({ project }) {
             <h1
               id="project-details-heading"
               style={{ animationDelay: '120ms' }}
-              className="animate-rise mt-5 font-display text-3xl font-semibold tracking-tight text-balance text-paper drop-shadow-sm sm:text-5xl lg:text-6xl"
+              className="animate-rise mt-5 font-display text-3xl font-semibold tracking-tight text-balance text-paper drop-shadow-sm sm:text-4xl lg:text-5xl"
             >
               {title}
             </h1>

@@ -7,7 +7,7 @@ import ImageLightbox from '@/components/ui/ImageLightbox.jsx'
  * Encapsulates the project image thumbnail with smooth hover effects,
  * soft translucent dark overlay, eye button, and integrated lightbox modal.
  */
-export default function ProjectCardMedia({ image, title }) {
+export default function ProjectCardMedia({ image, title, isHovered }) {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
 
   const handleOpenPreview = (e) => {
@@ -30,7 +30,8 @@ export default function ProjectCardMedia({ image, title }) {
           height={image.height}
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out-premium group-hover:scale-105 motion-reduce:group-hover:scale-100"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out-premium group-hover:scale-110 motion-reduce:group-hover:scale-100"
+          style={{ willChange: isHovered ? 'transform' : 'auto' }}
         />
 
         {/* Soft, translucent dark overlay on hover (not too dark: black/30) */}

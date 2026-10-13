@@ -12,7 +12,7 @@ export default function StatItem({ stat, index, revealed }) {
       style={{ animationDelay: `${index * 90}ms` }}
       className={`text-center ${revealed ? 'animate-rise' : 'opacity-0 translate-y-4'}`}
     >
-      <dd className="font-display text-4xl font-bold text-white sm:text-5xl lg:text-6xl">
+      <dd className="font-display text-3xl font-bold text-white sm:text-4xl lg:text-5xl">
         {count}{suffix}
       </dd>
       <dt className="mt-2 text-sm text-blue-100 sm:text-base">{stat.label}</dt>

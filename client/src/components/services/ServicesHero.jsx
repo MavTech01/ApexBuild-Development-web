@@ -5,7 +5,7 @@ import { heroImage } from '@/config/site.js'
 
 export default function ServicesHero() {
   return (
-    <section aria-labelledby="services-hero-heading" className="relative isolate overflow-hidden bg-gradient-to-br from-ink-950 via-ink-900 to-ink-950 text-paper">
+    <section aria-labelledby="services-hero-heading" className="relative isolate overflow-hidden bg-brand text-paper">
       <HeroBackground />
       <ParallaxImage src={heroImage.src} width={heroImage.width} height={heroImage.height} />
 
@@ -23,7 +23,7 @@ export default function ServicesHero() {
           <h1
             id="services-hero-heading"
             style={{ animationDelay: '80ms' }}
-            className="animate-rise mt-6 text-4xl leading-[1.02] text-paper sm:text-5xl lg:text-6xl"
+            className="animate-rise mt-6 text-3xl leading-[1.02] text-paper sm:text-4xl lg:text-5xl"
           >
             BUILT FOR QUALITY. <span className="text-blue-400">ENGINEERED FOR VALUE.</span>
           </h1>

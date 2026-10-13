@@ -1,14 +1,48 @@
 import { Link } from 'react-router-dom'
 import { MapPin, ArrowRight } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ProjectCardMedia from './ProjectCardMedia.jsx'
+
+gsap.registerPlugin(ScrollTrigger)
 
 export default function ProjectCard({ project }) {
   const { title, category, location, href, image } = project
+  const cardRef = useRef(null)
+  const imageWrapperRef = useRef(null)
+  const [isHovered, setIsHovered] = useState(false)
+
+  useEffect(() => {
+    if (!cardRef.current || !imageWrapperRef.current) return
+
+    const ctx = gsap.context(() => {
+      ScrollTrigger.create({
+        trigger: cardRef.current,
+        start: 'top bottom-=100',
+        end: 'bottom top+=100',
+        onEnter: () => {
+          gsap.to(imageWrapperRef.current, {
+            scale: 1.05,
+            duration: 2,
+            ease: 'power1.out'
+          })
+        }
+      })
+    }, cardRef)
+
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface shadow-[0_2px_6px_rgb(0_0_0/0.03)] transition-all duration-500 ease-out-premium hover:-translate-y-1.5 hover:border-blue-500/30 hover:shadow-[0_10px_24px_-4px_rgb(0_0_0/0.08),0_2px_6px_rgb(37_99_235/0.04)] focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-500/30 focus-within:ring-offset-4 focus-within:ring-offset-paper motion-reduce:hover:translate-y-0">
-      {/* Card Media with translucent overlay & eye button for lightbox preview */}
-      <ProjectCardMedia image={image} title={title} />
+    <article
+      ref={cardRef}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface shadow-[0_2px_6px_rgb(0_0_0/0.03)] transition-all duration-500 ease-out-premium hover:-translate-y-1.5 hover:border-blue-500/30 hover:shadow-[0_10px_24px_-4px_rgb(0_0_0/0.08),0_2px_6px_rgb(37_99_235/0.04)] focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-500/30 focus-within:ring-offset-4 focus-within:ring-offset-paper motion-reduce:hover:translate-y-0">
+      <div ref={imageWrapperRef} className="overflow-hidden">
+        <ProjectCardMedia image={image} title={title} isHovered={isHovered} />
+      </div>
 
       {/* Card Body */}
       <div className="flex flex-1 flex-col justify-between px-5 pt-4 pb-4">
