@@ -1,0 +1,46 @@
+import { useState } from 'react'
+import Container from '@/shared/ui/Container.jsx'
+import ProjectCard from '@/features/projects/ProjectCard.jsx'
+import FilterBar from '@/features/projects/FilterBar.jsx'
+import { projects } from '@/features/projects/projects.data.js'
+
+export default function ProjectsListing() {
+  const [activeFilter, setActiveFilter] = useState('all')
+
+  const filtered = activeFilter === 'all'
+    ? projects
+    : projects.filter((p) => p.categorySlug === activeFilter)
+
+  return (
+    <section aria-labelledby="projects-listing-heading" className="relative overflow-hidden bg-gradient-to-b from-paper via-surface to-paper py-16 sm:py-20 lg:py-24">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_50%_at_50%_0%,rgb(37_99_235/0.03),transparent_70%)]"
+      />
+      <Container size="wide">
+        <div className="animate-rise">
+          <h2 id="projects-listing-heading" className="sr-only">All Projects</h2>
+          <FilterBar active={activeFilter} onChange={setActiveFilter} />
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 gap-6 min-[480px]:grid-cols-2 sm:mt-12 lg:grid-cols-3 lg:gap-7">
+          {filtered.map((project, index) => (
+            <div key={project.id} style={{ animationDelay: `${index * 60}ms` }} className="animate-rise">
+              <ProjectCard project={project} index={index} />
+            </div>
+          ))}
+        </div>
+
+        {filtered.length === 0 && (
+          <p className="animate-rise mt-12 text-center text-lg text-ink-500">
+            No projects found in this category.
+          </p>
+        )}
+      </Container>
+    </section>
+  )
+}
