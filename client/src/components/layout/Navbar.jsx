@@ -1,16 +1,28 @@
 import { useEffect, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
-import { Menu, X } from 'lucide-react'
-import { navLinks, site } from '@/config/site.js'
-import Container from '@/components/ui/Container.jsx'
+import { Link } from 'react-router-dom'
+import { ChevronRight, Menu, X } from 'lucide-react'
+import { navLinks } from '@/config/site.js'
+import Brand from '@/components/ui/Brand.jsx'
 import Button from '@/components/ui/Button.jsx'
-import Logo from '@/components/ui/Logo.jsx'
+
+// One class set for both layouts: row + dividers on mobile, plain inline links
+// on desktop (the padding, borders and chevron are switched off at min-[900px]).
+const navLinkClass =
+  'group flex items-center justify-between gap-3 text-base font-medium text-white transition-colors hover:text-gold max-[899px]:border-b max-[899px]:border-white/10 max-[899px]:py-4 max-[899px]:last:border-b-0 min-[900px]:block min-[900px]:text-sm'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-  const { pathname } = useLocation()
-  const [lastPath, setLastPath] = useState(pathname)
+  const [scrolled, setScrolled] = useState(false)
 
+  // Scroll detection for navbar background
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 8)
+    handleScroll()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Lock body scroll and close on Escape while the menu is open.
   useEffect(() => {
     if (!open) return
 
@@ -27,103 +39,67 @@ export default function Navbar() {
     }
   }, [open])
 
-  if (pathname !== lastPath) {
-    setLastPath(pathname)
-    setOpen(false)
-  }
+  // The header turns solid (and drops its shadow) whenever the menu is open so
+  // it blends seamlessly into the dropdown panel below it.
+  const solid = scrolled || open
+  const showDivider = scrolled && !open
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur-md">
-      <Container size="wide">
-        <div className="flex h-18 items-center justify-between gap-6 py-4">
-          <Link to="/" className="flex items-center gap-2.5" aria-label={`${site.name} — home`}>
-            <Logo className="h-8 w-8" />
-            <span className="flex flex-col leading-none">
-              <span className="font-display text-lg font-bold tracking-[0.16em] text-ink-950">{site.wordmark}</span>
-              <span className="mt-0.5 text-[0.65rem] font-medium tracking-[0.2em] uppercase text-ink-500">
-                Developments
-              </span>
-            </span>
-          </Link>
+    <header
+      className={`fixed inset-x-0 top-0 z-30 text-white transition-all duration-300 ${
+        showDivider ? 'border-b' : ''
+      }`}
+      style={{
+        paddingTop: 'env(safe-area-inset-top, 0px)',
+        background: solid ? 'var(--ink)' : 'transparent',
+        boxShadow: showDivider ? '0 8px 30px rgba(7, 18, 43, 0.35)' : 'none',
+        borderBottomColor: showDivider ? 'rgba(255, 255, 255, 0.08)' : 'transparent',
+      }}
+    >
+      <div className="flex items-center justify-between" style={{ height: '68px', padding: '0 var(--gut)' }}>
+        <Link to="/" className="flex items-center no-underline" aria-label="ApexBuild home" onClick={() => setOpen(false)}>
+          <Brand logoClassName="h-[34px] w-[34px]" wordmarkClassName="text-[1.05rem]" />
+        </Link>
 
-          <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
-            {navLinks.map((link) => (
-              <NavLink key={link.to} to={link.to} className={({ isActive }) =>
-                `relative py-2 font-display text-sm font-semibold tracking-wide uppercase transition-colors duration-200 ease-standard ${
-                  isActive ? 'text-blue-700' : 'text-ink-500 hover:text-blue-600'
-                }`
-              } end={link.to === '/'}>
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
+        <button
+          type="button"
+          className="grid h-11 w-11 place-items-center rounded-md border border-white/15 text-white transition-colors hover:bg-white/10 min-[900px]:hidden"
+          aria-expanded={open}
+          aria-controls="nav"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          onClick={() => setOpen(!open)}
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
 
-          <div className="hidden lg:block">
-            <Button to="/contact">Start a Project</Button>
-          </div>
-
-          <button
-            type="button"
-            className="-mr-2 grid h-11 w-11 place-items-center transition-colors duration-200 lg:hidden"
-            aria-expanded={open}
-            aria-controls="mobile-navigation"
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            onClick={() => setOpen((value) => !value)}
-          >
-            {open ? (
-              <X className="h-6 w-6 text-ink-950" strokeWidth={1.5} aria-hidden="true" focusable="false" />
-            ) : (
-              <Menu className="h-6 w-6 text-ink-950" strokeWidth={1.5} aria-hidden="true" focusable="false" />
-            )}
-          </button>
-        </div>
-      </Container>
-
-      {/* Mobile Navigation Dropdown Overlay */}
-      {open && (
-        <>
-          {/* Backdrop blur & tint overlay */}
-          <div
-            aria-hidden="true"
-            className="fixed inset-0 top-18 z-40 bg-ink-950/30 backdrop-blur-xs transition-opacity duration-300 lg:hidden"
+        <nav
+          id="nav"
+          className={`absolute inset-x-0 top-full flex flex-col bg-ink px-[var(--pad)] pb-7 pt-2 shadow-[0_28px_60px_rgba(0,0,0,0.55)] transition-all duration-300 ease-out ${
+            open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-3 opacity-0 pointer-events-none'
+          } min-[900px]:visible min-[900px]:pointer-events-auto min-[900px]:static min-[900px]:inset-auto min-[900px]:flex-row min-[900px]:items-center min-[900px]:gap-8 min-[900px]:bg-transparent min-[900px]:p-0 min-[900px]:pb-0 min-[900px]:pt-0 min-[900px]:opacity-100 min-[900px]:shadow-none min-[900px]:translate-y-0`}
+        >
+          {navLinks.map((link, index) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              onClick={() => setOpen(false)}
+              className={`${navLinkClass} ${open ? 'animate-nav-item' : ''}`}
+              style={open ? { animationDelay: `${80 + index * 50}ms` } : undefined}
+            >
+              <span>{link.label}</span>
+              <ChevronRight className="h-5 w-5 text-white/40 transition-transform group-hover:translate-x-1 min-[900px]:hidden" />
+            </Link>
+          ))}
+          <Button
+            to="/contact"
             onClick={() => setOpen(false)}
-          />
-
-          {/* Overlay Menu Panel */}
-          <div
-            id="mobile-navigation"
-            className="absolute left-0 right-0 top-full z-50 max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-b border-line bg-paper/95 shadow-lift backdrop-blur-md animate-dropdown lg:hidden"
+            className={`mt-5 w-full min-[900px]:mt-0 min-[900px]:w-auto ${open ? 'animate-nav-item' : ''}`}
+            style={open ? { animationDelay: `${80 + navLinks.length * 50}ms` } : undefined}
           >
-            <Container size="wide">
-              <nav aria-label="Mobile" className="flex flex-col py-5">
-                {navLinks.map((link, index) => (
-                  <NavLink
-                    key={link.to}
-                    to={link.to}
-                    end={link.to === '/'}
-                    style={{ animationDelay: `${(index + 1) * 60}ms` }}
-                    className={({ isActive }) =>
-                      `border-b border-line py-3.5 font-display text-base font-semibold tracking-wide uppercase transition-colors duration-200 last:border-0 animate-nav-item ${
-                        isActive ? 'text-blue-700' : 'text-ink-700 hover:text-blue-600'
-                      }`
-                    }
-                  >
-                    {link.label}
-                  </NavLink>
-                ))}
-                <div
-                  style={{ animationDelay: `${(navLinks.length + 1) * 60}ms` }}
-                  className="mt-5 animate-nav-item"
-                >
-                  <Button to="/contact" className="w-full">
-                    Start a Project
-                  </Button>
-                </div>
-              </nav>
-            </Container>
-          </div>
-        </>
-      )}
+            Start a project
+          </Button>
+        </nav>
+      </div>
     </header>
   )
 }
