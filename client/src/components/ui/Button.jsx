@@ -1,38 +1,23 @@
 import { Link } from 'react-router-dom'
-import useRipple from '@/hooks/useRipple.js'
 
-const sheenSolid = 'bg-[linear-gradient(90deg,transparent,rgb(255_255_255/0.22),transparent)]'
-const sheenOutline = 'bg-[linear-gradient(90deg,transparent,rgb(37_99_235/0.14),transparent)]'
-const sheenOnDark = 'bg-[linear-gradient(90deg,transparent,rgb(255_255_255/0.16),transparent)]'
-
+/**
+ * Button
+ * Single source of truth for CTA buttons across the whole site. Renders the
+ * exact `.btn` / `.btn-outline` styles the homepage uses (see
+ * src/styles/home/base.css) so every route matches and there is no second,
+ * competing button look.
+ *
+ * Renders a router <Link> when given `to`, an <a> when given `href`, and a
+ * native <button> otherwise.
+ */
 const variants = {
-  primary: {
-    className: 'bg-blue-600 text-white hover:bg-blue-700',
-    ripple: 'bg-white/30',
-    sheen: sheenSolid,
-  },
-  outline: {
-    className: 'border border-blue-600 text-blue-600 hover:bg-blue-50 hover:border-blue-700',
-    ripple: 'bg-blue-600/20',
-    sheen: sheenOutline,
-  },
-  onDark: {
-    className: 'bg-blue-600 text-white hover:bg-blue-700',
-    ripple: 'bg-white/30',
-    sheen: sheenSolid,
-  },
-  outlineOnDark: {
-    className: 'border border-blue-400/70 text-blue-300 hover:border-blue-400 hover:bg-blue-500/15',
-    ripple: 'bg-white/20',
-    sheen: sheenOnDark,
-  },
+  primary: 'btn',
+  outline: 'btn-outline',
 }
-
-const base =
-  'group relative inline-flex select-none items-center justify-center overflow-hidden rounded-[4px] px-6 py-3.5 font-display text-sm font-semibold tracking-[0.06em] uppercase transition-[color,background-color,border-color,box-shadow,transform] duration-300 ease-out-premium hover:-translate-y-0.5 hover:shadow-blue active:translate-y-0 active:scale-[0.98] motion-reduce:hover:translate-y-0 motion-reduce:active:scale-100 disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none'
 
 export default function Button({
   to,
+  href,
   type = 'button',
   variant = 'primary',
   className = '',
@@ -41,72 +26,27 @@ export default function Button({
   children,
   ...props
 }) {
-  const { ripples, spawn } = useRipple()
-  const { className: variantClass, ripple: rippleClass, sheen } = variants[variant] ?? variants.primary
-
-  const handleClick = (event) => {
-    if (disabled) return
-    if (event.detail === 0) spawn(event)
-    onClick?.(event)
-  }
-
-  const handlePointerDown = (event) => {
-    if (!disabled) spawn(event)
-  }
-
-  const decoration = (
-    <>
-      <span aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-[4px]">
-        {ripples.map((ripple) => (
-          <span
-            key={ripple.id}
-            className={`animate-ripple absolute rounded-full ${rippleClass}`}
-            style={{
-              left: ripple.x - ripple.size / 2,
-              top: ripple.y - ripple.size / 2,
-              width: ripple.size,
-              height: ripple.size,
-            }}
-          />
-        ))}
-      </span>
-
-      <span aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden rounded-[4px]">
-        <span
-          className={`absolute inset-y-0 -left-1/2 w-1/2 -translate-x-full skew-x-[-12deg] transition-transform duration-700 ease-out-premium group-hover:translate-x-[320%] motion-reduce:hidden ${sheen}`}
-        />
-      </span>
-
-      <span className="relative z-10 inline-flex items-center gap-2">{children}</span>
-    </>
-  )
-
-  const classes = `${base} ${variantClass} ${className}`
+  const classes = `${variants[variant] ?? variants.primary} ${className}`.trim()
 
   if (to) {
     return (
-      <Link
-        to={to}
-        className={classes}
-        onPointerDown={handlePointerDown}
-        onClick={handleClick}
-        {...props}
-      >
-        {decoration}
+      <Link to={to} className={classes} onClick={onClick} {...props}>
+        {children}
       </Link>
     )
   }
 
+  if (href) {
+    return (
+      <a href={href} className={classes} onClick={onClick} {...props}>
+        {children}
+      </a>
+    )
+  }
+
   return (
-    <button
-      type={type}
-      disabled={disabled}
-      className={classes}
-      onPointerDown={handlePointerDown}
-      onClick={handleClick}
-      {...props}
-    >
-      {decoration}
+    <button type={type} className={classes} disabled={disabled} onClick={onClick} {...props}>
+      {children}
     </button>
   )
 }
