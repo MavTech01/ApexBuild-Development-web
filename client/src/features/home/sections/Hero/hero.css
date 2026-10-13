@@ -78,7 +78,8 @@
 }
 
 /* The rotating word stacks every word in the same grid cell and slides the
-   active one up into view. */
+   active one up into view. Only the entering/leaving words (`.anim`) animate;
+   the others snap back off-screen so they never slide back through the text. */
 .rotating-word {
   display: inline-grid;
 }
@@ -86,6 +87,8 @@
   grid-area: 1 / 1;
   color: var(--am);
   transform: translateY(108%);
+}
+.rotating-word b.anim {
   transition: transform 0.8s var(--ez);
 }
 .rotating-word b.on {
@@ -96,9 +99,11 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .rotating-word b,
   .hero-line > span {
     transform: none;
+  }
+  .rotating-word b.anim {
+    transition: none;
   }
   .hero-fade {
     opacity: 1;
