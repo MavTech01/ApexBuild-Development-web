@@ -1,0 +1,75 @@
+import { services } from './services.data.js'
+import { useActiveService } from './useActiveService.js'
+import ServiceMediaPanel from './ServiceMediaPanel.jsx'
+import ServiceList from './ServiceList.jsx'
+import SplitHeading from '../shared/SplitHeading.jsx'
+import Eyebrow from '../shared/Eyebrow.jsx'
+import Container from '@/components/ui/Container.jsx'
+import './services.css'
+
+/**
+ * ServicesSection
+ * "What we do" — a sticky photo panel that cross-fades as the service list
+ * scrolls past it.
+ *
+ * Layout (matches the original prototype):
+ * - Mobile: a single column. The panel comes first and pins to the top, so the
+ *   service list scrolls up underneath it.
+ * - Desktop: two columns. The list is on the left, the sticky panel on the
+ *   right. The list stays taller than the panel so the panel can travel.
+ */
+export default function ServicesSection() {
+  const { active, panelRef, itemRefs, scrollToService } = useActiveService()
+
+  return (
+    <section
+      id="services"
+      className="hazard-stripes grain overflow-clip bg-[linear-gradient(160deg,#07122b_30%,#0b2a6b)] text-white"
+    >
+      <i
+        className="orb"
+        style={{ '--x': '-10%', '--y': '40%', '--s': '560px', '--c': 'rgba(37,99,235,.55)' }}
+      />
+
+      <svg
+        viewBox="0 0 46 190"
+        aria-hidden="true"
+        className="absolute right-[var(--gut)] top-0 z-[1] h-auto w-[46px] origin-top overflow-visible [animation:sway_5s_ease-in-out_infinite_alternate]"
+      >
+        <path d="M23 0V120" stroke="#8DB0FF" strokeWidth="3" />
+        <rect x="14" y="116" width="18" height="16" rx="3" fill="#F2A900" />
+        <path
+          d="M23 132v18a13 13 0 1 1-13-13"
+          fill="none"
+          stroke="#F2A900"
+          strokeWidth="6"
+          strokeLinecap="round"
+        />
+      </svg>
+
+      <Container size="wide">
+        <div className="flex flex-wrap items-end justify-between gap-8">
+          <div>
+            <Eyebrow tone="dark">What we do</Eyebrow>
+            <SplitHeading text="Built Around" accent="Your Vision." accentClassName="text-gold" />
+            <p className="mt-6 max-w-[36em] text-slate-soft">
+              From new construction to property development and renovation, we provide practical
+              solutions designed around quality, efficiency and long-term value.
+            </p>
+          </div>
+        </div>
+
+        {/* Mobile: block (panel first, then list). Desktop: two column grid. */}
+        <div className="mt-[clamp(48px,7vw,88px)] block min-[900px]:grid min-[900px]:grid-cols-2 min-[900px]:items-start min-[900px]:gap-[clamp(40px,7vw,112px)]">
+          <ServiceMediaPanel services={services} active={active} panelRef={panelRef} />
+          <ServiceList
+            services={services}
+            active={active}
+            onSelect={scrollToService}
+            itemRefs={itemRefs}
+          />
+        </div>
+      </Container>
+    </section>
+  )
+}

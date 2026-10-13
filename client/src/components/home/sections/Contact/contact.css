@@ -1,0 +1,9 @@
+/* ==========================================================================
+   Contact effect (Contact/ContactSection.jsx)
+   The submit button reuses the shared `.btn` slide-fill, but on this section it
+   is amber with ink text. Everything else is Tailwind in the component.
+   ========================================================================== */
+.contact-section .btn {
+  background: var(--am);
+  color: var(--ink);
+}

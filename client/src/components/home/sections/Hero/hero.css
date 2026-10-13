@@ -1,0 +1,108 @@
+/* ==========================================================================
+   Hero effects (Hero/Hero.jsx)
+   Only what Tailwind cannot express: the photo + overlay stack, the masked
+   headline lines and the rotating word transition. Everything else on the
+   hero is utility classes in the component.
+   ========================================================================== */
+
+/* Photo + overlay stack. The image fills the hero and the ::after wash keeps
+   the copy legible: it stays deep navy across almost the whole hero so only a
+   sliver of the photo shows on the right. The horizontal fade is layered under
+   a vertical fade to also dim the top/bottom edges. */
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: scale(1.08);
+  will-change: transform;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 18, 43, 0.985) 0%,
+      rgba(7, 18, 43, 0.92) 58%,
+      rgba(7, 18, 43, 0.68) 80%,
+      rgba(7, 18, 43, 0.4) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(7, 18, 43, 0.95) 0%,
+      rgba(7, 18, 43, 0.55) 48%,
+      rgba(7, 18, 43, 0.92) 100%
+    );
+}
+
+/* Each headline line clips its own sliding content. */
+.hero-line {
+  display: block;
+  overflow: hidden;
+}
+
+/* Entrance: each headline line rises up from behind its clip mask. The two
+   lines stagger via the --n index set in Hero.jsx. */
+.hero-line > span {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 0.9s var(--ez);
+  transition-delay: calc(var(--n, 0) * 0.12s + 0.15s);
+}
+.hero-in .hero-line > span {
+  transform: none;
+}
+
+/* Entrance: the lead copy, buttons and proof panel fade + lift into place,
+   staggered by the --i index set in Hero.jsx. */
+.hero-fade {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s var(--ez), transform 0.8s var(--ez);
+  transition-delay: calc(var(--i, 0) * 0.11s + 0.5s);
+}
+.hero-in .hero-fade {
+  opacity: 1;
+  transform: none;
+}
+
+/* The rotating word stacks every word in the same grid cell and slides the
+   active one up into view. */
+.rotating-word {
+  display: inline-grid;
+}
+.rotating-word b {
+  grid-area: 1 / 1;
+  color: var(--am);
+  transform: translateY(108%);
+  transition: transform 0.8s var(--ez);
+}
+.rotating-word b.on {
+  transform: none;
+}
+.rotating-word b.off {
+  transform: translateY(-108%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rotating-word b,
+  .hero-line > span {
+    transform: none;
+  }
+  .hero-fade {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

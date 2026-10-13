@@ -1,0 +1,273 @@
+/* ==========================================================================
+   Homepage shared primitives
+   Only the rules Tailwind cannot express live here: pseudo-elements,
+   clip-path and the `:where(.apex-home)` scoping that keeps the other routes
+   untouched. Plain layout / spacing / colour now lives in the components as
+   Tailwind utility classes.
+
+   Wrapped in `@layer components` on purpose: Tailwind v4 emits its utilities
+   inside `@layer utilities` (declared after `components`), and *unlayered* CSS
+   always beats *layered* CSS. Without the layer these rules would silently
+   override utility classes such as `p-0` / `overflow-clip`.
+   ========================================================================== */
+@layer components {
+  /* Section rhythm, scoped so the other routes are unaffected. Sections opt out
+     of the padding with `p-0` (hero/process) or `overflow-clip` (sticky ones). */
+  :where(.apex-home) section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: var(--sec) 0;
+  }
+
+  /* Subtle film-grain texture. */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.14;
+    pointer-events: none;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Soft blurred colour blob. Size/position/colour arrive as inline custom
+     props: --x --y --s (size) --c (colour) --d (drift duration). */
+  .orb {
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    width: var(--s, 420px);
+    height: var(--s, 420px);
+    left: var(--x);
+    top: var(--y);
+    background: radial-gradient(circle, var(--c) 0, transparent 68%);
+    animation: drift var(--d, 16s) ease-in-out infinite alternate;
+  }
+
+  /* Repeating diagonal stripes pinned to a section's top edge. */
+  .hazard-stripes::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 14px;
+    background: repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0 2px, transparent 2px 7px);
+  }
+
+  /* Buttons: a sliding fill is revealed by the pseudo-element on hover. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7em;
+    padding: 1.05em 1.8em;
+    background: var(--bl);
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    font: 600 0.9rem/1 var(--font-display);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    transform: translateY(101%);
+    transition: transform 0.45s var(--ez);
+    z-index: -1;
+  }
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7em;
+    padding: calc(1.05em - 1.5px) calc(1.8em - 1.5px);
+    border: 1.5px solid currentColor;
+    border-radius: 4px;
+    font: 600 0.9rem/1 var(--font-display);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    transition: color 0.4s, border-color 0.4s;
+  }
+  .btn-outline::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--am);
+    transform: translateX(-101%);
+    transition: transform 0.5s var(--ez);
+    z-index: -1;
+  }
+  .btn-outline::after {
+    content: "\2192";
+    transition: transform 0.4s var(--ez);
+  }
+  /* Hover effects only on devices that actually hover. Gating behind
+     (hover: hover) stops touch devices from keeping a "stuck" hover state
+     after a tap — the button returns to its resting look. */
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover {
+      color: var(--ink);
+    }
+    .btn:hover::before {
+      transform: none;
+    }
+    .btn-outline:hover {
+      color: var(--ink);
+      border-color: var(--am);
+    }
+    .btn-outline:hover::before {
+      transform: none;
+    }
+    .btn-outline:hover::after {
+      transform: translateX(5px);
+    }
+  }
+
+  /* Touch screens never fire :hover, so mirror the same feedback on :active
+     while the finger is pressed down. */
+  @media (hover: none), (pointer: coarse) {
+    .btn:active {
+      color: var(--ink);
+    }
+    .btn:active::before {
+      transform: none;
+    }
+    .btn-outline:active {
+      color: var(--ink);
+      border-color: var(--am);
+    }
+    .btn-outline:active::before {
+      transform: none;
+    }
+    .btn-outline:active::after {
+      transform: translateX(5px);
+    }
+  }
+
+  /* Clip-path media reveal. `.reveal` is the observed wrapper and stays
+     unclipped so the IntersectionObserver can see it; `.reveal-inner` carries
+     the clip-path. See Reveal.jsx. */
+  .reveal {
+    width: 100%;
+    overflow: hidden;
+  }
+  .reveal-inner {
+    width: 100%;
+    height: 100%;
+    clip-path: inset(0 0 100% 0);
+    transition: clip-path 1.3s var(--ez);
+    overflow: hidden;
+  }
+  .reveal-inner.in {
+    clip-path: inset(0);
+  }
+  .reveal-inner img,
+  .reveal-inner svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.18);
+    transition: transform 1.8s var(--ez);
+  }
+  .reveal-inner.in img,
+  .reveal-inner.in svg {
+    transform: none;
+  }
+
+  /* Masked word that slides up into view (SplitHeading). */
+  .word {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    padding-bottom: 0.08em;
+  }
+  .word > span {
+    display: inline-block;
+    transform: translateY(108%);
+    transition: transform 0.9s var(--ez);
+    transition-delay: calc(var(--i) * 55ms + 0.15s);
+  }
+  [data-w].in .word > span {
+    transform: none;
+  }
+
+  /* Hero kicker: words rise in one after another. */
+  .hero-label {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 0.4em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .hero-label span {
+    font-style: normal;
+    opacity: 0;
+    transform: translateY(0.6em);
+    transition: opacity 0.6s, transform 0.6s var(--ez);
+    transition-delay: calc(var(--i) * 60ms + 0.2s);
+  }
+  .hero-label.in span {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Fades and lifts its children into view. */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s, transform 0.9s var(--ez);
+    transition-delay: var(--d, 0s);
+  }
+  .fade-up.in {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes drift {
+  to {
+    transform: translate(60px, -40px) scale(1.18);
+  }
+}
+@keyframes sway {
+  from {
+    transform: rotate(-4deg);
+  }
+  to {
+    transform: rotate(4deg);
+  }
+}
+/* Looping marquee (service strip + testimonial track): shift by half. */
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Respect reduced-motion by flattening every effect above. */
+@media (prefers-reduced-motion: reduce) {
+  .orb,
+  .word > span,
+  .hero-label span,
+  .fade-up,
+  .reveal-inner {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+  }
+}

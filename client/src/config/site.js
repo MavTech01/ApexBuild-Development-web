@@ -9,6 +9,8 @@ export const site = {
   email: 'info@apexbuilddevelopments.com',
   phone: '+234 913 330 1264',
   address: ['ApexBuild Developments', 'Lagos, Nigeria'],
+  // Placeholder demo reel — replace with the real ApexBuild showreel URL.
+  videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
 }
 
 export const heroImage = {

@@ -1,0 +1,34 @@
+/* ==========================================================================
+   Services effects (Services/ServicesSection.jsx)
+   The cross-fading photo stack behind the caption. Everything else is
+   Tailwind in the component.
+   ========================================================================== */
+.services-scene {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: scale(1.1);
+  transition: opacity 0.8s, transform 1.6s var(--ez);
+}
+.services-scene.on {
+  opacity: 1;
+  transform: none;
+}
+.services-scene img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .services-scene {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services-scene {
+    transform: none;
+  }
+}
