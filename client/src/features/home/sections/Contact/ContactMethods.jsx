@@ -18,7 +18,7 @@ export default function ContactMethods() {
   return (
     <div className="min-w-0">
       <Eyebrow>Get in touch</Eyebrow>
-      <SplitHeading size="text-[clamp(2.3rem,5.4vw,5rem)]" text="Start Your Project" accent="Today." />
+      <SplitHeading size="text-[clamp(1.8rem,5.4vw,5rem)]" text="Start Your Project" accent="Today." />
       <p className="mt-6 max-w-[36em] text-mut">
         Tell us about your vision and we&apos;ll help bring it to life with quality craftsmanship and
         dedicated service.

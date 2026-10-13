@@ -30,7 +30,7 @@ export default function ProjectsCTA() {
             <h2
               id="projects-cta-heading"
               style={{ animationDelay: '90ms' }}
-              className={`mt-6 font-display text-[2rem] leading-[1.08] font-semibold text-balance text-ink-950 sm:text-[2.5rem] lg:text-[2.75rem] ${reveal}`}
+              className={`mt-6 font-display text-[1.6rem] leading-[1.08] font-semibold text-balance text-ink-950 sm:text-[2.5rem] lg:text-[2.75rem] ${reveal}`}
             >
               Have a Project in Mind?
             </h2>

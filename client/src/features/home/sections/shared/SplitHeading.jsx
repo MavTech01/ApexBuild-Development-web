@@ -16,7 +16,7 @@ export default function SplitHeading(props) {
     accent = '',
     as: Tag = 'h2',
     className = '',
-    size = 'text-[clamp(2.2rem,5vw,4.4rem)]',
+    size = 'text-[clamp(1.75rem,5vw,4.4rem)]',
     accentClassName = 'text-royal',
   } = props
   const [ref, inView] = useRevealOnScroll(0.3)

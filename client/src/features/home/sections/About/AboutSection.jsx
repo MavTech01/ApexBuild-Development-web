@@ -67,7 +67,7 @@ export default function AboutSection() {
 
           <div>
             <Eyebrow>About ApexBuild</Eyebrow>
-            <SplitHeading size="text-[clamp(2.3rem,5.2vw,4.6rem)]" text="Built On Quality." accent="Driven By Purpose." />
+            <SplitHeading size="text-[clamp(1.8rem,5.2vw,4.6rem)]" text="Built On Quality." accent="Driven By Purpose." />
             <p className="mt-6 max-w-[36em] text-mut">
               At ApexBuild Developments, we bring together construction expertise, thoughtful design and
               disciplined project management to create spaces that deliver lasting value.

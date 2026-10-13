@@ -47,7 +47,7 @@ export default function ProcessSection() {
               text="How We"
               accent="Get It Done."
               accentClassName="text-gold"
-              size="text-[clamp(2.2rem,4.8vw,4.3rem)]"
+              size="text-[clamp(1.75rem,4.8vw,4.3rem)]"
               className="mb-3.5 min-[900px]:mb-9"
             />
 
