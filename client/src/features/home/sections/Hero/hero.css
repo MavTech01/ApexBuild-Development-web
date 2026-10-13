@@ -97,17 +97,3 @@
 .rotating-word b.off {
   transform: translateY(-108%);
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-line > span {
-    transform: none;
-  }
-  .rotating-word b.anim {
-    transition: none;
-  }
-  .hero-fade {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-}

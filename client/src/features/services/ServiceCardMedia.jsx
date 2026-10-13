@@ -15,7 +15,7 @@ export default function ServiceCardMedia({ image, icon, category, index }) {
         alt={image.alt}
         loading="lazy"
         decoding="async"
-        className="h-full w-full object-cover transition-transform duration-700 ease-out-premium group-hover:scale-105 motion-reduce:group-hover:scale-100"
+        className="h-full w-full object-cover transition-transform duration-700 ease-out-premium group-hover:scale-105"
       />
 
       {/* Subtle Lighting Gradient at base of photo for depth */}

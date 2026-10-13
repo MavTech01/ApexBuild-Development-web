@@ -9,9 +9,6 @@ export default function useParallax(speed = 0.4, scale = 1.15) {
   const ref = useRef(null)
 
   useEffect(() => {
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (prefersReduced) return
-
     let ticking = false
     const handleScroll = () => {
       if (!ticking) {

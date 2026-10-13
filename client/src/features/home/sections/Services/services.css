@@ -26,9 +26,3 @@
     transform: none;
   }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .services-scene {
-    transform: none;
-  }
-}

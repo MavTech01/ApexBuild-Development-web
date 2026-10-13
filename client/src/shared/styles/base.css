@@ -255,18 +255,3 @@
     transform: translateX(-50%);
   }
 }
-
-/* Respect reduced-motion by flattening every effect above. */
-@media (prefers-reduced-motion: reduce) {
-  .orb,
-  .word > span,
-  .hero-label span,
-  .fade-up,
-  .reveal-inner {
-    animation: none !important;
-    transition: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-    clip-path: none !important;
-  }
-}

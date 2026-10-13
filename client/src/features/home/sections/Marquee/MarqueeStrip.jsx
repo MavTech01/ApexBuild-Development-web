@@ -21,8 +21,7 @@ const half = Array.from({ length: REPEATS }, () => items).flat()
  * (it translates the track by -50%). Marked aria-hidden as it is decorative.
  *
  * The track is promoted to its own compositor layer (translate3d + will-change)
- * so the transform runs on the GPU instead of repainting each frame, and the
- * global `prefers-reduced-motion` rule freezes it for those users.
+ * so the transform runs on the GPU instead of repainting each frame.
  */
 export default function MarqueeStrip() {
   const track = [...half, ...half]
@@ -32,7 +31,7 @@ export default function MarqueeStrip() {
       aria-hidden="true"
       className="flex h-14 items-center overflow-hidden whitespace-nowrap bg-[linear-gradient(100deg,#0b2a6b_0%,#2563eb_55%,#1b3fa8_100%)] text-white"
     >
-      <div className="inline-flex will-change-transform [transform:translate3d(0,0,0)] motion-reduce:animate-none animate-[marquee-scroll_192s_linear_infinite]">
+      <div className="inline-flex will-change-transform [transform:translate3d(0,0,0)] animate-[marquee-scroll_192s_linear_infinite]">
         {track.map((item, i) => (
           <span
             key={`${item}-${i}`}

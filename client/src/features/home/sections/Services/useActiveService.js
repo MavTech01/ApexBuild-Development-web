@@ -79,11 +79,10 @@ export function useActiveService() {
     const item = itemRefs.current[index]
     if (!panel || !item) return
 
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const target =
       window.scrollY + item.getBoundingClientRect().top + item.offsetHeight / 2 - getActiveLine(panel)
 
-    window.scrollTo({ top: target, behavior: reduceMotion ? 'auto' : 'smooth' })
+    window.scrollTo({ top: target, behavior: 'smooth' })
   }, [])
 
   return { active, panelRef, itemRefs, scrollToService }

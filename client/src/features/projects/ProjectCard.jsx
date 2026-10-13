@@ -39,7 +39,7 @@ export default function ProjectCard({ project }) {
       ref={cardRef}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface shadow-[0_2px_6px_rgb(0_0_0/0.03)] transition-all duration-500 ease-out-premium hover:-translate-y-1.5 hover:border-blue-500/30 hover:shadow-[0_10px_24px_-4px_rgb(0_0_0/0.08),0_2px_6px_rgb(37_99_235/0.04)] focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-500/30 focus-within:ring-offset-4 focus-within:ring-offset-paper motion-reduce:hover:translate-y-0">
+      className="group relative flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface shadow-[0_2px_6px_rgb(0_0_0/0.03)] transition-all duration-500 ease-out-premium hover:-translate-y-1.5 hover:border-blue-500/30 hover:shadow-[0_10px_24px_-4px_rgb(0_0_0/0.08),0_2px_6px_rgb(37_99_235/0.04)] focus-within:border-blue-600 focus-within:ring-2 focus-within:ring-blue-500/30 focus-within:ring-offset-4 focus-within:ring-offset-paper">
       <div ref={imageWrapperRef} className="overflow-hidden">
         <ProjectCardMedia image={image} title={title} isHovered={isHovered} />
       </div>

@@ -8,10 +8,6 @@ import FooterContactColumn from '@/layout/FooterContactColumn.jsx'
 
 const year = new Date().getFullYear()
 
-const prefersReducedMotion =
-  typeof window !== 'undefined' &&
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
 export default function Footer() {
   const [ref, revealed] = useRevealOnScroll(0.1)
 
@@ -30,7 +26,7 @@ export default function Footer() {
       <span className="orb" style={{ '--x': '75%', '--y': '-20%', '--s': '520px', '--c': 'rgba(242,169,0,.16)' }} />
       <span className="orb" style={{ '--x': '-10%', '--y': '30%', '--s': '480px', '--c': 'rgba(37,99,235,.4)', '--d': '19s' }} />
 
-      <FooterWatermark progress={brandProgress} reducedMotion={prefersReducedMotion} />
+      <FooterWatermark progress={brandProgress} />
 
       <div className="grid gap-[clamp(32px,4vw,64px)] pb-[clamp(48px,6vw,72px)] min-[900px]:grid-cols-[2fr_1fr_1fr_1.2fr]">
         <FooterBrandColumn revealed={revealed} />

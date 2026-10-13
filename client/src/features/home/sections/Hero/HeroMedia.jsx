@@ -1,10 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { heroImg } from '@/shared/assets/images'
 
-const prefersReducedMotion =
-  typeof window !== 'undefined' &&
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
 /**
  * HeroMedia
  * Full-bleed hero photo that drifts slightly on scroll and mouse move for a
@@ -14,8 +10,6 @@ export default function HeroMedia() {
   const imageRef = useRef(null)
 
   useEffect(() => {
-    if (prefersReducedMotion) return
-
     let frame = 0
     let mouseX = 0
     let mouseY = 0

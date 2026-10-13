@@ -30,7 +30,7 @@ export default function ProjectCardMedia({ image, title, isHovered }) {
           height={image.height}
           loading="lazy"
           decoding="async"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out-premium group-hover:scale-110 motion-reduce:group-hover:scale-100"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out-premium group-hover:scale-110"
           style={{ willChange: isHovered ? 'transform' : 'auto' }}
         />
 

@@ -30,8 +30,7 @@ function TestimonialCard({ testimonial }) {
  * TestimonialsSection
  * An infinite, linear marquee of testimonial cards. The set is rendered twice
  * so the track can translate by -50% for a seamless loop. It pauses on hover,
- * focus or touch. With reduced motion the row becomes a normal horizontal
- * scroll and the duplicate set is hidden.
+ * focus or touch.
  */
 export default function TestimonialsSection() {
   const set = testimonials.map((testimonial) => (
@@ -50,10 +49,10 @@ export default function TestimonialsSection() {
       <div
         role="region"
         aria-label="Client testimonials"
-        className="mt-[clamp(48px,7vw,88px)] ml-[calc(50%_-_50vw)] mr-[calc(50%_-_50vw)] w-screen overflow-hidden motion-reduce:overflow-x-auto"
+        className="mt-[clamp(48px,7vw,88px)] ml-[calc(50%_-_50vw)] mr-[calc(50%_-_50vw)] w-screen overflow-hidden"
       >
         <div
-          className="flex w-max animate-[marquee-scroll_66s_linear_infinite] will-change-transform hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] active:[animation-play-state:paused] motion-reduce:animate-none"
+          className="flex w-max animate-[marquee-scroll_66s_linear_infinite] will-change-transform hover:[animation-play-state:paused] focus-within:[animation-play-state:paused] active:[animation-play-state:paused]"
           style={{ animationDuration: `${testimonials.length * 11}s` }}
         >
           <div className={setClass}>{set}</div>
