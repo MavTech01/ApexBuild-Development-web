@@ -5,7 +5,7 @@ import { ctaImage } from '@/config/site.js'
 
 export default function ContactHero() {
   return (
-    <section aria-labelledby="contact-hero-heading" className="relative isolate overflow-hidden bg-gradient-to-br from-ink-950 via-ink-900 to-ink-950 text-paper">
+    <section aria-labelledby="contact-hero-heading" className="relative isolate overflow-hidden bg-brand text-paper">
       <HeroBackground />
       <ParallaxImage src={ctaImage.src} width={ctaImage.width} height={ctaImage.height} />
 
@@ -23,7 +23,7 @@ export default function ContactHero() {
           <h1
             id="contact-hero-heading"
             style={{ animationDelay: '80ms' }}
-            className="animate-rise mt-6 text-4xl leading-[1.02] text-paper sm:text-5xl lg:text-6xl"
+            className="animate-rise mt-6 text-3xl leading-[1.02] text-paper sm:text-4xl lg:text-5xl"
           >
             LET&rsquo;S DISCUSS <span className="text-blue-400">YOUR NEXT PROJECT.</span>
           </h1>
