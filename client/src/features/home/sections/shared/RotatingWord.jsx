@@ -9,19 +9,30 @@ const INTERVAL_MS = 3000
  * `.rotating-word` in Hero/hero.css). Only the entering/leaving words carry the
  * `.anim` class so the others reset off-screen instantly instead of sliding
  * back down through the headline.
+ *
+ * `startDelay` (ms) holds the first word back so it gets its own entrance slide
+ * on load instead of appearing already in place with the headline line.
  */
-export default function RotatingWord({ words }) {
-  const [index, setIndex] = useState(0)
+export default function RotatingWord({ words, startDelay = 0 }) {
+  const [index, setIndex] = useState(-1)
 
   useEffect(() => {
-    if (words.length < 2) return
-    const id = setInterval(() => {
-      setIndex((current) => (current + 1) % words.length)
-    }, INTERVAL_MS)
-    return () => clearInterval(id)
-  }, [words.length])
+    let intervalId
+    const startId = setTimeout(() => {
+      setIndex(0)
+      if (words.length > 1) {
+        intervalId = setInterval(() => {
+          setIndex((current) => (current + 1) % words.length)
+        }, INTERVAL_MS)
+      }
+    }, startDelay)
+    return () => {
+      clearTimeout(startId)
+      clearInterval(intervalId)
+    }
+  }, [words.length, startDelay])
 
-  const previous = (index - 1 + words.length) % words.length
+  const previous = index < 0 ? -1 : (index - 1 + words.length) % words.length
 
   return (
     <span className="rotating-word">

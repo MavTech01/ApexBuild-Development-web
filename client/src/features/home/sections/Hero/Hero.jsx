@@ -39,8 +39,8 @@ export default function Hero() {
 
       <HeroMedia />
 
-      <Container size="wide" className={`relative z-[2]${loaded ? ' hero-in' : ''}`}>
-        <p className={`hero-label text-azure${loaded ? ' in' : ''}`} aria-label={heroLabel}>
+      <Container size="wide" className={`relative z-[2] ${loaded ? 'hero-in' : ''}`}>
+        <p className={`hero-label text-azure ${loaded ? 'in' : ''}`} aria-label={heroLabel}>
           {labelWords.map((word, i) => (
             <span key={`${word}-${i}`} aria-hidden="true" style={{ '--i': i }}>
               {word}
@@ -49,14 +49,14 @@ export default function Hero() {
         </p>
 
         <h1
-          className="mt-4 mb-7 whitespace-nowrap text-[clamp(1.4rem,6.5vw,5.5rem)] leading-[1.06] tracking-[-0.03em]"
-          aria-label={`We Create ${rotatingWords[0]} That Matter.`}
+          className="mt-4 mb-7 whitespace-nowrap text-[clamp(min(2.4rem,8.5vw),6.5vw,5.5rem)] leading-[1.06] tracking-[-0.03em]"
+          aria-label={`We Create ${rotatingWords[0]} That Last.`}
         >
           <span className="hero-line" style={{ '--n': 0 }}>
-            <span>We Create <RotatingWord words={rotatingWords} /></span>
+            <span>We Create <RotatingWord words={rotatingWords} startDelay={320} /></span>
           </span>
           <span className="hero-line" style={{ '--n': 1 }}>
-            <span>That Matter.</span>
+            <span>That Last.</span>
           </span>
         </h1>
 
