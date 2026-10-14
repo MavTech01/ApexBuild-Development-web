@@ -6,6 +6,7 @@ import SplitHeading from '@/features/home/sections/shared/SplitHeading.jsx'
 import Reveal from '@/features/home/sections/shared/Reveal.jsx'
 import Eyebrow from '@/features/home/sections/shared/Eyebrow.jsx'
 import Container from '@/shared/ui/Container.jsx'
+import Button from '@/shared/ui/Button.jsx'
 
 function ProjectFigure({ project, dragged }) {
   const [ref, inView] = useRevealOnScroll()
@@ -64,16 +65,20 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="hazard-stripes grain bg-[linear-gradient(170deg,#0b2a6b,#07122b_80%)] text-white">
       <Container size="wide">
-        <div className="flex flex-wrap items-end justify-between gap-8">
-          <div>
-            <Eyebrow tone="dark">Our projects</Eyebrow>
-            <SplitHeading text="Spaces We've Helped" accent="Bring To Life." accentClassName="text-gold" />
-            <p className="mt-6 max-w-[36em] text-slate-soft">
-              Explore a selection of construction and development projects created with a focus on quality,
-              functionality and lasting value.
-            </p>
-          </div>
-          <span className="self-end pb-2 text-[0.9rem] opacity-70">Drag or scroll sideways</span>
+        <div>
+          <Eyebrow tone="dark">Our projects</Eyebrow>
+          <SplitHeading text="Spaces We've Helped" accent="Bring To Life." accentClassName="text-gold" />
+          <p className="mt-6 max-w-[36em] text-slate-soft">
+            Explore a selection of construction and development projects created with a focus on quality,
+            functionality and lasting value.
+          </p>
+        </div>
+
+        <div className="mt-[clamp(24px,3.5vw,40px)] flex items-center justify-between gap-x-2 min-[900px]:gap-x-4">
+          <span className="min-w-0 text-[0.8rem] opacity-70 min-[900px]:text-[0.9rem]">Drag or scroll sideways</span>
+          <Button variant="outline" to="/projects" className="shrink-0 text-[0.8rem] min-[900px]:text-[0.9rem]">
+            See all projects
+          </Button>
         </div>
 
         <div
@@ -82,7 +87,7 @@ export default function ProjectsSection() {
           onMouseMove={onMouseMove}
           onMouseUp={endDrag}
           onMouseLeave={endDrag}
-          className={`mt-[clamp(48px,7vw,88px)] flex snap-x gap-[clamp(20px,3vw,48px)] overflow-x-auto pb-7 [scrollbar-width:thin] ${
+          className={`mt-4 flex snap-x gap-[clamp(20px,3vw,48px)] overflow-x-auto pb-7 [scrollbar-width:thin] ${
             dragging ? 'cursor-grabbing' : 'cursor-grab'
           }`}
         >
