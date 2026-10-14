@@ -24,19 +24,14 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="hazard-stripes grain overflow-clip bg-[linear-gradient(160deg,#07122b_30%,#0b2a6b)] text-white"
+      className="overflow-clip bg-[linear-gradient(160deg,var(--bg),color-mix(in_srgb,var(--bl)_8%,var(--bg)))]"
     >
-      <i
-        className="orb"
-        style={{ '--x': '-10%', '--y': '40%', '--s': '560px', '--c': 'rgba(37,99,235,.55)' }}
-      />
-
       <svg
         viewBox="0 0 46 190"
         aria-hidden="true"
         className="absolute right-[var(--gut)] top-0 z-[1] h-auto w-[46px] origin-top overflow-visible [animation:sway_5s_ease-in-out_infinite_alternate]"
       >
-        <path d="M23 0V120" stroke="#8DB0FF" strokeWidth="3" />
+        <path d="M23 0V120" stroke="#2563eb" strokeWidth="3" />
         <rect x="14" y="116" width="18" height="16" rx="3" fill="#F2A900" />
         <path
           d="M23 132v18a13 13 0 1 1-13-13"
@@ -50,9 +45,9 @@ export default function ServicesSection() {
       <Container size="wide">
         <div className="flex flex-wrap items-end justify-between gap-8">
           <div>
-            <Eyebrow tone="dark">What we do</Eyebrow>
-            <SplitHeading text="Built Around" accent="Your Vision." accentClassName="text-gold" />
-            <p className="mt-6 max-w-[36em] text-slate-soft">
+            <Eyebrow>What we do</Eyebrow>
+            <SplitHeading text="Built Around" accent="Your Vision." />
+            <p className="mt-6 max-w-[36em] text-mut">
               From new construction to property development and renovation, we provide practical
               solutions designed around quality, efficiency and long-term value.
             </p>

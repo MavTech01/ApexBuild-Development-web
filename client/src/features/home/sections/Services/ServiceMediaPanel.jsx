@@ -24,7 +24,7 @@ export default function ServiceMediaPanel({ services, active, panelRef }) {
         </div>
       ))}
 
-      <div className="absolute inset-x-[10px] bottom-[10px] rounded-xl bg-[rgba(7,18,43,0.8)] px-[14px] py-[10px] backdrop-blur-[10px] min-[900px]:inset-x-[18px] min-[900px]:bottom-[18px] min-[900px]:px-5 min-[900px]:py-4">
+      <div className="absolute inset-x-[10px] bottom-[10px] rounded-xl bg-[rgba(7,18,43,0.8)] px-[14px] py-[10px] text-white backdrop-blur-[10px] min-[900px]:inset-x-[18px] min-[900px]:bottom-[18px] min-[900px]:px-5 min-[900px]:py-4">
         <div className="mb-2 flex items-center gap-3 min-[900px]:mb-4">
           {services.map((service, index) => (
             <i
