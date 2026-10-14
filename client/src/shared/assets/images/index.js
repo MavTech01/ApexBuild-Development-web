@@ -14,6 +14,7 @@ export { default as projectHighriseImg } from '@/shared/assets/images/project-hi
 export { default as projectResidentialComplexImg } from '@/shared/assets/images/project-residential-complex.jpg'
 export { default as siteMachineryImg } from '@/shared/assets/images/site-machinery.jpg'
 export { default as servicePlanningImg } from '@/shared/assets/images/service-planning.png'
+export { default as processSiteImg } from '@/shared/assets/images/process-site.jpg'
 
 export { default as buildingObjectImg } from '@/shared/assets/images/building-object.png'
 export { default as truckObjectImg } from '@/shared/assets/images/truck-object.png'

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { projectCommercialImg } from '@/shared/assets/images'
+import { processSiteImg } from '@/shared/assets/images'
 import { processSteps } from '@/features/home/sections/Process/process.data.js'
 import SplitHeading from '@/features/home/sections/shared/SplitHeading.jsx'
 import Container from '@/shared/ui/Container.jsx'
@@ -70,7 +70,7 @@ export default function ProcessSection() {
           </div>
 
           <div className="relative h-[36svh] w-full overflow-hidden rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.45)] min-[900px]:h-[min(72svh,620px)]">
-            <img src={projectCommercialImg} alt="A commercial building rising floor by floor" className="block h-full w-full object-cover" />
+            <img src={processSiteImg} alt="ApexBuild site work in progress" className="block h-full w-full object-cover" />
             <div className="absolute inset-0 bg-ink" style={{ clipPath: `inset(0 0 ${progress * 100}% 0)` }} />
             <div
               className={`pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(242,169,0,0.55),transparent_70%)] mix-blend-screen transition-opacity duration-700 ${
