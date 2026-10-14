@@ -40,7 +40,7 @@ export default function ProcessSection() {
       <div className="sticky top-0 h-[100svh]">
         <Container
           size="wide"
-          className="grid h-full grid-cols-1 content-start items-center gap-8 pb-8 pt-[calc(env(safe-area-inset-top,0px)_+_112px)] min-[900px]:grid-cols-2 min-[900px]:content-center min-[900px]:gap-[clamp(24px,5vw,80px)] min-[900px]:pt-[calc(env(safe-area-inset-top,0px)_+_80px)]"
+          className="grid h-full grid-cols-1 grid-rows-[auto_1fr] content-start items-center gap-8 pb-12 pt-[calc(env(safe-area-inset-top,0px)_+_96px)] min-[900px]:grid-cols-2 min-[900px]:grid-rows-1 min-[900px]:content-center min-[900px]:gap-[clamp(24px,5vw,80px)] min-[900px]:pb-8 min-[900px]:pt-[calc(env(safe-area-inset-top,0px)_+_80px)]"
         >
           <div>
             <SplitHeading
@@ -69,7 +69,7 @@ export default function ProcessSection() {
             </div>
           </div>
 
-          <div className="relative h-[36svh] w-full overflow-hidden rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.45)] min-[900px]:h-[min(72svh,620px)]">
+          <div className="relative h-full min-h-[140px] w-full overflow-hidden rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.45)] min-[900px]:h-[min(72svh,620px)] min-[900px]:min-h-0">
             <img src={processSiteImg} alt="ApexBuild site work in progress" className="block h-full w-full object-cover" />
             <div className="absolute inset-0 bg-ink" style={{ clipPath: `inset(0 0 ${progress * 100}% 0)` }} />
             <div
