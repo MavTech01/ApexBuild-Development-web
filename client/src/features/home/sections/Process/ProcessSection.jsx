@@ -40,7 +40,7 @@ export default function ProcessSection() {
       <div className="sticky top-0 h-[100svh]">
         <Container
           size="wide"
-          className="grid h-full grid-cols-1 content-center items-center gap-8 pb-8 pt-[calc(env(safe-area-inset-top,0px)_+_80px)] min-[900px]:grid-cols-2 min-[900px]:gap-[clamp(24px,5vw,80px)]"
+          className="grid h-full grid-cols-1 content-start items-center gap-8 pb-8 pt-[calc(env(safe-area-inset-top,0px)_+_112px)] min-[900px]:grid-cols-2 min-[900px]:content-center min-[900px]:gap-[clamp(24px,5vw,80px)] min-[900px]:pt-[calc(env(safe-area-inset-top,0px)_+_80px)]"
         >
           <div>
             <SplitHeading
