@@ -23,19 +23,12 @@
   --bl2: #8DB0FF;
   --am: #F2A900;
 
-  /* Light mode */
+  /* Light-section tokens */
   --bg: #F5F4F0;
   --tx: #07122B;
   --mut: #556070;
   --line: rgba(7, 18, 43, 0.14);
   --card: #ffffff;
-
-  /* Dark mode (for dark sections) */
-  --bg-dark: #0C1527;
-  --tx-dark: #EEF1F7;
-  --mut-dark: #A9B4C6;
-  --line-dark: rgba(255, 255, 255, 0.18);
-  --card-dark: #14213B;
 
   /* Legacy colors (keep for compatibility) */
   --color-paper: #fafaf9;
@@ -248,27 +241,9 @@
   }
 }
 
-/* Dark-mode token set for the light sections (matches the prototype) */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0c1527;
-    --tx: #eef1f7;
-    --mut: #a9b4c6;
-    --line: rgba(255, 255, 255, 0.18);
-    --card: #14213b;
-  }
-}
-
-:root[data-theme="dark"] {
-  --bg: #0c1527;
-  --tx: #eef1f7;
-  --mut: #a9b4c6;
-  --line: rgba(255, 255, 255, 0.18);
-  --card: #14213b;
-}
-
 @layer base {
   html {
+    color-scheme: light;
     scroll-behavior: smooth;
     scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 72px);
   }
