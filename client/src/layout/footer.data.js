@@ -9,4 +9,4 @@ export const socialIcons = {
 export const footerColumnClass = 'fade-up'
 
 export const footerLinkClass =
-  'inline-block text-[0.95rem] text-fog transition hover:translate-x-1 hover:text-gold'
+  'inline-block text-[0.95rem] leading-snug text-fog transition hover:translate-x-1 hover:text-gold'
