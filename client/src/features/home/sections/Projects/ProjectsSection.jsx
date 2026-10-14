@@ -24,11 +24,11 @@ function ProjectFigure({ project, dragged }) {
         <Reveal className="aspect-[3/2] rounded-[18px]">
           <img src={project.image} alt={project.alt} draggable="false" />
         </Reveal>
-        <figcaption className="mt-4 flex items-baseline justify-between gap-4">
-          <b className="font-display text-[1.25rem] font-bold">{project.title}</b>
-          <span className="text-[0.85rem] opacity-70">{project.location}</span>
+        <figcaption className="mt-4 flex items-baseline justify-between gap-3">
+          <b className="font-display text-[clamp(1rem,3.2vw,1.25rem)] font-bold leading-snug">{project.title}</b>
+          <span className="shrink-0 text-[clamp(0.75rem,2.2vw,0.85rem)] leading-snug opacity-70">{project.location}</span>
         </figcaption>
-        <small className="block opacity-70">{project.category}</small>
+        <small className="mt-1 block text-[clamp(0.75rem,2.2vw,0.85rem)] leading-snug opacity-70">{project.category}</small>
       </Link>
     </figure>
   )
