@@ -56,14 +56,9 @@ export default function AboutSection() {
         </p>
 
         <div className="mt-[clamp(48px,7vw,88px)] grid items-center gap-[clamp(40px,7vw,120px)] md:grid-cols-[5fr_6fr]">
-          <div className="relative">
-            <Reveal className="aspect-[3/2] rounded-[18px]">
-              <img src={aboutImg} alt="ApexBuild team reviewing plans on site" />
-            </Reveal>
-            <div className="absolute bottom-8 -right-[18px] rounded-xl bg-gold px-6 py-[18px] text-2xl font-extrabold leading-none text-ink shadow-[0_14px_40px_rgba(7,18,43,0.3)]">
-              10+<small className="mt-1.5 block text-[0.8rem] font-semibold leading-[1.3]">Years building in Lagos</small>
-            </div>
-          </div>
+          <Reveal className="aspect-[3/2] rounded-[18px]">
+            <img src={aboutImg} alt="ApexBuild team reviewing plans on site" />
+          </Reveal>
 
           <div>
             <Eyebrow>About ApexBuild</Eyebrow>
