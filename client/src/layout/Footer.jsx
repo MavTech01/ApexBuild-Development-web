@@ -29,7 +29,7 @@ export default function Footer() {
       <FooterWatermark progress={brandProgress} />
 
       <div className="grid gap-[clamp(32px,4vw,64px)] pb-[clamp(48px,6vw,72px)] min-[900px]:grid-cols-[2fr_1fr_1fr_1.2fr]">
-        <FooterBrandColumn revealed={revealed} />
+        <FooterBrandColumn />
         <FooterLinkColumn title="Company" links={navLinks} delay="120ms" revealed={revealed} />
         <FooterLinkColumn title="Services" links={serviceLinks} delay="180ms" revealed={revealed} />
         <FooterContactColumn delay="240ms" revealed={revealed} />
