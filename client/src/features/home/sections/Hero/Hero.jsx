@@ -64,8 +64,8 @@ export default function Hero() {
           <div className="w-full min-[900px]:w-auto">
             <p className="hero-fade max-w-[34em] text-[clamp(1rem,1.4vw,1.15rem)] leading-relaxed text-fog" style={{ '--i': 0 }}>{heroLead}</p>
             <div className="mt-7 flex flex-col gap-3 min-[900px]:flex-row min-[900px]:flex-wrap min-[900px]:gap-4">
-              <Button className="hero-fade w-full min-[900px]:w-auto" style={{ '--i': 1 }} href="#projects">Explore our projects</Button>
-              <Button variant="outline" className="hero-fade w-full justify-center min-[900px]:w-auto" style={{ '--i': 2 }} href="#contact">Start a project</Button>
+              <Button className="hero-fade w-full min-[900px]:w-auto" style={{ '--i': 1 }} to="/projects">Explore our projects</Button>
+              <Button variant="outline" className="hero-fade w-full justify-center min-[900px]:w-auto" style={{ '--i': 2 }} to="/contact">Start a project</Button>
             </div>
           </div>
 
