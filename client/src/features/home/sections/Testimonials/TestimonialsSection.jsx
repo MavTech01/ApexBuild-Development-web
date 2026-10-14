@@ -5,7 +5,7 @@ import Container from '@/shared/ui/Container.jsx'
 
 function TestimonialCard({ testimonial }) {
   return (
-    <article className="relative flex w-[clamp(300px,82vw,130vh)] flex-none flex-col gap-5 rounded-[20px] bg-[linear-gradient(135deg,#07122b,#0b2a6b)] p-[clamp(16px,3vw,38px)] text-white even:bg-[linear-gradient(135deg,#2563eb,#1b3fa8)] max-[899px]:gap-3.5 max-[899px]:rounded-[16px] min-[900px]:w-[clamp(290px,32vw,440px)]">
+    <article className="relative flex w-[clamp(300px,82vw,130vh)] flex-none flex-col gap-5 rounded-[20px] bg-[linear-gradient(135deg,#07122b,#0b2a6b)] p-[clamp(16px,3vw,38px)] text-white even:bg-[linear-gradient(135deg,#2563eb,#1b3fa8)] max-[899px]:gap-3.5 max-[899px]:rounded-[16px] min-[480px]:max-[899px]:w-[clamp(320px,72vw,480px)] min-[480px]:max-[899px]:aspect-[6/5] min-[900px]:w-[clamp(290px,32vw,440px)]">
       <span aria-hidden="true" className="block h-[0.35em] font-display text-[4.5rem] font-extrabold leading-[0.6] text-gold max-[899px]:text-[2.2rem]">
         &ldquo;
       </span>
