@@ -20,7 +20,7 @@ export default function BuildingSilhouette({
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute -bottom-4 -right-3 translate-y-full opacity-0 transition-all duration-700 ease-out-premium group-hover:translate-y-0 group-hover:opacity-100"
+      className="pointer-events-none absolute -bottom-4 -right-3 translate-y-full opacity-0 transition-all duration-700 ease-out-premium group-hover:translate-y-0 group-hover:opacity-100 group-active:translate-y-0 group-active:opacity-100 pointer-coarse:duration-200"
     >
       <svg
         width={width}

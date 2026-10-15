@@ -14,7 +14,6 @@ export const quickConnectActions = [
     isExternal: true,
     icon: FaWhatsapp,
     colorClass: 'bg-emerald-600 text-white hover:bg-emerald-700',
-    badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
   },
   {
     id: 'call',
@@ -24,7 +23,6 @@ export const quickConnectActions = [
     isExternal: false,
     icon: Phone,
     colorClass: 'bg-blue-600 text-white hover:bg-blue-700',
-    badgeColor: 'bg-blue-50 text-blue-700 border-blue-200',
   },
   {
     id: 'enquiry',
@@ -34,6 +32,5 @@ export const quickConnectActions = [
     isExternal: false,
     icon: FileText,
     colorClass: 'bg-ink-900 text-white hover:bg-ink-950',
-    badgeColor: 'bg-ink-50 text-ink-800 border-ink-200',
   },
 ]

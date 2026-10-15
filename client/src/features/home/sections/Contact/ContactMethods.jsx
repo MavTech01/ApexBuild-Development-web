@@ -1,6 +1,6 @@
 import { contactMethods } from '@/features/home/sections/Contact/contactMethods.data.js'
-import SplitHeading from '@/features/home/sections/shared/SplitHeading.jsx'
-import Eyebrow from '@/features/home/sections/shared/Eyebrow.jsx'
+import SplitHeading from '@/features/home/components/SplitHeading.jsx'
+import Eyebrow from '@/features/home/components/Eyebrow.jsx'
 
 const contactRowClass =
   'flex items-center gap-[18px] rounded-2xl border border-[var(--color-hairline)] bg-[var(--color-surface)] px-5 py-[18px] text-ink shadow-[0_12px_30px_rgba(7,18,43,0.06)] transition'

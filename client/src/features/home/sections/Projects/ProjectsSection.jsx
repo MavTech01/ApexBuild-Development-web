@@ -1,39 +1,10 @@
 import { useRef, useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useRevealOnScroll } from '@/shared/hooks/useRevealOnScroll.js'
 import { homeProjects } from '@/features/home/sections/Projects/projects.data.js'
-import SplitHeading from '@/features/home/sections/shared/SplitHeading.jsx'
-import Reveal from '@/features/home/sections/shared/Reveal.jsx'
-import Eyebrow from '@/features/home/sections/shared/Eyebrow.jsx'
+import HomeProjectCard from '@/features/home/sections/Projects/HomeProjectCard.jsx'
+import SplitHeading from '@/features/home/components/SplitHeading.jsx'
+import Eyebrow from '@/features/home/components/Eyebrow.jsx'
 import Container from '@/shared/ui/Container.jsx'
 import Button from '@/shared/ui/Button.jsx'
-
-function ProjectFigure({ project, dragged }) {
-  const [ref, inView] = useRevealOnScroll()
-
-  return (
-    <figure ref={ref} className="w-[82vw] flex-none snap-start min-[900px]:w-[clamp(280px,30vw,420px)]">
-      <Link
-        to={`/projects/${project.id}`}
-        draggable="false"
-        className="group block"
-        onDragStart={(event) => event.preventDefault()}
-        onClick={(event) => {
-          if (dragged.current) event.preventDefault()
-        }}
-      >
-        <Reveal className="aspect-[3/2] rounded-[18px]">
-          <img src={project.image} alt={project.alt} draggable="false" />
-        </Reveal>
-        <figcaption className="mt-4 flex items-baseline justify-between gap-3">
-          <b className="font-display text-[clamp(1rem,3.2vw,1.25rem)] font-bold leading-snug">{project.title}</b>
-          <span className="shrink-0 text-[clamp(0.75rem,2.2vw,0.85rem)] leading-snug opacity-70">{project.location}</span>
-        </figcaption>
-        <small className="mt-1 block text-[clamp(0.75rem,2.2vw,0.85rem)] leading-snug opacity-70">{project.category}</small>
-      </Link>
-    </figure>
-  )
-}
 
 /**
  * ProjectsSection
@@ -62,6 +33,10 @@ export default function ProjectsSection() {
     setDragging(false)
   }
 
+  const trackClassName =
+    'mt-4 flex snap-x gap-[clamp(20px,3vw,48px)] overflow-x-auto pb-7 [scrollbar-width:thin] ' +
+    (dragging ? 'cursor-grabbing' : 'cursor-grab')
+
   return (
     <section id="projects" className="hazard-stripes grain bg-[linear-gradient(170deg,#0b2a6b,#07122b_80%)] text-white">
       <Container size="wide">
@@ -87,12 +62,10 @@ export default function ProjectsSection() {
           onMouseMove={onMouseMove}
           onMouseUp={endDrag}
           onMouseLeave={endDrag}
-          className={`mt-4 flex snap-x gap-[clamp(20px,3vw,48px)] overflow-x-auto pb-7 [scrollbar-width:thin] ${
-            dragging ? 'cursor-grabbing' : 'cursor-grab'
-          }`}
+          className={trackClassName}
         >
           {homeProjects.map((project) => (
-            <ProjectFigure key={project.id} project={project} dragged={dragged} />
+            <HomeProjectCard key={project.id} project={project} dragged={dragged} />
           ))}
         </div>
       </Container>

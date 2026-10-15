@@ -3,8 +3,36 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { processSiteImg } from '@/shared/assets/images'
 import { processSteps } from '@/features/home/sections/Process/process.data.js'
-import SplitHeading from '@/features/home/sections/shared/SplitHeading.jsx'
+import SplitHeading from '@/features/home/components/SplitHeading.jsx'
 import Container from '@/shared/ui/Container.jsx'
+
+// Register locally so this section works on its own, without depending on
+// another feature having imported gsap first.
+gsap.registerPlugin(ScrollTrigger)
+
+// Grid: single column on mobile (heading+steps above the photo), two columns on
+// desktop (steps left, photo right), vertically centred once there is room.
+const CONTAINER_CLASS = [
+  'grid h-full grid-cols-1 grid-rows-[auto_1fr] content-start items-center gap-8',
+  'pb-12 pt-[calc(env(safe-area-inset-top,0px)_+_96px)]',
+  'min-[900px]:grid-cols-2 min-[900px]:grid-rows-1 min-[900px]:content-center',
+  'min-[900px]:gap-[clamp(24px,5vw,80px)] min-[900px]:pb-8',
+  'min-[900px]:pt-[calc(env(safe-area-inset-top,0px)_+_80px)]',
+].join(' ')
+
+// Photo frame, sized to match the services panel so the two dark sections align.
+const PHOTO_CLASS = [
+  'relative h-full min-h-[140px] w-full overflow-hidden rounded-2xl',
+  'shadow-[0_30px_80px_rgba(0,0,0,0.45)]',
+  'min-[900px]:h-[min(72svh,620px)] min-[900px]:min-h-0',
+].join(' ')
+
+// Warm glow that fades in over the photo once the section is fully scrolled.
+const GLOW_CLASS =
+  'pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(242,169,0,0.55),transparent_70%)] mix-blend-screen transition-opacity duration-700'
+
+// One step row. The active step is opaque; the others dim.
+const STEP_CLASS = 'py-2 transition-opacity duration-500 min-[900px]:py-3.5'
 
 /**
  * ProcessSection
@@ -17,6 +45,8 @@ export default function ProcessSection() {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
+    if (!sectionRef.current) return
+
     const trigger = ScrollTrigger.create({
       trigger: sectionRef.current,
       start: 'top top',
@@ -38,10 +68,7 @@ export default function ProcessSection() {
       <span className="orb" style={{ '--orb-x': '55%', '--orb-y': '20%', '--orb-size': '520px', '--orb-color': 'rgba(37,99,235,.5)' }} />
 
       <div className="sticky top-0 h-[100svh]">
-        <Container
-          size="wide"
-          className="grid h-full grid-cols-1 grid-rows-[auto_1fr] content-start items-center gap-8 pb-12 pt-[calc(env(safe-area-inset-top,0px)_+_96px)] min-[900px]:grid-cols-2 min-[900px]:grid-rows-1 min-[900px]:content-center min-[900px]:gap-[clamp(24px,5vw,80px)] min-[900px]:pb-8 min-[900px]:pt-[calc(env(safe-area-inset-top,0px)_+_80px)]"
-        >
+        <Container size="wide" className={CONTAINER_CLASS}>
           <div>
             <SplitHeading
               text="How We"
@@ -59,7 +86,7 @@ export default function ProcessSection() {
                 {processSteps.map((step, index) => {
                   const on = index === activeStep
                   return (
-                    <li key={step.title} className={`py-2 transition-opacity duration-500 min-[900px]:py-3.5 ${on ? 'opacity-100' : 'opacity-35'}`}>
+                    <li key={step.title} className={`${STEP_CLASS} ${on ? 'opacity-100' : 'opacity-35'}`}>
                       <b className="block font-display text-[1.25rem] font-bold">{step.title}</b>
                       <span className={`block text-slate-soft ${on ? '' : 'max-[899px]:hidden'}`}>{step.description}</span>
                     </li>
@@ -69,13 +96,11 @@ export default function ProcessSection() {
             </div>
           </div>
 
-          <div className="relative h-full min-h-[140px] w-full overflow-hidden rounded-2xl shadow-[0_30px_80px_rgba(0,0,0,0.45)] min-[900px]:h-[min(72svh,620px)] min-[900px]:min-h-0">
+          <div className={PHOTO_CLASS}>
             <img src={processSiteImg} alt="ApexBuild site work in progress" className="block h-full w-full object-cover" />
             <div className="absolute inset-0 bg-ink" style={{ clipPath: `inset(0 0 ${progress * 100}% 0)` }} />
             <div
-              className={`pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(242,169,0,0.55),transparent_70%)] mix-blend-screen transition-opacity duration-700 ${
-                lit ? 'opacity-100' : 'opacity-0'
-              }`}
+              className={`${GLOW_CLASS} ${lit ? 'opacity-100' : 'opacity-0'}`}
             />
           </div>
         </Container>

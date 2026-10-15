@@ -3,9 +3,9 @@ import { aboutImg } from '@/shared/assets/images'
 import { useScrollProgress } from '@/shared/hooks/useScrollProgress.js'
 import CompanyStats from '@/shared/components/CompanyStats.jsx'
 import Container from '@/shared/ui/Container.jsx'
-import SplitHeading from '@/features/home/sections/shared/SplitHeading.jsx'
-import Reveal from '@/features/home/sections/shared/Reveal.jsx'
-import Eyebrow from '@/features/home/sections/shared/Eyebrow.jsx'
+import SplitHeading from '@/features/home/components/SplitHeading.jsx'
+import Reveal from '@/features/home/components/Reveal.jsx'
+import Eyebrow from '@/features/home/components/Eyebrow.jsx'
 import Button from '@/shared/ui/Button.jsx'
 
 const statement =

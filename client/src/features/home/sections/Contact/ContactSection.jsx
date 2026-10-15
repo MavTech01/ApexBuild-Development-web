@@ -1,6 +1,6 @@
 import Container from '@/shared/ui/Container.jsx'
 import ContactMethods from '@/features/home/sections/Contact/ContactMethods.jsx'
-import ProjectEnquiryForm from '@/features/home/sections/Contact/ProjectEnquiryForm.jsx'
+import ProjectEnquiryForm from '@/shared/components/forms/ProjectEnquiryForm'
 import '@/features/home/sections/Contact/contact.css'
 
 /**

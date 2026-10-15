@@ -2,7 +2,7 @@ import { MapPin } from 'lucide-react'
 
 /**
  * OfficeLocationCard
- * Stylised office location map placeholder for the contact page.
+ * Office location map for the contact page.
  */
 export default function OfficeLocationCard() {
   return (
@@ -17,31 +17,17 @@ export default function OfficeLocationCard() {
         </span>
       </div>
 
-      <div className="relative mt-4 flex aspect-[16/10] flex-col justify-between overflow-hidden rounded-xl border border-line bg-gradient-to-br from-ink-900 via-ink-950 to-blue-950 p-6 text-paper">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(to_right,rgb(255_255_255/0.1)_1px,transparent_1px),linear-gradient(to_bottom,rgb(255_255_255/0.1)_1px,transparent_1px)] [background-size:24px_24px]"
+      <div className="relative mt-4 aspect-[16/10] overflow-hidden rounded-xl border border-line">
+        <iframe
+          title="ApexBuild Developments Office Location - Lagos, Nigeria"
+          src="https://maps.google.com/maps?q=Lagos,Nigeria&z=12&output=embed"
+          width="100%"
+          height="100%"
+          style={{ border: 0 }}
+          allowFullScreen=""
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
         />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full bg-blue-500/20 blur-2xl"
-        />
-
-        <div className="relative z-10 flex items-center justify-between">
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-500/20 px-2.5 py-1 font-display text-[11px] font-semibold tracking-wider text-blue-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-pulse" />
-            Regional Headquarters
-          </span>
-          <MapPin className="h-5 w-5 text-blue-400" aria-hidden="true" />
-        </div>
-
-        <div className="relative z-10">
-          <p className="font-display text-lg font-bold text-paper">ApexBuild Developments</p>
-          <p className="text-xs text-ink-300">Lagos Metro Area &bull; Nigeria</p>
-          <p className="mt-2 text-[11px] text-ink-400">
-            Site visits and architectural consultations by prior appointment.
-          </p>
-        </div>
       </div>
     </div>
   )

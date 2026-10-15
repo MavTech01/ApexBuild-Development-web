@@ -1,12 +1,31 @@
 @import "tailwindcss";
 
+/* Hover must never "stick" on touch screens. Tailwind's `hover:` / `group-hover:`
+   variants emit a plain `:hover`, which touch devices latch onto after a tap.
+   Here we gate both behind a hover-capable, fine-pointer device — exactly like
+   the `.btn` rules in shared/styles/base.css. Touch devices instead get `:active`
+   feedback from shared/styles/interactions.css. */
+@custom-variant hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @slot;
+    }
+  }
+}
+@custom-variant group-hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:is(:where(.group):hover *) {
+      @slot;
+    }
+  }
+}
+
 @theme {
   --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
   /* Brand palette — also available as Tailwind utilities (bg-ink, text-gold…) */
   --color-ink: #07122b;
-  --color-navy: #0b2a6b;
   --color-royal: #2563eb;
   --color-azure: #8db0ff;
   --color-gold: #f2a900;
@@ -18,7 +37,7 @@
   /* Subtle hairline border used on light sections (tables, cards, inputs) */
   --color-hairline: rgba(7, 18, 43, 0.14);
 
-  /* Legacy colors (keep for compatibility) */
+  /* Neutral surface + text scale used by the inner pages. */
   --color-paper: #fafaf9;
   --color-surface: #ffffff;
   --color-ivory: #f5f3f0;
@@ -34,7 +53,6 @@
   --color-line: #e8eaed;
   --color-line-strong: #d1d5db;
 
-  --color-blue-900: #1e3a8a;
   --color-blue-700: #1d4ed8;
   --color-blue-600: #2563eb;
   --color-blue-500: #3b82f6;
@@ -42,9 +60,6 @@
   --color-blue-300: #93c5fd;
   --color-blue-100: #eff6ff;
   --color-blue-50: #f0f9ff;
-
-  --color-amber-500: #f59e0b;
-  --color-amber-400: #fbbf24;
 
   /* Page rhythm: horizontal page padding, centred gutter, vertical section spacing */
   --page-pad: clamp(20px, 5vw, 80px);
@@ -55,9 +70,6 @@
   --apex-width-default: 80rem;
   --apex-width-wide: 90rem;
   --apex-width-ultra: 100rem;
-  --apex-width-max: 82.5rem;
-
-  --gradient-radial: radial-gradient(circle, var(--tw-gradient-stops));
 
   /* Deep navy-ink brand gradient used by dark sections (see bg-brand utility) */
   --background-image-brand: linear-gradient(180deg, #0b2a6b 0%, #07122b 100%);
@@ -68,7 +80,6 @@
   --shadow-blue: 0 8px 24px rgb(37 99 235 / 0.24);
   --shadow-blue-lift: 0 12px 32px -16px rgb(37 99 235 / 0.32);
 
-  --ease-standard: cubic-bezier(0.2, 0, 0.2, 1);
   --ease-out-premium: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-emphasized: cubic-bezier(0.7, 0, 0.2, 1);
 
@@ -79,18 +90,6 @@
   --animate-float-slower: float 11s ease-in-out infinite;
   --animate-dropdown: dropdown-enter 0.35s var(--ease-out-premium) both;
   --animate-nav-item: nav-item-enter 0.4s var(--ease-out-premium) both;
-  --animate-caption-enter: caption-slide-in 0.65s var(--ease-out-premium) both;
-
-  @keyframes caption-slide-in {
-    from {
-      opacity: 0;
-      transform: translateX(-16px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
 
   @keyframes dropdown-enter {
     from {
@@ -147,72 +146,9 @@
     }
   }
 
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  @keyframes hero-drift {
-    0% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-8px) scale(1.02); }
-    100% { transform: translateY(0) scale(1); }
-  }
-
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-12px); }
-  }
-
-  @keyframes pulse-glow {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.8; }
-  }
-
-  @keyframes headline-enter {
-    from {
-      opacity: 0;
-      transform: translateY(0.75rem);
-    }
-    to {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  @keyframes headline-exit {
-    from {
-      opacity: 1;
-      transform: none;
-    }
-    to {
-      opacity: 0;
-      transform: translateY(-0.75rem);
-    }
-  }
-
-  /* ApexBuild v3 animations */
-  @keyframes word-slide-up {
-    from {
-      transform: translateY(108%);
-    }
-    to {
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes drift {
-    to {
-      transform: translate(60px, -40px) scale(1.18);
-    }
-  }
-
-  @keyframes sway {
-    from {
-      transform: rotate(-4deg);
-    }
-    to {
-      transform: rotate(4deg);
-    }
   }
 }
 
@@ -268,7 +204,6 @@
   }
 }
 
-/* ApexBuild v3 utility classes */
 /* Route progress bar animations */
 .route-progress-enter {
   animation: route-progress-sweep 600ms cubic-bezier(0.16, 1, 0.3, 1) both;

@@ -1,5 +1,4 @@
 export { default as Hero } from '@/features/home/sections/Hero/Hero.jsx'
-export { default as MarqueeStrip } from '@/features/home/sections/Marquee/MarqueeStrip.jsx'
 export { default as AboutSection } from '@/features/home/sections/About/AboutSection.jsx'
 export { default as ServicesSection } from '@/features/home/sections/Services/ServicesSection.jsx'
 export { default as ProcessSection } from '@/features/home/sections/Process/ProcessSection.jsx'

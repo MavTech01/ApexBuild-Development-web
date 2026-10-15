@@ -1,6 +1,6 @@
 import Container from '@/shared/ui/Container.jsx'
 import SectionHeading from '@/shared/ui/SectionHeading.jsx'
-import ContactForm from '@/features/contact/form/ContactForm.jsx'
+import ProjectEnquiryForm from '@/shared/components/forms/ProjectEnquiryForm'
 import ContactInfoCard from '@/features/contact/ContactInfoCard.jsx'
 import OfficeLocationCard from '@/features/contact/OfficeLocationCard.jsx'
 import ExploreLinksCard from '@/features/contact/ExploreLinksCard.jsx'
@@ -39,17 +39,8 @@ export default function ContactContent() {
         <div className="mt-14 grid gap-12 sm:mt-16 lg:grid-cols-12 lg:gap-16">
           {/* Left Column: Contact Form */}
           <div style={{ animationDelay: '90ms' }} className="lg:col-span-7 animate-rise">
-            <div className="rounded-2xl border border-line bg-surface p-6 shadow-[0_4px_20px_rgb(0_0_0/0.03)] sm:p-10">
-              <div className="mb-8 border-b border-line/70 pb-5">
-                <h2 className="font-display text-2xl font-bold tracking-tight text-ink-950 sm:text-3xl">
-                  Project Enquiry Form
-                </h2>
-                <p className="mt-2 text-sm text-ink-600">
-                  Please provide details about your proposed build or development. We will review your requirements and respond promptly.
-                </p>
-              </div>
-
-              <ContactForm />
+            <div className="rounded-2xl border border-line bg-surface p-6 shadow-[0_4px_20px_rgb(0_0_0/0.03)] sm:p-8 lg:p-10">
+              <ProjectEnquiryForm />
             </div>
           </div>
 

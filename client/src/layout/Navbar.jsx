@@ -10,6 +10,14 @@ import Button from '@/shared/ui/Button.jsx'
 const navLinkClass =
   'group flex items-center justify-between gap-3 text-base font-medium text-white transition-colors hover:text-gold max-[899px]:border-b max-[899px]:border-white/10 max-[899px]:py-4 max-[899px]:last:border-b-0 min-[900px]:block min-[900px]:text-sm'
 
+// The square menu toggle, only shown on mobile.
+const MENU_BUTTON_CLASS =
+  'grid h-11 w-11 place-items-center rounded-md border border-white/15 text-white transition-colors hover:bg-white/10 min-[900px]:hidden'
+
+// The nav panel: a full-width dropdown on mobile, plain inline links on desktop.
+const NAV_PANEL_CLASS =
+  'absolute inset-x-0 top-full flex flex-col bg-ink px-[var(--page-pad)] pb-7 pt-2 shadow-[0_28px_60px_rgba(0,0,0,0.55)] transition-all duration-300 ease-out min-[900px]:visible min-[900px]:pointer-events-auto min-[900px]:static min-[900px]:inset-auto min-[900px]:flex-row min-[900px]:items-center min-[900px]:gap-8 min-[900px]:bg-transparent min-[900px]:p-0 min-[900px]:pb-0 min-[900px]:pt-0 min-[900px]:opacity-100 min-[900px]:shadow-none min-[900px]:translate-y-0'
+
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -63,7 +71,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="grid h-11 w-11 place-items-center rounded-md border border-white/15 text-white transition-colors hover:bg-white/10 min-[900px]:hidden"
+          className={MENU_BUTTON_CLASS}
           aria-expanded={open}
           aria-controls="nav"
           aria-label={open ? 'Close menu' : 'Open menu'}
@@ -74,9 +82,9 @@ export default function Navbar() {
 
         <nav
           id="nav"
-          className={`absolute inset-x-0 top-full flex flex-col bg-ink px-[var(--page-pad)] pb-7 pt-2 shadow-[0_28px_60px_rgba(0,0,0,0.55)] transition-all duration-300 ease-out ${
+          className={`${NAV_PANEL_CLASS} ${
             open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-3 opacity-0 pointer-events-none'
-          } min-[900px]:visible min-[900px]:pointer-events-auto min-[900px]:static min-[900px]:inset-auto min-[900px]:flex-row min-[900px]:items-center min-[900px]:gap-8 min-[900px]:bg-transparent min-[900px]:p-0 min-[900px]:pb-0 min-[900px]:pt-0 min-[900px]:opacity-100 min-[900px]:shadow-none min-[900px]:translate-y-0`}
+          }`}
         >
           {navLinks.map((link, index) => (
             <Link

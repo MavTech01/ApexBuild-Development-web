@@ -1,4 +1,4 @@
-import Logo from '@/shared/ui/Logo.jsx'
+import { LogoMark } from '@/shared/assets/icons'
 import { site } from '@/shared/config/site.js'
 
 /**
@@ -15,7 +15,7 @@ export default function Brand({
 }) {
   return (
     <span className={`flex items-center gap-3 ${className}`.trim()}>
-      <Logo className={logoClassName} />
+      <LogoMark className={logoClassName} />
       <span>
         <b className={`block font-display font-extrabold leading-none tracking-[0.16em] text-white ${wordmarkClassName}`.trim()}>
           {site.wordmark}

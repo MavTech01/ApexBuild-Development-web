@@ -1,7 +1,7 @@
-import { useProjectForm } from '@/features/home/sections/Contact/useProjectForm.js'
-import ContactSelect from '@/features/home/sections/Contact/ContactSelect.jsx'
+import { useProjectForm } from '@/shared/components/forms/ProjectEnquiryForm/useProjectForm.js'
+import ContactSelect from '@/shared/components/forms/ProjectEnquiryForm/ContactSelect.jsx'
 import Button from '@/shared/ui/Button.jsx'
-import { budgets, errorClass, fieldClass, projectTypes } from '@/features/home/sections/Contact/enquiryForm.data.js'
+import { budgets, errorClass, fieldClass, projectTypes } from '@/shared/components/forms/ProjectEnquiryForm/enquiryForm.data.js'
 
 /**
  * ProjectEnquiryForm
@@ -15,7 +15,7 @@ export default function ProjectEnquiryForm() {
   if (status === 'success') {
     return (
       <div className="min-w-0 font-display text-[1.6rem] font-bold leading-[1.25]">
-        Thanks, {values.name.trim().split(' ')[0]}. Your enquiry has been noted. We&apos;ll be in touch
+        Thanks, {values.name.trim().split(' ')[0]}. Your enquiry has been noted. We'll be in touch
         within one business day.
       </div>
     )
@@ -25,7 +25,7 @@ export default function ProjectEnquiryForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="grid min-w-0 gap-[22px] rounded-[22px] border border-[var(--color-hairline)] bg-[var(--color-surface)] p-[clamp(24px,3.5vw,44px)] shadow-[0_30px_70px_rgba(7,18,43,0.08)] min-[900px]:self-end"
+      className="grid min-w-0 gap-[22px] w-full min-[900px]:self-end"
     >
       <div>
         <h3 className="text-2xl">Tell us about your project</h3>

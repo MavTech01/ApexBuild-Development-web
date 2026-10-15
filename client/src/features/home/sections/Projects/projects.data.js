@@ -5,7 +5,7 @@ import {
 } from '@/shared/assets/images'
 
 // The three featured projects shown in the homepage track.
-// Hrefs point at the existing project detail routes.
+// Detail links are built from `id`, so no href field is needed here.
 export const homeProjects = [
   {
     id: 'oakview-residences',
@@ -14,7 +14,6 @@ export const homeProjects = [
     category: 'Residential development',
     image: projectOakviewImg,
     imageAlt: 'Oakview Residences, a modern residential tower',
-    href: '/projects/oakview-residences',
   },
   {
     id: 'apex-business-centre',
@@ -23,7 +22,6 @@ export const homeProjects = [
     category: 'Commercial construction',
     image: projectCommercialImg,
     imageAlt: 'Apex Business Centre, a glazed commercial block under construction',
-    href: '/projects/apex-business-centre',
   },
   {
     id: 'greenfield-villas',
@@ -32,6 +30,5 @@ export const homeProjects = [
     category: 'Property development',
     image: projectVillasImg,
     imageAlt: 'Greenfield Villas, a multi-building residential estate',
-    href: '/projects/greenfield-villas',
   },
 ]

@@ -20,27 +20,6 @@ export const heroImage = {
   height: 640,
 }
 
-export const heroCarouselImages = [
-  {
-    src: heroImg,
-    alt: 'Wide construction site with blue cranes and cement mixer',
-    width: 960,
-    height: 640,
-  },
-  {
-    src: ctaImg,
-    alt: 'Upward view of scaffolding and concrete structure',
-    width: 960,
-    height: 640,
-  },
-  {
-    src: aboutImg,
-    alt: 'Three construction workers reviewing blueprint on-site',
-    width: 960,
-    height: 640,
-  },
-]
-
 export const ctaImage = {
   src: ctaImg,
   alt: 'Upward view of scaffolding and concrete structure',

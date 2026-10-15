@@ -1,5 +1,4 @@
-import BuildingIcon1 from '@/shared/components/decorative/BuildingIcon1.jsx'
-import BuildingIcon2 from '@/shared/components/decorative/BuildingIcon2.jsx'
+import { BuildingIcon1, BuildingIcon2 } from '@/shared/assets/icons'
 
 export default function StatsDecorations() {
   return (

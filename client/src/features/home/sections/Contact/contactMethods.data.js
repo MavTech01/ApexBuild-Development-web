@@ -1,7 +1,7 @@
 import { Clock, Mail, MapPin, Phone } from 'lucide-react'
 import { site } from '@/shared/config/site.js'
 
-export const phoneHref = `tel:${site.phone.replace(/[^+\d]/g, '')}`
+const phoneHref = `tel:${site.phone.replace(/[^+\d]/g, '')}`
 
 // The four ways to reach us, kept as data so the markup stays DRY.
 export const contactMethods = [

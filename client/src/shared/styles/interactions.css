@@ -1,10 +1,10 @@
 /* ==========================================================================
    Touch interactions
-   Tailwind gates `hover:`/`group-hover:` behind `@media (hover: hover)` and the
-   custom button rules in styles/home/base.css do the same, so hover can never
-   "stick" on a touch screen. This file provides the touch equivalent: `:active`
-   feedback that lasts only while the finger is down, plus removal of the
-   default grey tap highlight.
+   `hover:`/`group-hover:` are gated behind `@media (hover: hover) and
+   (pointer: fine)` in app/index.css (and the custom button rules in
+   shared/styles/base.css do the same), so hover can never "stick" on a touch
+   screen. This file provides the touch equivalent: `:active` feedback that lasts
+   only while the finger is down, plus removal of the default grey tap highlight.
    ========================================================================== */
 @layer components {
   @media (hover: none), (pointer: coarse) {

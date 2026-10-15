@@ -1,4 +1,9 @@
-export default function Logo({ className = "h-8 w-8" }) {
+/**
+ * LogoMark
+ * The ApexBuild building mark. Uses `currentColor` so it can be recoloured via
+ * the parent's text colour, but keeps the brand blue roof tones by default.
+ */
+export default function LogoMark({ className = 'h-8 w-8' }) {
   return (
     <svg
       className={className}
@@ -9,16 +14,8 @@ export default function Logo({ className = "h-8 w-8" }) {
       focusable="false"
     >
       {/* Building/Construction Icon */}
-      <path
-        d="M16 3L4 9V28H28V9L16 3Z"
-        fill="currentColor"
-        className="text-blue-600"
-      />
-      <path
-        d="M16 3L4 9V12H28V9L16 3Z"
-        fill="currentColor"
-        className="text-blue-700"
-      />
+      <path d="M16 3L4 9V28H28V9L16 3Z" fill="currentColor" className="text-blue-600" />
+      <path d="M16 3L4 9V12H28V9L16 3Z" fill="currentColor" className="text-blue-700" />
       {/* Windows */}
       <rect x="8" y="14" width="3" height="3" fill="white" opacity="0.9" />
       <rect x="14.5" y="14" width="3" height="3" fill="white" opacity="0.9" />

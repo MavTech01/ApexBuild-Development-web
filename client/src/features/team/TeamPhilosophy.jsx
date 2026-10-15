@@ -1,7 +1,7 @@
 import { Users, Target, ShieldCheck } from 'lucide-react'
 import Container from '@/shared/ui/Container.jsx'
 import SectionHeading from '@/shared/ui/SectionHeading.jsx'
-import BuildingSilhouette from '@/shared/components/decorative/BuildingSilhouette.jsx'
+import { BuildingSilhouette } from '@/shared/assets/icons'
 import { teamPhilosophies } from '@/features/team/team.data.js'
 import { useRevealOnScroll } from '@/shared/hooks/useRevealOnScroll.js'
 

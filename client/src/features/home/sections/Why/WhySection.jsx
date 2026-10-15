@@ -1,8 +1,8 @@
 import { Eye, ShieldCheck, TrendingUp, Users } from 'lucide-react'
 import { reasons } from '@/features/home/sections/Why/why.data.js'
-import SplitHeading from '@/features/home/sections/shared/SplitHeading.jsx'
-import FadeUp from '@/features/home/sections/shared/FadeUp.jsx'
-import Eyebrow from '@/features/home/sections/shared/Eyebrow.jsx'
+import SplitHeading from '@/features/home/components/SplitHeading.jsx'
+import FadeUp from '@/features/home/components/FadeUp.jsx'
+import Eyebrow from '@/features/home/components/Eyebrow.jsx'
 import Container from '@/shared/ui/Container.jsx'
 
 const icons = {

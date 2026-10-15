@@ -2,9 +2,10 @@ import { services } from '@/features/home/sections/Services/services.data.js'
 import { useActiveService } from '@/features/home/sections/Services/useActiveService.js'
 import ServiceMediaPanel from '@/features/home/sections/Services/ServiceMediaPanel.jsx'
 import ServiceList from '@/features/home/sections/Services/ServiceList.jsx'
-import SplitHeading from '@/features/home/sections/shared/SplitHeading.jsx'
-import Eyebrow from '@/features/home/sections/shared/Eyebrow.jsx'
+import SplitHeading from '@/features/home/components/SplitHeading.jsx'
+import Eyebrow from '@/features/home/components/Eyebrow.jsx'
 import Container from '@/shared/ui/Container.jsx'
+import { CraneIcon } from '@/shared/assets/icons'
 import '@/features/home/sections/Services/services.css'
 
 /**
@@ -26,21 +27,7 @@ export default function ServicesSection() {
       id="services"
       className="overflow-clip bg-[linear-gradient(160deg,var(--color-canvas),color-mix(in_srgb,var(--color-royal)_8%,var(--color-canvas)))]"
     >
-      <svg
-        viewBox="0 0 46 190"
-        aria-hidden="true"
-        className="absolute right-[var(--gutter)] top-0 z-[1] h-auto w-[46px] origin-top overflow-visible [animation:sway_5s_ease-in-out_infinite_alternate]"
-      >
-        <path d="M23 0V120" stroke="#2563eb" strokeWidth="3" />
-        <rect x="14" y="116" width="18" height="16" rx="3" fill="#F2A900" />
-        <path
-          d="M23 132v18a13 13 0 1 1-13-13"
-          fill="none"
-          stroke="#F2A900"
-          strokeWidth="6"
-          strokeLinecap="round"
-        />
-      </svg>
+      <CraneIcon className="absolute right-[var(--gutter)] top-0 z-[1] h-auto w-[46px] origin-top overflow-visible [animation:sway_5s_ease-in-out_infinite_alternate]" />
 
       <Container size="wide">
         <div className="flex flex-wrap items-end justify-between gap-8">
