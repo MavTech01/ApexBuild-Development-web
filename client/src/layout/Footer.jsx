@@ -21,10 +21,10 @@ export default function Footer() {
   return (
     <footer
       ref={ref}
-      className="hazard-stripes relative isolate overflow-hidden bg-brand-deep px-[var(--gut)] pt-[clamp(64px,9vw,110px)] text-fog"
+      className="hazard-stripes relative isolate overflow-hidden bg-brand-deep px-[var(--gutter)] pt-[clamp(64px,9vw,110px)] text-fog"
     >
-      <span className="orb" style={{ '--x': '75%', '--y': '-20%', '--s': '520px', '--c': 'rgba(242,169,0,.16)' }} />
-      <span className="orb" style={{ '--x': '-10%', '--y': '30%', '--s': '480px', '--c': 'rgba(37,99,235,.4)', '--d': '19s' }} />
+      <span className="orb" style={{ '--orb-x': '75%', '--orb-y': '-20%', '--orb-size': '520px', '--orb-color': 'rgba(242,169,0,.16)' }} />
+      <span className="orb" style={{ '--orb-x': '-10%', '--orb-y': '30%', '--orb-size': '480px', '--orb-color': 'rgba(37,99,235,.4)', '--orb-duration': '19s' }} />
 
       <FooterWatermark progress={brandProgress} />
 

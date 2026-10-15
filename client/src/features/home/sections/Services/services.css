@@ -8,7 +8,7 @@
   inset: 0;
   opacity: 0;
   transform: scale(1.1);
-  transition: opacity 0.8s, transform 1.6s var(--ez);
+  transition: opacity 0.8s, transform 1.6s var(--ease-emphasized);
 }
 .services-scene.on {
   opacity: 1;

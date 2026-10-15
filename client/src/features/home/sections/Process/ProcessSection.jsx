@@ -35,7 +35,7 @@ export default function ProcessSection() {
       ref={sectionRef}
       className="hazard-stripes grain h-[320vh] overflow-clip bg-[linear-gradient(180deg,#0b2a6b,#07122b)] p-0 text-white"
     >
-      <span className="orb" style={{ '--x': '55%', '--y': '20%', '--s': '520px', '--c': 'rgba(37,99,235,.5)' }} />
+      <span className="orb" style={{ '--orb-x': '55%', '--orb-y': '20%', '--orb-size': '520px', '--orb-color': 'rgba(37,99,235,.5)' }} />
 
       <div className="sticky top-0 h-[100svh]">
         <Container

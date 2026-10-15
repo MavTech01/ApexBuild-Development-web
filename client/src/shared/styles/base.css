@@ -17,7 +17,7 @@
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding: var(--sec) 0;
+    padding: var(--section-space) 0;
   }
 
   /* Subtle film-grain texture. */
@@ -32,19 +32,19 @@
   }
 
   /* Soft blurred colour blob. Size/position/colour arrive as inline custom
-     props: --x --y --s (size) --c (colour) --d (drift duration). */
+     props: --orb-x, --orb-y, --orb-size, --orb-color, --orb-duration. */
   .orb {
     position: absolute;
     z-index: -1;
     border-radius: 50%;
     filter: blur(60px);
     pointer-events: none;
-    width: var(--s, 420px);
-    height: var(--s, 420px);
-    left: var(--x);
-    top: var(--y);
-    background: radial-gradient(circle, var(--c) 0, transparent 68%);
-    animation: drift var(--d, 16s) ease-in-out infinite alternate;
+    width: var(--orb-size, 420px);
+    height: var(--orb-size, 420px);
+    left: var(--orb-x);
+    top: var(--orb-y);
+    background: radial-gradient(circle, var(--orb-color) 0, transparent 68%);
+    animation: drift var(--orb-duration, 16s) ease-in-out infinite alternate;
   }
 
   /* Repeating diagonal stripes pinned to a section's top edge. */
@@ -63,7 +63,7 @@
     justify-content: center;
     gap: 0.7em;
     padding: 1.05em 1.8em;
-    background: var(--bl);
+    background: var(--color-royal);
     color: #fff;
     border: 0;
     border-radius: 4px;
@@ -81,7 +81,7 @@
     inset: 0;
     background: #fff;
     transform: translateY(101%);
-    transition: transform 0.45s var(--ez);
+    transition: transform 0.45s var(--ease-emphasized);
     z-index: -1;
   }
   .btn-outline {
@@ -102,28 +102,28 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: var(--am);
+    background: var(--color-gold);
     transform: translateX(-101%);
-    transition: transform 0.5s var(--ez);
+    transition: transform 0.5s var(--ease-emphasized);
     z-index: -1;
   }
   .btn-outline::after {
     content: "\2192";
-    transition: transform 0.4s var(--ez);
+    transition: transform 0.4s var(--ease-emphasized);
   }
   /* Hover effects only on devices that actually hover. Gating behind
      (hover: hover) stops touch devices from keeping a "stuck" hover state
      after a tap — the button returns to its resting look. */
   @media (hover: hover) and (pointer: fine) {
     .btn:hover {
-      color: var(--ink);
+      color: var(--color-ink);
     }
     .btn:hover::before {
       transform: none;
     }
     .btn-outline:hover {
-      color: var(--ink);
-      border-color: var(--am);
+      color: var(--color-ink);
+      border-color: var(--color-gold);
     }
     .btn-outline:hover::before {
       transform: none;
@@ -137,14 +137,14 @@
      while the finger is pressed down. */
   @media (hover: none), (pointer: coarse) {
     .btn:active {
-      color: var(--ink);
+      color: var(--color-ink);
     }
     .btn:active::before {
       transform: none;
     }
     .btn-outline:active {
-      color: var(--ink);
-      border-color: var(--am);
+      color: var(--color-ink);
+      border-color: var(--color-gold);
     }
     .btn-outline:active::before {
       transform: none;
@@ -165,7 +165,7 @@
     width: 100%;
     height: 100%;
     clip-path: inset(0 0 100% 0);
-    transition: clip-path 1.3s var(--ez);
+    transition: clip-path 1.3s var(--ease-emphasized);
     overflow: hidden;
   }
   .reveal-inner.in {
@@ -178,7 +178,7 @@
     height: 100%;
     object-fit: cover;
     transform: scale(1.18);
-    transition: transform 1.8s var(--ez);
+    transition: transform 1.8s var(--ease-emphasized);
   }
   .reveal-inner.in img,
   .reveal-inner.in svg {
@@ -195,8 +195,8 @@
   .word > span {
     display: inline-block;
     transform: translateY(108%);
-    transition: transform 0.9s var(--ez);
-    transition-delay: calc(var(--i) * 55ms + 0.15s);
+    transition: transform 0.9s var(--ease-emphasized);
+    transition-delay: calc(var(--index) * 55ms + 0.15s);
   }
   [data-w].in .word > span {
     transform: none;
@@ -216,20 +216,20 @@
     font-style: normal;
     opacity: 0;
     transform: translateY(0.6em);
-    transition: opacity 0.6s, transform 0.6s var(--ez);
-    transition-delay: calc(var(--i) * 60ms + 0.2s);
+    transition: opacity 0.6s, transform 0.6s var(--ease-emphasized);
+    transition-delay: calc(var(--index) * 60ms + 0.2s);
   }
   .hero-label.in span {
     opacity: 1;
     transform: none;
   }
 
-  /* Fades and lifts its children into view. */
+  /* Fades and lifts its children into view. `--delay` staggers siblings. */
   .fade-up {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.8s, transform 0.9s var(--ez);
-    transition-delay: var(--d, 0s);
+    transition: opacity 0.8s, transform 0.9s var(--ease-emphasized);
+    transition-delay: var(--delay, 0s);
   }
   .fade-up.in {
     opacity: 1;

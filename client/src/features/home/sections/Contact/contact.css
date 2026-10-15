@@ -4,6 +4,6 @@
    is amber with ink text. Everything else is Tailwind in the component.
    ========================================================================== */
 .contact-section .btn {
-  background: var(--am);
-  color: var(--ink);
+  background: var(--color-gold);
+  color: var(--color-ink);
 }

@@ -13,7 +13,7 @@ export default function FadeUp(props) {
   return (
     <Tag
       ref={ref}
-      style={delay ? { '--d': delay } : undefined}
+      style={delay ? { '--delay': delay } : undefined}
       className={`fade-up${inView ? ' in' : ''} ${className}`.trim()}
     >
       {children}

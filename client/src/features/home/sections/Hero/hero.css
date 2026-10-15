@@ -53,24 +53,24 @@
 }
 
 /* Entrance: each headline line rises up from behind its clip mask. The two
-   lines stagger via the --n index set in Hero.jsx. */
+   lines stagger via the --line-index custom prop set in Hero.jsx. */
 .hero-line > span {
   display: block;
   transform: translateY(110%);
-  transition: transform 0.9s var(--ez);
-  transition-delay: calc(var(--n, 0) * 0.12s + 0.15s);
+  transition: transform 0.9s var(--ease-emphasized);
+  transition-delay: calc(var(--line-index, 0) * 0.12s + 0.15s);
 }
 .hero-in .hero-line > span {
   transform: none;
 }
 
 /* Entrance: the lead copy, buttons and proof panel fade + lift into place,
-   staggered by the --i index set in Hero.jsx. */
+   staggered by the --index custom prop set in Hero.jsx. */
 .hero-fade {
   opacity: 0;
   transform: translateY(22px);
-  transition: opacity 0.8s var(--ez), transform 0.8s var(--ez);
-  transition-delay: calc(var(--i, 0) * 0.11s + 0.5s);
+  transition: opacity 0.8s var(--ease-emphasized), transform 0.8s var(--ease-emphasized);
+  transition-delay: calc(var(--index, 0) * 0.11s + 0.5s);
 }
 .hero-in .hero-fade {
   opacity: 1;
@@ -85,11 +85,11 @@
 }
 .rotating-word b {
   grid-area: 1 / 1;
-  color: var(--am);
+  color: var(--color-gold);
   transform: translateY(108%);
 }
 .rotating-word b.anim {
-  transition: transform 0.8s var(--ez);
+  transition: transform 0.8s var(--ease-emphasized);
 }
 .rotating-word b.on {
   transform: none;
@@ -104,7 +104,7 @@
   position: absolute;
   inset: 0;
   border-radius: 50%;
-  background: var(--am);
+  background: var(--color-gold);
   pointer-events: none;
   animation: hero-play-pulse 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
 }

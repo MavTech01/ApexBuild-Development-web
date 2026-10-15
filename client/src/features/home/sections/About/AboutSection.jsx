@@ -34,7 +34,7 @@ export default function AboutSection() {
 
   return (
     <section id="about">
-      <span className="orb" style={{ '--x': '60%', '--y': '-10%', '--s': '520px', '--c': 'rgba(37,99,235,.2)' }} />
+      <span className="orb" style={{ '--orb-x': '60%', '--orb-y': '-10%', '--orb-size': '520px', '--orb-color': 'rgba(37,99,235,.2)' }} />
 
       <Container size="wide">
         <p
@@ -63,7 +63,7 @@ export default function AboutSection() {
           <div>
             <Eyebrow>About ApexBuild</Eyebrow>
             <SplitHeading size="text-[clamp(1.8rem,5.2vw,4.6rem)]" text="Built On Quality." accent="Driven By Purpose." />
-            <p className="mt-6 max-w-[36em] text-mut">
+            <p className="mt-6 max-w-[36em] text-muted">
               At ApexBuild Developments, we bring together construction expertise, thoughtful design and
               disciplined project management to create spaces that deliver lasting value.
             </p>

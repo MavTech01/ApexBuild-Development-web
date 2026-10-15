@@ -51,12 +51,12 @@ export default function Navbar() {
       }`}
       style={{
         paddingTop: 'env(safe-area-inset-top, 0px)',
-        background: solid ? 'var(--ink)' : 'transparent',
+        background: solid ? 'var(--color-ink)' : 'transparent',
         boxShadow: showDivider ? '0 8px 30px rgba(7, 18, 43, 0.35)' : 'none',
         borderBottomColor: showDivider ? 'rgba(255, 255, 255, 0.08)' : 'transparent',
       }}
     >
-      <div className="flex items-center justify-between" style={{ height: '68px', padding: '0 var(--gut)' }}>
+      <div className="flex items-center justify-between" style={{ height: '68px', padding: '0 var(--gutter)' }}>
         <Link to="/" className="flex items-center no-underline" aria-label="ApexBuild home" onClick={() => setOpen(false)}>
           <Brand logoClassName="h-[34px] w-[34px]" wordmarkClassName="text-[1.05rem]" />
         </Link>
@@ -74,7 +74,7 @@ export default function Navbar() {
 
         <nav
           id="nav"
-          className={`absolute inset-x-0 top-full flex flex-col bg-ink px-[var(--pad)] pb-7 pt-2 shadow-[0_28px_60px_rgba(0,0,0,0.55)] transition-all duration-300 ease-out ${
+          className={`absolute inset-x-0 top-full flex flex-col bg-ink px-[var(--page-pad)] pb-7 pt-2 shadow-[0_28px_60px_rgba(0,0,0,0.55)] transition-all duration-300 ease-out ${
             open ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-3 opacity-0 pointer-events-none'
           } min-[900px]:visible min-[900px]:pointer-events-auto min-[900px]:static min-[900px]:inset-auto min-[900px]:flex-row min-[900px]:items-center min-[900px]:gap-8 min-[900px]:bg-transparent min-[900px]:p-0 min-[900px]:pb-0 min-[900px]:pt-0 min-[900px]:opacity-100 min-[900px]:shadow-none min-[900px]:translate-y-0`}
         >

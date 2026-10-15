@@ -12,9 +12,9 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="contact-section bg-[linear-gradient(180deg,var(--bg),color-mix(in_srgb,var(--ink)_7%,var(--bg)))]"
+      className="contact-section bg-[linear-gradient(180deg,var(--color-canvas),color-mix(in_srgb,var(--color-ink)_7%,var(--color-canvas)))]"
     >
-      <span className="orb" style={{ '--x': '70%', '--y': '-20%', '--s': '520px', '--c': 'rgba(37,99,235,.16)' }} />
+      <span className="orb" style={{ '--orb-x': '70%', '--orb-y': '-20%', '--orb-size': '520px', '--orb-color': 'rgba(37,99,235,.16)' }} />
 
       <Container size="wide" className="grid items-start gap-[clamp(40px,7vw,120px)] min-[900px]:grid-cols-[5fr_6fr]">
         <ContactMethods />

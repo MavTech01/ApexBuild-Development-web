@@ -25,11 +25,11 @@ export default function ProjectEnquiryForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="grid min-w-0 gap-[22px] rounded-[22px] border border-[var(--line)] bg-[var(--card)] p-[clamp(24px,3.5vw,44px)] shadow-[0_30px_70px_rgba(7,18,43,0.08)] min-[900px]:self-end"
+      className="grid min-w-0 gap-[22px] rounded-[22px] border border-[var(--color-hairline)] bg-[var(--color-surface)] p-[clamp(24px,3.5vw,44px)] shadow-[0_30px_70px_rgba(7,18,43,0.08)] min-[900px]:self-end"
     >
       <div>
         <h3 className="text-2xl">Tell us about your project</h3>
-        <p className="mt-1.5 text-[0.92rem] text-mut">We reply within one business day.</p>
+        <p className="mt-1.5 text-[0.92rem] text-muted">We reply within one business day.</p>
       </div>
 
       <label className="block text-[0.92rem] font-medium">
@@ -93,7 +93,7 @@ export default function ProjectEnquiryForm() {
       <Button type="submit" className="justify-self-start" disabled={status === 'submitting'}>
         {status === 'submitting' ? 'Sending...' : 'Send project details'}
       </Button>
-      <p className="text-[0.8rem] text-mut">Your details are used only to respond to your enquiry.</p>
+      <p className="text-[0.8rem] text-muted">Your details are used only to respond to your enquiry.</p>
     </form>
   )
 }

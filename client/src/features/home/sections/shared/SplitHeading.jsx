@@ -37,7 +37,7 @@ export default function SplitHeading(props) {
       {words.map((word, index) => (
         <span className="word" aria-hidden="true" key={`${word}-${index}`}>
           <span
-            style={{ '--i': index }}
+            style={{ '--index': index }}
             className={accent && index >= accentFrom ? accentClassName : undefined}
           >
             {word}

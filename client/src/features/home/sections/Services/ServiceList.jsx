@@ -17,7 +17,7 @@ export default function ServiceList({ services, active, onSelect, itemRefs }) {
               itemRefs.current[index] = node
             }}
             onClick={() => onSelect(index)}
-            className={`flex min-h-[46svh] cursor-pointer flex-col items-start justify-center border-t border-[var(--line)] py-[clamp(28px,3.4vw,44px)] transition-opacity duration-500 first:border-t-0 min-[900px]:min-h-[62svh] ${
+            className={`flex min-h-[46svh] cursor-pointer flex-col items-start justify-center border-t border-[var(--color-hairline)] py-[clamp(28px,3.4vw,44px)] transition-opacity duration-500 first:border-t-0 min-[900px]:min-h-[62svh] ${
               isActive ? 'opacity-100' : 'opacity-35'
             }`}
           >
@@ -28,7 +28,7 @@ export default function ServiceList({ services, active, onSelect, itemRefs }) {
             >
               {service.title}
             </h3>
-            <p className="mb-4 mt-3 max-w-[26em] text-mut min-[900px]:mb-[22px] min-[900px]:mt-4">
+            <p className="mb-4 mt-3 max-w-[26em] text-muted min-[900px]:mb-[22px] min-[900px]:mt-4">
               {service.description}
             </p>
             <a

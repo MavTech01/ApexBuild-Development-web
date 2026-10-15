@@ -3,12 +3,12 @@ import SplitHeading from '@/features/home/sections/shared/SplitHeading.jsx'
 import Eyebrow from '@/features/home/sections/shared/Eyebrow.jsx'
 
 const contactRowClass =
-  'flex items-center gap-[18px] rounded-2xl border border-[var(--line)] bg-[var(--card)] px-5 py-[18px] text-ink shadow-[0_12px_30px_rgba(7,18,43,0.06)] transition'
+  'flex items-center gap-[18px] rounded-2xl border border-[var(--color-hairline)] bg-[var(--color-surface)] px-5 py-[18px] text-ink shadow-[0_12px_30px_rgba(7,18,43,0.06)] transition'
 
 const contactIconClass =
   'grid h-12 w-12 flex-none place-items-center rounded-xl bg-gold text-ink [&_svg]:h-[22px] [&_svg]:w-[22px]'
 
-const rowSmallClass = 'block text-[0.8rem] tracking-[0.04em] text-mut'
+const rowSmallClass = 'block text-[0.8rem] tracking-[0.04em] text-muted'
 
 /**
  * ContactMethods
@@ -19,7 +19,7 @@ export default function ContactMethods() {
     <div className="min-w-0">
       <Eyebrow>Get in touch</Eyebrow>
       <SplitHeading size="text-[clamp(1.8rem,5.4vw,5rem)]" text="Start Your Project" accent="Today." />
-      <p className="mt-6 max-w-[36em] text-mut">
+      <p className="mt-6 max-w-[36em] text-muted">
         Tell us about your vision and we&apos;ll help bring it to life with quality craftsmanship and
         dedicated service.
       </p>

@@ -11,7 +11,7 @@ import { ChevronDown, Check } from 'lucide-react'
  * Options may be plain strings or `{ value, label }` objects.
  */
 const triggerClass =
-  'mt-2 flex w-full items-center justify-between gap-2 rounded-[10px] border border-[var(--line)] bg-white px-4 py-3.5 text-left text-base text-ink transition focus:border-royal focus:shadow-[0_0_0_4px_rgba(37,99,235,0.16)] focus:outline-none'
+  'mt-2 flex w-full items-center justify-between gap-2 rounded-[10px] border border-[var(--color-hairline)] bg-white px-4 py-3.5 text-left text-base text-ink transition focus:border-royal focus:shadow-[0_0_0_4px_rgba(37,99,235,0.16)] focus:outline-none'
 
 export default function ContactSelect({
   name,
@@ -87,12 +87,12 @@ export default function ContactSelect({
         onKeyDown={handleKeyDown}
         className={triggerClass}
       >
-        <span className={`truncate ${selected ? 'text-ink' : 'text-mut/60'}`}>
+        <span className={`truncate ${selected ? 'text-ink' : 'text-muted/60'}`}>
           {selected ? selected.label : placeholder}
         </span>
         <ChevronDown
           aria-hidden="true"
-          className={`h-4 w-4 shrink-0 text-mut transition-transform duration-200 ${isOpen ? 'rotate-180 text-royal' : ''}`}
+          className={`h-4 w-4 shrink-0 text-muted transition-transform duration-200 ${isOpen ? 'rotate-180 text-royal' : ''}`}
         />
       </button>
 
@@ -101,7 +101,7 @@ export default function ContactSelect({
           id={`${selectId}-listbox`}
           role="listbox"
           tabIndex={-1}
-          className="animate-dropdown absolute left-0 right-0 top-full z-30 mt-2 max-h-60 list-none overflow-y-auto rounded-[10px] border border-[var(--line)] bg-white p-1.5 shadow-[0_20px_50px_rgba(7,18,43,0.16)] focus:outline-none"
+          className="animate-dropdown absolute left-0 right-0 top-full z-30 mt-2 max-h-60 list-none overflow-y-auto rounded-[10px] border border-[var(--color-hairline)] bg-white p-1.5 shadow-[0_20px_50px_rgba(7,18,43,0.16)] focus:outline-none"
         >
           {normalized.map((option) => {
             const isSelected = option.value === value

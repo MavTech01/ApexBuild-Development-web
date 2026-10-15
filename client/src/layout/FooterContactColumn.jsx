@@ -7,7 +7,7 @@ import { footerColumnClass, footerLinkClass, socialIcons } from '@/layout/footer
  */
 export default function FooterContactColumn({ delay, revealed }) {
   return (
-    <div className={`${footerColumnClass}${revealed ? ' in' : ''}`} style={{ '--d': delay }}>
+    <div className={`${footerColumnClass}${revealed ? ' in' : ''}`} style={{ '--delay': delay }}>
       <h4 className="mb-4 font-display text-[0.8rem] font-semibold uppercase tracking-[0.18em] text-white">Contact</h4>
       <address className="mb-7 grid gap-2 not-italic leading-snug">
         <p>{site.address[0]}</p>

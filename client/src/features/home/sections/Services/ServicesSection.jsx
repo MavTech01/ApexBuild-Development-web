@@ -24,12 +24,12 @@ export default function ServicesSection() {
   return (
     <section
       id="services"
-      className="overflow-clip bg-[linear-gradient(160deg,var(--bg),color-mix(in_srgb,var(--bl)_8%,var(--bg)))]"
+      className="overflow-clip bg-[linear-gradient(160deg,var(--color-canvas),color-mix(in_srgb,var(--color-royal)_8%,var(--color-canvas)))]"
     >
       <svg
         viewBox="0 0 46 190"
         aria-hidden="true"
-        className="absolute right-[var(--gut)] top-0 z-[1] h-auto w-[46px] origin-top overflow-visible [animation:sway_5s_ease-in-out_infinite_alternate]"
+        className="absolute right-[var(--gutter)] top-0 z-[1] h-auto w-[46px] origin-top overflow-visible [animation:sway_5s_ease-in-out_infinite_alternate]"
       >
         <path d="M23 0V120" stroke="#2563eb" strokeWidth="3" />
         <rect x="14" y="116" width="18" height="16" rx="3" fill="#F2A900" />
@@ -47,7 +47,7 @@ export default function ServicesSection() {
           <div>
             <Eyebrow>What we do</Eyebrow>
             <SplitHeading text="Built Around" accent="Your Vision." />
-            <p className="mt-6 max-w-[36em] text-mut">
+            <p className="mt-6 max-w-[36em] text-muted">
               From new construction to property development and renovation, we provide practical
               solutions designed around quality, efficiency and long-term value.
             </p>
