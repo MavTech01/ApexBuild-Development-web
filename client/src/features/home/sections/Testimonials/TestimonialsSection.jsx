@@ -12,7 +12,7 @@ function TestimonialCard({ testimonial }) {
       <span aria-label="5 out of 5 stars" className="absolute right-[30px] top-[30px] text-[0.9rem] tracking-[0.18em] text-gold max-[899px]:right-[18px] max-[899px]:top-[18px] max-[899px]:text-[0.72rem]">
         &#9733;&#9733;&#9733;&#9733;&#9733;
       </span>
-      <p className="flex-1 text-[clamp(1.05rem,1.4vw,1.2rem)] font-medium leading-[1.55] max-[899px]:text-[0.9rem] max-[899px]:leading-[1.5]">{testimonial.quote}</p>
+      <p className="flex-1 text-[0.9rem] font-medium leading-[1.5] min-[480px]:text-[1.05rem] min-[900px]:text-[clamp(1.05rem,1.4vw,1.2rem)] min-[900px]:leading-[1.55]">{testimonial.quote}</p>
       <div className="flex items-center gap-3.5 border-t border-white/[0.22] pt-5 max-[899px]:gap-2.5 max-[899px]:pt-4">
         <span aria-hidden="true" className="grid h-[46px] w-[46px] flex-none place-items-center rounded-full bg-white/15 font-display text-[0.9rem] font-bold max-[899px]:h-[38px] max-[899px]:w-[38px] max-[899px]:text-[0.8rem]">
           {initials(testimonial.name)}
