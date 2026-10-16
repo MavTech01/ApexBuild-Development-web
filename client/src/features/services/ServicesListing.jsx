@@ -6,7 +6,8 @@ import { detailedServices } from '@/features/services/servicesDetailed.data.js'
 
 /**
  * ServicesListing
- * Visual-first services showcase organized in a cinematic 2-column grid
+ * The "What We Deliver" section: a full-width accordion list where each service
+ * row expands independently, so opening one never resizes another.
  */
 export default function ServicesListing() {
   return (
@@ -32,12 +33,12 @@ export default function ServicesListing() {
             align="center"
             eyebrow="What We Deliver"
             title="Comprehensive Services for Every Phase"
-            description="Explore our primary disciplines through built execution. Hover or tap each service to inspect technical deliverables, standards, and scope."
+            description="Explore our primary disciplines through built execution. Expand each service to review its technical deliverables, standards, and scope."
           />
         </div>
 
-        {/* Visual Showcase Grid */}
-        <div className="mt-14 grid grid-cols-1 gap-8 sm:mt-16 lg:mt-20 lg:grid-cols-2 lg:gap-10">
+        {/* Full-width accordion list — each row expands independently */}
+        <div className="mt-14 grid grid-cols-1 gap-6 sm:mt-16 lg:mt-20 lg:gap-7">
           {detailedServices.map((service, index) => (
             <ServiceShowcaseCard
               key={service.id}
