@@ -20,6 +20,7 @@ const router = createBrowserRouter([
       { path: '/projects/:projectId', element: <ProjectDetailsPage /> },
       { path: '/team', element: <TeamPage /> },
       { path: '/contact', element: <ContactPage /> },
+      { path: '/privacy', element: <PagePlaceholder eyebrow="Legal" title="Privacy Policy" /> },
       { path: '*', element: <PagePlaceholder eyebrow="404" title="Page not found" /> },
     ],
   },

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useProjectForm } from '@/shared/components/forms/ProjectEnquiryForm/useProjectForm.js'
 import ContactSelect from '@/shared/components/forms/ProjectEnquiryForm/ContactSelect.jsx'
 import Button from '@/shared/ui/Button.jsx'
@@ -45,8 +46,8 @@ export default function ProjectEnquiryForm() {
           {errors.email && <span className={errorClass}>{errors.email}</span>}
         </label>
         <label className="block min-w-0 text-[0.92rem] font-medium">
-          Phone number
-          <input name="phone" type="tel" value={values.phone} onChange={handleChange} autoComplete="tel" placeholder="Optional" className={fieldClass} />
+          Phone number (Optional)
+          <input name="phone" type="tel" value={values.phone} onChange={handleChange} autoComplete="tel" placeholder="+234 801 234 5678" className={fieldClass} />
           {errors.phone && <span className={errorClass}>{errors.phone}</span>}
         </label>
       </div>
@@ -90,10 +91,18 @@ export default function ProjectEnquiryForm() {
         {errors.message && <span className={errorClass}>{errors.message}</span>}
       </label>
 
+      <p className="text-[0.8rem] text-muted">
+        By submitting this form, you acknowledge that your information will be handled as described
+        in our{' '}
+        <Link to="/privacy" className="font-medium text-royal underline underline-offset-2 hover:text-royal/80">
+          privacy policy
+        </Link>
+        .
+      </p>
+
       <Button type="submit" className="justify-self-start" disabled={status === 'submitting'}>
         {status === 'submitting' ? 'Sending...' : 'Send project details'}
       </Button>
-      <p className="text-[0.8rem] text-muted">Your details are used only to respond to your enquiry.</p>
     </form>
   )
 }
