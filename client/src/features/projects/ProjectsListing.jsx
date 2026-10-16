@@ -30,7 +30,7 @@ export default function ProjectsListing() {
         <div className="mt-10 grid grid-cols-1 gap-6 min-[480px]:grid-cols-2 sm:mt-12 lg:grid-cols-3 lg:gap-7">
           {filtered.map((project, index) => (
             <div key={project.id} style={{ animationDelay: `${index * 60}ms` }} className="animate-rise">
-              <ProjectCard project={project} index={index} />
+              <ProjectCard project={project} />
             </div>
           ))}
         </div>

@@ -2,13 +2,11 @@ import { ArrowRight } from 'lucide-react'
 import Button from '@/shared/ui/Button.jsx'
 
 export default function ProjectSidebar({ project }) {
-  const { category, location, year, status, scope, client, area } = project
+  const { category, location, scope, client, area } = project
 
   const specs = [
     { label: 'Category', value: category },
     { label: 'Location', value: location },
-    { label: 'Year Completed', value: year },
-    status && { label: 'Project Status', value: status },
     scope && { label: 'Scope of Work', value: scope },
     client && { label: 'Client / Sector', value: client },
     area && { label: 'Gross Area', value: area },

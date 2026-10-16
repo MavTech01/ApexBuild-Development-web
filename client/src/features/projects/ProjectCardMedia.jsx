@@ -4,10 +4,10 @@ import ImageLightbox from '@/shared/ui/ImageLightbox.jsx'
 
 /**
  * ProjectCardMedia
- * Encapsulates the project image thumbnail with smooth hover effects,
- * soft translucent dark overlay, eye button, and integrated lightbox modal.
+ * The project image at the top of a project card: full-bleed, soft zoom on
+ * hover, and a preview button that opens the image in a lightbox.
  */
-export default function ProjectCardMedia({ image, title, isHovered }) {
+export default function ProjectCardMedia({ image, title }) {
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
 
   const handleOpenPreview = (e) => {
@@ -16,13 +16,11 @@ export default function ProjectCardMedia({ image, title, isHovered }) {
     setIsLightboxOpen(true)
   }
 
-  const handleClosePreview = () => {
-    setIsLightboxOpen(false)
-  }
+  const handleClosePreview = () => setIsLightboxOpen(false)
 
   return (
     <>
-      <div className="relative aspect-[16/9] overflow-hidden bg-ink-50">
+      <div className="relative aspect-[3/2] overflow-hidden bg-ink-50">
         <img
           src={image.src}
           alt={image.alt}
@@ -31,17 +29,16 @@ export default function ProjectCardMedia({ image, title, isHovered }) {
           loading="lazy"
           decoding="async"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-[900ms] ease-out-premium group-hover:scale-110"
-          style={{ willChange: isHovered ? 'transform' : 'auto' }}
         />
 
-        {/* Soft, translucent dark overlay on hover (not too dark: black/30) */}
+        {/* Soft dark overlay on hover */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-ink-950/30 opacity-0 backdrop-blur-[1px] transition-opacity duration-500 ease-out-premium group-hover:opacity-100"
+          className="pointer-events-none absolute inset-0 bg-ink-950/20 opacity-0 transition-opacity duration-500 ease-out-premium group-hover:opacity-100"
         />
 
-        {/* Eye action button to trigger lightbox */}
-        <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+        {/* Preview button to trigger the lightbox */}
+        <div className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center">
           <button
             type="button"
             onClick={handleOpenPreview}
@@ -54,7 +51,6 @@ export default function ProjectCardMedia({ image, title, isHovered }) {
         </div>
       </div>
 
-      {/* Lightbox Modal */}
       <ImageLightbox
         isOpen={isLightboxOpen}
         onClose={handleClosePreview}
