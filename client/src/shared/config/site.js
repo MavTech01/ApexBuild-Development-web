@@ -9,6 +9,11 @@ export const site = {
   email: 'info@apexbuilddevelopments.com',
   phone: '+234 913 330 1264',
   address: ['ApexBuild Developments', 'Lagos, Nigeria'],
+  // Office opening hours — single source for the homepage and contact page.
+  hours: {
+    weekdays: 'Mon to Fri 8:00 AM to 5:00 PM',
+    saturday: 'Sat 9:00 AM to 2:00 PM',
+  },
   // Placeholder demo reel — replace with the real ApexBuild showreel URL.
   videoUrl: 'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
 }

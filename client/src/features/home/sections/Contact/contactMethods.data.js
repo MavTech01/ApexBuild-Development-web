@@ -11,7 +11,7 @@ export const contactMethods = [
   {
     icon: Clock,
     label: 'Opening hours',
-    value: 'Mon to Fri 8:00 AM to 5:00 PM',
-    note: 'Sat 9:00 AM to 2:00 PM',
+    value: site.hours.weekdays,
+    note: site.hours.saturday,
   },
 ]

@@ -1,8 +1,13 @@
 import { Clock, Mail, MapPin, Phone, ShieldCheck } from 'lucide-react'
+import { site } from '@/shared/config/site.js'
+
+const phoneHref = `tel:${site.phone.replace(/[^+\d]/g, '')}`
 
 /**
  * ContactInfoCard
  * Office information card for the contact page: location, phone, email, hours.
+ * All details come from the shared `site` config so the homepage and contact
+ * page never drift apart.
  */
 export default function ContactInfoCard() {
   return (
@@ -14,7 +19,7 @@ export default function ContactInfoCard() {
         Office Information
       </h3>
       <p className="mt-1.5 text-xs font-semibold tracking-wider text-blue-600 uppercase">
-        ApexBuild Developments Headquarters
+        {site.name} Headquarters
       </p>
 
       <div className="mt-6 space-y-5">
@@ -24,13 +29,13 @@ export default function ContactInfoCard() {
           </div>
           <div>
             <p className="text-xs font-semibold tracking-wider text-ink-400 uppercase">Office Location</p>
-            <p className="mt-0.5 text-base font-bold text-ink-950">ApexBuild Developments</p>
-            <p className="text-sm text-ink-600">Lagos, Nigeria</p>
+            <p className="mt-0.5 text-base font-bold text-ink-950">{site.address[0]}</p>
+            <p className="text-sm text-ink-600">{site.address[1]}</p>
           </div>
         </div>
 
         <a
-          href="tel:+10000000000"
+          href={phoneHref}
           className="group flex items-start gap-4 transition-colors hover:text-blue-600 active:text-blue-600"
         >
           <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
@@ -39,14 +44,14 @@ export default function ContactInfoCard() {
           <div>
             <p className="text-xs font-semibold tracking-wider text-ink-400 uppercase">Direct Line</p>
             <p className="mt-0.5 text-base font-bold text-ink-950 transition-colors group-hover:text-blue-600">
-              +1 (000) 000-0000
+              {site.phone}
             </p>
-            <p className="text-xs text-ink-500">Mon &ndash; Fri, 8:00 AM &ndash; 6:00 PM</p>
+            <p className="text-xs text-ink-500">{site.hours.weekdays}</p>
           </div>
         </a>
 
         <a
-          href="mailto:info@apexbuilddevelopments.com"
+          href={`mailto:${site.email}`}
           className="group flex items-start gap-4 transition-colors hover:text-blue-600 active:text-blue-600"
         >
           <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition-colors group-hover:bg-blue-600 group-hover:text-white">
@@ -55,7 +60,7 @@ export default function ContactInfoCard() {
           <div>
             <p className="text-xs font-semibold tracking-wider text-ink-400 uppercase">Enquiry Email</p>
             <p className="mt-0.5 text-base font-bold text-ink-950 transition-colors group-hover:text-blue-600">
-              info@apexbuilddevelopments.com
+              {site.email}
             </p>
             <p className="text-xs text-ink-500">Responses within 24 business hours</p>
           </div>
@@ -67,10 +72,8 @@ export default function ContactInfoCard() {
           </div>
           <div>
             <p className="text-xs font-semibold tracking-wider text-ink-400 uppercase">Business Hours</p>
-            <p className="mt-0.5 text-sm font-semibold text-ink-900">
-              Monday &ndash; Friday: 8:00 AM &ndash; 6:00 PM
-            </p>
-            <p className="text-xs text-ink-500">Saturday: 9:00 AM &ndash; 3:00 PM (By Appointment)</p>
+            <p className="mt-0.5 text-sm font-semibold text-ink-900">{site.hours.weekdays}</p>
+            <p className="text-xs text-ink-500">{site.hours.saturday}</p>
           </div>
         </div>
       </div>
